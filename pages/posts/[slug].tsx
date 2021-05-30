@@ -1,6 +1,14 @@
 import { getPostBySlug, getPostSlugs, PostType } from "@src/api/posts";
 
-function PostDetail({ post }: { post: PostType }) {
+export type PostDetailProps = {
+  post: PostType;
+};
+
+function PostDetail({ post }: PostDetailProps) {
+  if (!post) {
+    return null;
+  }
+
   const { title, date, content } = post;
 
   return (
