@@ -1,15 +1,15 @@
-import MainLayout from "@src/component/common/layouts/main-layout";
-
 import { getPostBySlug, getPostSlugs, PostType } from "@src/api/posts";
 
 function PostDetail({ post }: { post: PostType }) {
-  const { title, content } = post;
+  const { title, date, content } = post;
 
   return (
-    <MainLayout>
-      {title}
+    <>
+      {title} ({date})
+      <br />
+      <br />
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </MainLayout>
+    </>
   );
 }
 
