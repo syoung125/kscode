@@ -1,6 +1,5 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import Reset from "styled-reset";
 import styled, { createGlobalStyle } from "styled-components";
 
 import {
@@ -13,10 +12,29 @@ import {
 import { getPostSlugs, PostSlugType } from "@src/api/posts";
 
 const GlobalStyle = createGlobalStyle`
-  ${Reset}
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
+    font-size: 1rem;
+    width: 100%;
+  }
   a {
     text-decoration: none;
     color: inherit;
+  }
+  input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+  *,
+  ::after,
+  ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 `;
 
