@@ -15,7 +15,7 @@ export type PostType = {
 export const getPostSlugs = async () => {
   const context = require.context("@src/content/posts", false, /\.md$/);
   let posts: PostSlugType[] = [];
-  context.keys().forEach(async (key) => {
+  await context.keys().forEach(async (key) => {
     const post = key.slice(2);
     const content = await import(`@src/content/posts/${post}`);
     const meta = matter(content.default);
