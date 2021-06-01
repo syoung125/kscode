@@ -7,5 +7,6 @@ module.exports = {
     config.module.rules.push({ test: /\.yml$/, use: "raw-loader" });
     return config;
   },
+  basePath: !debug ? "/Ko-Seoyoung-Code" : "",
   assetPrefix: !debug ? "/Ko-Seoyoung-Code/" : "",
 };
