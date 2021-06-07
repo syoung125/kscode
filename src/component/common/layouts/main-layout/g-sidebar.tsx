@@ -1,15 +1,19 @@
-import { PostSlugType } from "@src/api/posts";
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
+import { ACTION_ITEMS } from "./g-activity-bar";
+import { PostSlugType } from "@src/api/posts";
+
 export type GSideBarProps = {
   postSlugs: PostSlugType[];
+  selectedActionItem: number;
 };
 
-function GSideBar({ postSlugs }: GSideBarProps) {
+function GSideBar({ postSlugs, selectedActionItem }: GSideBarProps) {
   return (
     <Wrapper>
+      <Title>{ACTION_ITEMS[selectedActionItem].label}</Title>
       {postSlugs?.map(({ slug }) => (
         <li key={slug}>
           <Link href={`/posts/${slug}`}>{slug}</Link>
@@ -25,4 +29,11 @@ const Wrapper = styled.div`
   width: 20rem;
   background-color: rgb(37, 37, 38);
   color: white;
+`;
+
+const Title = styled.h2`
+  font-size: 0.8rem;
+  padding: 0 0.8rem;
+  font-weight: 400;
+  opacity: 0.6;
 `;

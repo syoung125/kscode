@@ -16,7 +16,7 @@ export type ActionItemType = {
   Icon: React.ElementType;
 };
 
-const ACTION_ITEMS: ActionItemType[] = [
+export const ACTION_ITEMS: ActionItemType[] = [
   {
     label: "EXPLORER",
     Icon: FilesIcon,

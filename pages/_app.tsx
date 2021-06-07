@@ -65,7 +65,10 @@ function MyApp({ Component, pageProps, postSlugs }: AppProps & MyAppProps) {
             selectedActionItem={selectedActionItem}
             setSelectedActionItem={setSelectedActionItem}
           />
-          <GSideBar postSlugs={postSlugs} />
+          <GSideBar
+            postSlugs={postSlugs}
+            selectedActionItem={selectedActionItem}
+          />
           <ContentWrapper>
             <Component {...pageProps} />
           </ContentWrapper>
