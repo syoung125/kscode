@@ -97,11 +97,11 @@ const Wrapper = styled.div`
   color: white;
 `;
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.main`
   display: flex;
   flex-direction: row;
 
   flex: 1;
 `;
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.section``;

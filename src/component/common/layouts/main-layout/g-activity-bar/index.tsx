@@ -74,7 +74,7 @@ function GActivityBar({
 
 export default GActivityBar;
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
   min-width: 3rem;
   background-color: rgb(51, 51, 51);
 

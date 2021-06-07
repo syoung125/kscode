@@ -25,7 +25,7 @@ function GSideBar({ postSlugs, selectedActionItem }: GSideBarProps) {
 
 export default GSideBar;
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   width: 20rem;
   background-color: rgb(37, 37, 38);
   color: white;
