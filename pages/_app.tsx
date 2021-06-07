@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
@@ -29,6 +30,10 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
     -webkit-border-radius: 0;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
   *,
   ::after,
   ::before {
@@ -43,6 +48,8 @@ export type MyAppProps = {
 };
 
 function MyApp({ Component, pageProps, postSlugs }: AppProps & MyAppProps) {
+  const [selectedActionItem, setSelectedActionItem] = useState<number>(0);
+
   return (
     <>
       <Head>
@@ -54,8 +61,14 @@ function MyApp({ Component, pageProps, postSlugs }: AppProps & MyAppProps) {
       <Wrapper>
         <GHeader />
         <MainWrapper>
-          <GActivityBar />
-          <GSideBar postSlugs={postSlugs} />
+          <GActivityBar
+            selectedActionItem={selectedActionItem}
+            setSelectedActionItem={setSelectedActionItem}
+          />
+          <GSideBar
+            postSlugs={postSlugs}
+            selectedActionItem={selectedActionItem}
+          />
           <ContentWrapper>
             <Component {...pageProps} />
           </ContentWrapper>
@@ -84,11 +97,11 @@ const Wrapper = styled.div`
   color: white;
 `;
 
-const MainWrapper = styled.div`
+const MainWrapper = styled.main`
   display: flex;
   flex-direction: row;
 
   flex: 1;
 `;
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.section``;

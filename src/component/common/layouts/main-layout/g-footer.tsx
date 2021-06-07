@@ -6,7 +6,7 @@ function GFooter() {
 
 export default GFooter;
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
