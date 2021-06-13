@@ -1,6 +1,7 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 import {
   GHeader,
@@ -13,6 +14,7 @@ import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs, PostSlugType } from "@src/api/posts";
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   html, body {
     margin: 0;
     padding: 0;
@@ -33,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
   ul {
     margin: 0;
     padding: 0;
+    list-style-type: none; 
   }
   *,
   ::after,
