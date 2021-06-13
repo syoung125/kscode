@@ -11,6 +11,8 @@ import {
 } from "@src/asset/icons";
 import ActionItem from "./action-item";
 
+import { useAppContext } from "@src/contexts/app";
+
 export type ActionItemType = {
   label: string;
   Icon: React.ElementType;
@@ -39,15 +41,12 @@ export const ACTION_ITEMS: ActionItemType[] = [
   },
 ];
 
-export type GActivityBarProps = {
-  selectedActionItem: number;
-  setSelectedActionItem: (selectedItem: number) => void;
-};
+function GActivityBar() {
+  const {
+    state: { selectedActionItem },
+    action: { setSelectedActionItem },
+  } = useAppContext();
 
-function GActivityBar({
-  selectedActionItem,
-  setSelectedActionItem,
-}: GActivityBarProps) {
   const handleActionItemClick = (index: number) => () => {
     setSelectedActionItem(index);
   };
