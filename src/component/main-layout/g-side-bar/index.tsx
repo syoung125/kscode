@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { useAppContext } from "@src/contexts/app";
 
-import { ACTION_ITEMS } from "./g-activity-bar";
+import { ACTION_ITEMS } from "../g-activity-bar";
 
 function GSideBar() {
   const {
@@ -35,11 +35,11 @@ const Wrapper = styled.section`
 
 const Title = styled.h2`
   font-size: 0.8rem;
-  padding: 0 0.8rem;
+  padding: 0.8rem;
   font-weight: 400;
   opacity: 0.6;
 `;
 
 const ContentWrapper = styled.div`
-  flex: 1;
+  height: 100%;
 `;

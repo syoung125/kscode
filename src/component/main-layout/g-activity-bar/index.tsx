@@ -11,6 +11,8 @@ import {
 } from "@src/asset/icons";
 import ActionItem from "./action-item";
 
+import { ExplorerSection } from "../g-side-bar/sections";
+
 import { useAppContext } from "@src/contexts/app";
 
 export type ActionItemType = {
@@ -23,7 +25,7 @@ export const ACTION_ITEMS: ActionItemType[] = [
   {
     label: "EXPLORER",
     Icon: FilesIcon,
-    Content: () => <></>,
+    Content: ExplorerSection,
   },
   {
     label: "SEARCH",
