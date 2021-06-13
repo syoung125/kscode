@@ -15,3 +15,4 @@ export { default as RunAndDebugIcon } from "./run-n-debug";
 export { default as ExtensionsIcon } from "./extensions";
 export { default as AccountIcon } from "./account";
 export { default as SettingsGearIcon } from "./settings-gear";
+export * from "./chevron";
