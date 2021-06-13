@@ -1,18 +1,20 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 import {
   GHeader,
   GActivityBar,
   GSideBar,
   GFooter,
-} from "@src/component/common/layouts/main-layout";
+} from "@src/component/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
-import { getPostSlugs, PostSlugType } from "@src/api/posts";
+import { getPostSlugs } from "@src/api/posts";
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   html, body {
     margin: 0;
     padding: 0;
@@ -33,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
   ul {
     margin: 0;
     padding: 0;
+    list-style-type: none; 
   }
   *,
   ::after,
@@ -44,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export type MyAppProps = AppProps & {
-  postSlugs: PostSlugType[];
+  postSlugs: string[];
 };
 
 function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
@@ -56,12 +59,12 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <AppContextProvider>
+      <AppContextProvider postSlugs={postSlugs}>
         <Wrapper>
           <GHeader />
           <MainWrapper>
             <GActivityBar />
-            <GSideBar postSlugs={postSlugs} />
+            <GSideBar />
             <section>
               <Component {...pageProps} />
             </section>

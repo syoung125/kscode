@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ActivityBar, TRANSPARENT } from "../../../atom/colors";
+import { ActivityBar, TRANSPARENT } from "../../../asset/colors";
 
 import { ActionItemType } from ".";
 

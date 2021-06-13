@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { BLUE } from "@src/asset/colors";
+
 function GFooter() {
   return <Wrapper></Wrapper>;
 }
@@ -12,5 +14,5 @@ const Wrapper = styled.footer`
   align-items: center;
 
   height: 1.6rem;
-  background-color: rgb(0, 122, 204);
+  background-color: ${BLUE};
 `;
