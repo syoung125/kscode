@@ -8,9 +8,16 @@ export type PanelProps = {
   children: React.ReactNode;
   isActivated?: boolean;
   hasLine?: boolean;
+  maxHeight?: string;
 };
 
-function Panel({ header, children, isActivated, hasLine }: PanelProps) {
+function Panel({
+  header,
+  children,
+  isActivated,
+  hasLine,
+  maxHeight,
+}: PanelProps) {
   const [isOpen, setIsOpen] = useState<boolean>(!!isActivated);
 
   const handleHeaderClick = () => {
@@ -25,7 +32,9 @@ function Panel({ header, children, isActivated, hasLine }: PanelProps) {
         <LeftIcon style={{ width: "1rem", height: "1rem" }} />
         <Title>{header}</Title>
       </Header>
-      <Body isOpen={isOpen}>{children}</Body>
+      <Body isOpen={isOpen} maxHeight={maxHeight}>
+        {children}
+      </Body>
     </>
   );
 }
@@ -51,8 +60,10 @@ const Title = styled.p`
 
 const Body = styled.div<{
   isOpen: boolean;
+  maxHeight?: string;
 }>`
-  overflow-y: ${({ isOpen }) => (isOpen ? "auto" : "hidden")};
-  height: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+  overflow-y: auto;
+  ${({ isOpen, maxHeight }) =>
+    maxHeight ? `height:${isOpen ? maxHeight : 0};` : `flex:${isOpen ? 1 : 0};`}
   transition: all 0.3s ease-out;
 `;
