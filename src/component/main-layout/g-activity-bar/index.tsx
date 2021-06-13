@@ -16,28 +16,34 @@ import { useAppContext } from "@src/contexts/app";
 export type ActionItemType = {
   label: string;
   Icon: React.ElementType;
+  Content: React.ElementType;
 };
 
 export const ACTION_ITEMS: ActionItemType[] = [
   {
     label: "EXPLORER",
     Icon: FilesIcon,
+    Content: () => <></>,
   },
   {
     label: "SEARCH",
     Icon: SearchIcon,
+    Content: () => <>SEARCH</>,
   },
   {
     label: "SOURCE CONTROL",
     Icon: SourceControlIcon,
+    Content: () => <>SOURCE CONTROL</>,
   },
   {
     label: "RUN AND DEBUG",
     Icon: RunAndDebugIcon,
+    Content: () => <>RUN AND DEBUG</>,
   },
   {
     label: "EXTENSIONS",
     Icon: ExtensionsIcon,
+    Content: () => <>EXTENSIONS</>,
   },
 ];
 

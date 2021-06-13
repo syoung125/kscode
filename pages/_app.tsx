@@ -7,7 +7,7 @@ import {
   GActivityBar,
   GSideBar,
   GFooter,
-} from "@src/component/common/layouts/main-layout";
+} from "@src/component/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs, PostSlugType } from "@src/api/posts";
@@ -56,12 +56,12 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <AppContextProvider>
+      <AppContextProvider postSlugs={postSlugs}>
         <Wrapper>
           <GHeader />
           <MainWrapper>
             <GActivityBar />
-            <GSideBar postSlugs={postSlugs} />
+            <GSideBar />
             <section>
               <Component {...pageProps} />
             </section>

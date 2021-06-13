@@ -1,4 +1,4 @@
-import { WHITE } from "@src/component/common/atom/colors";
+import { WHITE } from "@src/asset/colors";
 import { IconProps } from ".";
 
 function FilesIcon({ style, fill = WHITE }: IconProps) {
