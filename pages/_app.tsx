@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import styled, { createGlobalStyle } from "styled-components";
@@ -10,6 +9,7 @@ import {
   GFooter,
 } from "@src/component/common/layouts/main-layout";
 
+import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs, PostSlugType } from "@src/api/posts";
 
 const GlobalStyle = createGlobalStyle`
@@ -43,13 +43,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export type MyAppProps = {
+export type MyAppProps = AppProps & {
   postSlugs: PostSlugType[];
 };
 
-function MyApp({ Component, pageProps, postSlugs }: AppProps & MyAppProps) {
-  const [selectedActionItem, setSelectedActionItem] = useState<number>(0);
-
+function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
   return (
     <>
       <Head>
@@ -58,23 +56,19 @@ function MyApp({ Component, pageProps, postSlugs }: AppProps & MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <Wrapper>
-        <GHeader />
-        <MainWrapper>
-          <GActivityBar
-            selectedActionItem={selectedActionItem}
-            setSelectedActionItem={setSelectedActionItem}
-          />
-          <GSideBar
-            postSlugs={postSlugs}
-            selectedActionItem={selectedActionItem}
-          />
-          <ContentWrapper>
-            <Component {...pageProps} />
-          </ContentWrapper>
-        </MainWrapper>
-        <GFooter />
-      </Wrapper>
+      <AppContextProvider>
+        <Wrapper>
+          <GHeader />
+          <MainWrapper>
+            <GActivityBar />
+            <GSideBar postSlugs={postSlugs} />
+            <section>
+              <Component {...pageProps} />
+            </section>
+          </MainWrapper>
+          <GFooter />
+        </Wrapper>
+      </AppContextProvider>
     </>
   );
 }
@@ -103,5 +97,3 @@ const MainWrapper = styled.main`
 
   flex: 1;
 `;
-
-const ContentWrapper = styled.section``;

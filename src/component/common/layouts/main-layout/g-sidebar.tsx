@@ -4,13 +4,17 @@ import Link from "next/link";
 
 import { ACTION_ITEMS } from "./g-activity-bar";
 import { PostSlugType } from "@src/api/posts";
+import { useAppContext } from "@src/contexts/app";
 
 export type GSideBarProps = {
   postSlugs: PostSlugType[];
-  selectedActionItem: number;
 };
 
-function GSideBar({ postSlugs, selectedActionItem }: GSideBarProps) {
+function GSideBar({ postSlugs }: GSideBarProps) {
+  const {
+    state: { selectedActionItem },
+  } = useAppContext();
+
   return (
     <Wrapper>
       <Title>{ACTION_ITEMS[selectedActionItem].label}</Title>
