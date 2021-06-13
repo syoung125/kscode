@@ -26,7 +26,7 @@ export default PostDetail;
 export async function getStaticPaths() {
   const paths = await getPostSlugs();
   return {
-    paths: paths.map(({ slug }) => ({
+    paths: paths.map((slug) => ({
       params: { slug },
     })),
     fallback: false,

@@ -1,11 +1,6 @@
 import matter from "gray-matter";
 import marked from "marked";
 
-export type PostSlugType = {
-  slug: string;
-  title: string;
-};
-
 export type PostType = {
   title: string;
   date: string;
@@ -14,16 +9,10 @@ export type PostType = {
 
 export const getPostSlugs = async () => {
   const context = require.context("@src/content/posts", false, /\.md$/);
-  let posts: PostSlugType[] = [];
+  let posts: string[] = [];
   await context.keys().forEach(async (key) => {
     const post = key.slice(2);
-    const content = await import(`@src/content/posts/${post}`);
-    const meta = matter(content.default);
-
-    posts.push({
-      slug: post.replace(".md", ""),
-      title: meta.data.title,
-    });
+    posts.push(post.replace(".md", ""));
   });
 
   return posts;

@@ -11,7 +11,7 @@ import {
 } from "@src/component/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
-import { getPostSlugs, PostSlugType } from "@src/api/posts";
+import { getPostSlugs } from "@src/api/posts";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -47,7 +47,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export type MyAppProps = AppProps & {
-  postSlugs: PostSlugType[];
+  postSlugs: string[];
 };
 
 function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {

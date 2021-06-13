@@ -1,8 +1,7 @@
-import { PostSlugType } from "@src/api/posts";
-
 export interface IAppContext {
   state: {
-    postSlugs: PostSlugType[];
+    postSlugs: string[];
+    openPostSlugs: string[];
     selectedActionItem: number;
   };
   action: {
