@@ -8,6 +8,7 @@ import {
   GActivityBar,
   GSideBar,
   GFooter,
+  GMain,
 } from "@src/component/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
@@ -65,9 +66,9 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
           <MainWrapper>
             <GActivityBar />
             <GSideBar />
-            <section>
+            <GMain>
               <Component {...pageProps} />
-            </section>
+            </GMain>
           </MainWrapper>
           <GFooter />
         </Wrapper>
@@ -95,6 +96,8 @@ const Wrapper = styled.div`
 `;
 
 const MainWrapper = styled.main`
+  width: 100%;
+
   display: flex;
   flex-direction: row;
 

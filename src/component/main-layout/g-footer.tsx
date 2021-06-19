@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 import { BLUE } from "@src/asset/colors";
@@ -6,7 +7,7 @@ function GFooter() {
   return <Wrapper></Wrapper>;
 }
 
-export default GFooter;
+export default React.memo(GFooter);
 
 const Wrapper = styled.footer`
   display: flex;
