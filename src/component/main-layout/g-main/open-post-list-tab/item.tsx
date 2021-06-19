@@ -81,6 +81,9 @@ const Wrapper = styled.li<{ isSelected: boolean }>`
 `;
 
 const Slug = styled.p`
-  padding-left: 0.4rem;
+  padding: 0 0.4rem;
   width: 8rem;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
