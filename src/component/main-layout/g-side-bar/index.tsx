@@ -34,8 +34,10 @@ const Wrapper = styled.section`
 `;
 
 const Title = styled.h2`
+  height: 2.4rem;
+  line-height: 2.4rem;
   font-size: 0.8rem;
-  padding: 0.8rem;
+  padding: 0 0.8rem;
   font-weight: 400;
   opacity: 0.6;
 `;
