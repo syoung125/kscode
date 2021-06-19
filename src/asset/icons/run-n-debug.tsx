@@ -1,3 +1,5 @@
+import React from "react";
+
 import { WHITE } from "@src/asset/colors";
 import { IconProps } from ".";
 
@@ -14,4 +16,4 @@ function RunAndDebugIcon({ style, fill = WHITE }: IconProps) {
   );
 }
 
-export default RunAndDebugIcon;
+export default React.memo(RunAndDebugIcon);

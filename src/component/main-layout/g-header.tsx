@@ -1,10 +1,11 @@
+import React from "react";
 import styled from "styled-components";
 
 function GHeader() {
   return <Wrapper></Wrapper>;
 }
 
-export default GHeader;
+export default React.memo(GHeader);
 
 const Wrapper = styled.header`
   display: flex;

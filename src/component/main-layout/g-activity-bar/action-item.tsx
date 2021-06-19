@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 import { ActivityBar, TRANSPARENT } from "../../../asset/colors";
@@ -29,7 +30,7 @@ function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
   );
 }
 
-export default ActionItem;
+export default React.memo(ActionItem);
 
 const Wrapper = styled.li`
   display: flex;

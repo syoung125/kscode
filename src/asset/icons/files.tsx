@@ -1,3 +1,5 @@
+import React from "react";
+
 import { WHITE } from "@src/asset/colors";
 import { IconProps } from ".";
 
@@ -18,4 +20,4 @@ function FilesIcon({ style, fill = WHITE }: IconProps) {
   );
 }
 
-export default FilesIcon;
+export default React.memo(FilesIcon);
