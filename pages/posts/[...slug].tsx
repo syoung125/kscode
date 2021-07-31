@@ -27,14 +27,14 @@ export async function getStaticPaths() {
   const paths = await getPostSlugs();
   return {
     paths: paths.map((slug) => ({
-      params: { slug },
+      params: { slug: slug.split("/") },
     })),
     fallback: false,
   };
 }
 
-export async function getStaticProps(context: { params: { slug: string } }) {
-  const post: PostType = await getPostBySlug(context.params.slug);
+export async function getStaticProps(context: { params: { slug: string[] } }) {
+  const post: PostType = await getPostBySlug(context.params.slug.join("/"));
   return {
     props: {
       post,

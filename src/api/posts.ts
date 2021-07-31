@@ -8,18 +8,17 @@ export type PostType = {
 };
 
 export const getPostSlugs = async () => {
-  const context = require.context("@src/content/posts", false, /\.md$/);
+  const context = require.context("@src/content/posts", true);
   let posts: string[] = [];
   await context.keys().forEach(async (key) => {
-    const post = key.slice(2);
-    posts.push(post.replace(".md", ""));
+    const post = key.slice(2); // 맨 앞 './' 문자열 제거
+    posts.push(post);
   });
-
   return posts;
 };
 
 export const getPostBySlug = async (slug: string): Promise<PostType> => {
-  const fileContent = await import(`@src/content/posts/${slug}.md`);
+  const fileContent = await import(`@src/content/posts/${slug}`);
   const meta = matter(fileContent.default);
   const content = marked(meta.content);
 
