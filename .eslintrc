@@ -3,6 +3,6 @@
   "rules": {
     "no-unused-vars": "warn",
     "no-undef": "warn",
-    "react/display-name":"off"
+    "react/display-name": "off"
   }
 }

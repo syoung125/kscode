@@ -8,6 +8,7 @@ export type PostType = {
 };
 
 export const getPostSlugs = async () => {
+  // eslint-disable-next-line no-undef
   const context = require.context("@src/content/posts", true);
   let posts: string[] = [];
   await context.keys().forEach(async (key) => {
