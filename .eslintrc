@@ -1,0 +1,8 @@
+{
+  "extends": ["eslint:recommended", "next", "prettier"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "react/display-name":"off"
+  }
+}
