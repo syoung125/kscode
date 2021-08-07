@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
-import { List } from "@src/common/constants/colors";
 
 export const ListItemHeight = "2rem";
 
@@ -66,20 +65,22 @@ function SingleDepthListItem({
 export default SingleDepthListItem;
 
 const Row = styled.li<{ isSelected: boolean }>`
-  display: flex;
+  ${({ isSelected, theme }) => `
+display: flex;
   flex-direction: Row;
   align-items: center;
 
   height: ${ListItemHeight};
   padding-left: 2rem;
 
-  ${({ isSelected }) =>
-    isSelected && `background-color: ${List.focusBackground};`}
-  ${({ isSelected }) =>
-    !isSelected &&
-    `&:hover {
-      background-color: ${List.hoverBackground};
-    }`}
+  ${
+    isSelected
+      ? `background-color: ${theme.colors.scheme.$gray100};`
+      : `&:hover { 
+            background-color: ${theme.colors.scheme.$gray200};
+         }`
+  }
+`}
 `;
 
 const Emoji = styled.p`

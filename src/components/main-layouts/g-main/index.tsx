@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import OpenPostListTab from "./open-post-list-tab";
-import Color from "@src/common/constants/colors";
 
 export type GMainProps = {
   children: React.ReactNode;
@@ -21,7 +20,7 @@ export default GMain;
 
 const Wrapper = styled.section`
   flex: 1;
-  background-color: ${Color.Editor.background};
+  background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
 `;
 
 const Breadcrumbs = styled.div`

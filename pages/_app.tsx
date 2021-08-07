@@ -1,6 +1,6 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 
 import {
@@ -11,6 +11,7 @@ import {
   GMain,
 } from "@src/components/main-layouts";
 
+import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs } from "@src/lib/apis/posts";
 
@@ -60,19 +61,21 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <AppContextProvider postSlugs={postSlugs}>
-        <Wrapper>
-          <GHeader />
-          <MainWrapper>
-            <GActivityBar />
-            <GSideBar />
-            <GMain>
-              <Component {...pageProps} />
-            </GMain>
-          </MainWrapper>
-          <GFooter />
-        </Wrapper>
-      </AppContextProvider>
+      <ThemeProvider theme={{ colors: dark }}>
+        <AppContextProvider postSlugs={postSlugs}>
+          <Wrapper>
+            <GHeader />
+            <MainWrapper>
+              <GActivityBar />
+              <GSideBar />
+              <GMain>
+                <Component {...pageProps} />
+              </GMain>
+            </MainWrapper>
+            <GFooter />
+          </Wrapper>
+        </AppContextProvider>
+      </ThemeProvider>
     </>
   );
 }
@@ -91,8 +94,8 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   height: 100vh;
-  background-color: rgb(30, 30, 30);
-  color: white;
+  background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
+  color: ${({ theme }) => theme.colors.scheme.$white};
 `;
 
 const MainWrapper = styled.main`

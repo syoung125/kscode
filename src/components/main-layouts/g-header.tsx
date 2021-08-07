@@ -13,5 +13,5 @@ const Wrapper = styled.header`
   align-items: center;
 
   height: 1.6rem;
-  background-color: rgb(60, 60, 60);
+  background-color: ${({ theme }) => theme.colors.semanticScheme.headerBg};
 `;

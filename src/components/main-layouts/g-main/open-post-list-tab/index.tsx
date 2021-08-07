@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 import OpenPostListTabItem from "./item";
 import EllipsisIcon from "@src/components/common/icons/ellipsis";
-import Color from "@src/common/constants/colors";
 
 import { useAppContext } from "@src/contexts/app";
 
@@ -59,7 +58,7 @@ const Row = css`
 const Wrapper = styled.div`
   ${Row}
   height: 2.4rem;
-  background-color: ${Color.OpenPostListTab.background};
+  background-color: ${({ theme }) => theme.colors.scheme.$gray400};
 `;
 
 const ListWrapper = styled.ul`

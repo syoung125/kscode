@@ -29,8 +29,7 @@ const Wrapper = styled.section`
   flex-direction: column;
 
   width: 20rem;
-  background-color: rgb(37, 37, 38);
-  color: white;
+  background-color: ${({ theme }) => theme.colors.scheme.$gray400};
 `;
 
 const Title = styled.h2`
