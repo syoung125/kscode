@@ -9,7 +9,7 @@ export type PostType = {
 
 export const getPostSlugs = async () => {
   // eslint-disable-next-line no-undef
-  const context = require.context("@src/contents/posts", true);
+  const context = require.context("contents/posts", true);
   let posts: string[] = [];
   await context.keys().forEach(async (key) => {
     const post = key.slice(2); // 맨 앞 './' 문자열 제거
@@ -19,7 +19,7 @@ export const getPostSlugs = async () => {
 };
 
 export const getPostBySlug = async (slug: string): Promise<PostType> => {
-  const fileContent = await import(`@src/contents/posts/${slug}`);
+  const fileContent = await import(`contents/posts/${slug}`);
   const meta = matter(fileContent.default);
   const content = marked(meta.content);
 
