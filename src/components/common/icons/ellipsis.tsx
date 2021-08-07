@@ -1,5 +1,5 @@
 import { IconProps } from ".";
-import { WHITE } from "../../../constants/colors";
+import { WHITE } from "../../../common/constants/colors";
 
 function EllipsisIcon({ style, fill = WHITE }: IconProps) {
   return (

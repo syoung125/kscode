@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import OpenPostListTabItem from "./item";
 import EllipsisIcon from "@src/components/common/icons/ellipsis";
-import Color from "@src/constants/colors";
+import Color from "@src/common/constants/colors";
 
 import { useAppContext } from "@src/contexts/app";
 

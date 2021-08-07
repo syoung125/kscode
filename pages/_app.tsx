@@ -12,7 +12,7 @@ import {
 } from "@src/components/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
-import { getPostSlugs } from "@src/api/posts";
+import { getPostSlugs } from "@src/lib/apis/posts";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

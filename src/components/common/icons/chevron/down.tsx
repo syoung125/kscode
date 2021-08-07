@@ -1,4 +1,4 @@
-import { WHITE } from "@src/constants/colors";
+import { WHITE } from "@src/common/constants/colors";
 import { IconProps } from "..";
 
 function ChevronDownIcon({ style, fill = WHITE }: IconProps) {

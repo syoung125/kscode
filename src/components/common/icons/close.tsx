@@ -1,4 +1,4 @@
-import { WHITE } from "../../../constants/colors";
+import { WHITE } from "../../../common/constants/colors";
 import { IconProps } from ".";
 
 function CloseIcon({ style, fill = WHITE, onClick }: IconProps) {

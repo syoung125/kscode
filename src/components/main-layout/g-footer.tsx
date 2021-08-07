@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BLUE } from "@src/constants/colors";
+import { BLUE } from "@src/common/constants/colors";
 
 function GFooter() {
   return <Wrapper></Wrapper>;

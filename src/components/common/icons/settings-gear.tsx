@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WHITE } from "@src/constants/colors";
+import { WHITE } from "@src/common/constants/colors";
 import { IconProps } from ".";
 
 function SettingsGearIcon({ style, fill = WHITE }: IconProps) {

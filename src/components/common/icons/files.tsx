@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WHITE } from "@src/constants/colors";
+import { WHITE } from "@src/common/constants/colors";
 import { IconProps } from ".";
 
 function FilesIcon({ style, fill = WHITE }: IconProps) {

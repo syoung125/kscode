@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
-import Color from "@src/constants/colors";
+import Color from "@src/common/constants/colors";
 
 export type OpenPostListTabItemProps = {
   emoji?: string;
