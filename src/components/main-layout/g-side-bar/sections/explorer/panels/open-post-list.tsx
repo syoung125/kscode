@@ -1,9 +1,9 @@
-import Panel from "@src/component/common/molecules/panel";
-import { SingleDepthListItem } from "@src/component/common/atom";
+import Panel from "@src/components/common/molecules/panel";
+import { SingleDepthListItem } from "@src/components/common/atom";
 
 import { useAppContext } from "@src/contexts/app";
 
-import { ListItemHeight } from "@src/component/common/atom/list-item/single-depth";
+import { ListItemHeight } from "@src/components/common/atom/list-item/single-depth";
 
 function OpenPostListPanel() {
   const {

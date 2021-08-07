@@ -9,7 +9,7 @@ import {
   GSideBar,
   GFooter,
   GMain,
-} from "@src/component/main-layout";
+} from "@src/components/main-layout";
 
 import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs } from "@src/api/posts";
