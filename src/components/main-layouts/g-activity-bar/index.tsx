@@ -13,7 +13,7 @@ import ActionItem from "./action-item";
 
 import { ExplorerSection } from "../g-side-bar/sections";
 
-import { useAppContext } from "@src/contexts/app";
+import { useAppContext } from "@src/common/contexts/app";
 
 export type ActionItemType = {
   label: string;

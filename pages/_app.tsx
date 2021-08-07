@@ -12,7 +12,7 @@ import {
 } from "@src/components/main-layouts";
 
 import { dark } from "@src/common/colors";
-import { AppContextProvider } from "@src/contexts/app";
+import { AppContextProvider } from "@src/common/contexts/app";
 import { getPostSlugs } from "@src/lib/apis/posts";
 
 const GlobalStyle = createGlobalStyle`

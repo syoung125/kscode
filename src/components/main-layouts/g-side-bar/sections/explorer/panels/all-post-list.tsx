@@ -1,7 +1,7 @@
 import Panel from "@src/components/common/molecules/panel";
 import { SingleDepthListItem } from "@src/components/common/atoms";
 
-import { useAppContext } from "@src/contexts/app";
+import { useAppContext } from "@src/common/contexts/app";
 
 function AllPostListPanel() {
   const {

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { useAppContext } from "@src/contexts/app";
+import { useAppContext } from "@src/common/contexts/app";
 
 import { ACTION_ITEMS } from "../g-activity-bar";
 
