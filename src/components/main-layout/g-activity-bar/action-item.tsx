@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { ActivityBar, TRANSPARENT } from "../../../asset/colors";
+import { ActivityBar, TRANSPARENT } from "../../../constants/colors";
 
 import { ActionItemType } from ".";
 

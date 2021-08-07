@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
-import { List } from "@src/asset/colors";
+import { List } from "@src/constants/colors";
 
 export const ListItemHeight = "2rem";
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import OpenPostListTab from "./open-post-list-tab";
-import Color from "@src/asset/colors";
+import Color from "@src/constants/colors";
 
 export type GMainProps = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WHITE } from "@src/asset/colors";
+import { WHITE } from "@src/constants/colors";
 import { IconProps } from ".";
 
 function SourceControlIcon({ style, fill = WHITE }: IconProps) {
