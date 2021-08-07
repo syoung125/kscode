@@ -11,7 +11,7 @@ import {
   GMain,
 } from "@src/components/main-layouts";
 
-import { dark } from "@src/common/constants/colors";
+import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/contexts/app";
 import { getPostSlugs } from "@src/lib/apis/posts";
 
