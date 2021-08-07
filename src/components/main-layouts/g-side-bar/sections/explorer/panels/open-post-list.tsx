@@ -19,9 +19,10 @@ function OpenPostListPanel() {
       <ul style={{ whiteSpace: "nowrap" }}>
         {openPostSlugs.map((slug) => (
           <SingleDepthListItem
-            key={slug}
-            slug={slug}
-            isSelected={currentSlugs === slug}
+            key={slug.id}
+            id={slug.id}
+            slug={slug.slug}
+            isSelected={currentSlugs?.id === slug.id}
             onClick={handleListItemClick}
             showCloseButton
             onClose={closePost}

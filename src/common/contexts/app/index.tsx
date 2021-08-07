@@ -2,6 +2,7 @@ import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext } from "react";
 
 import { IAppContext } from "./IAppContext";
+import { PostSlug } from "@src/common/types/post.type";
 
 const AppContext = createContext<IAppContext>(undefined!);
 
@@ -9,7 +10,7 @@ const useAppContext = () => useContext(AppContext);
 
 type AppContextProviderProps = {
   children: React.ReactNode;
-  postSlugs: string[];
+  postSlugs: PostSlug[];
 };
 
 const AppContextProvider = ({
@@ -19,27 +20,31 @@ const AppContextProvider = ({
   const router = useRouter();
 
   const [selectedActionItem, setSelectedActionItem] = useState<number>(0);
-  const [openPostSlugs, setOpenPostSlugs] = useState<string[]>([]);
-  const [currentSlugs, setCurrentSlugs] = useState<string>("");
+  const [openPostSlugs, setOpenPostSlugs] = useState<PostSlug[]>([]);
+  const [currentSlugs, setCurrentSlugs] = useState<PostSlug | null>(null);
 
-  const closePost = (selectedSlug: string) => {
+  const getPostSlug = (id: string) => {
+    return postSlugs.find((postSlug) => postSlug.id === id) ?? null;
+  };
+
+  const closePost = (selectedId: string) => {
     const newOpenPostSlugs = openPostSlugs.filter(
-      (slug) => slug !== selectedSlug
+      (slug) => slug.id !== selectedId
     );
     setOpenPostSlugs(newOpenPostSlugs);
   };
 
-  const openPost = (selectedSlug: string) => {
-    if (openPostSlugs.find((slug) => slug === selectedSlug) !== undefined) {
+  const openPost = (selectedId: string) => {
+    if (openPostSlugs.find((slug) => slug.id === selectedId) !== undefined) {
       return;
     }
-    setOpenPostSlugs([...openPostSlugs, selectedSlug]);
+    setOpenPostSlugs([...openPostSlugs, getPostSlug(selectedId) as PostSlug]);
   };
 
-  const handleListItemClick = (slug: string) => {
-    setCurrentSlugs(slug);
-    openPost(slug);
-    router.push(`/posts/${slug}`);
+  const handleListItemClick = (selectedId: string) => {
+    setCurrentSlugs(getPostSlug(selectedId));
+    openPost(selectedId);
+    router.push(`/posts/${selectedId}`);
   };
 
   const appStore: IAppContext = {
