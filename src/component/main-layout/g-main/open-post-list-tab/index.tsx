@@ -29,6 +29,7 @@ function OpenPostListTab() {
       <ListWrapper>
         {openPostSlugs.map((slug) => (
           <OpenPostListTabItem
+            key={slug}
             slug={slug}
             isSelected={currentSlugs === slug}
             onClick={handleListItemClick}
@@ -38,8 +39,8 @@ function OpenPostListTab() {
         ))}
       </ListWrapper>
       <TabActionWrapper>
-        {TAB_ACTIONS.map(({ Icon, onClick }) => (
-          <TabActionItem onClick={onClick}>
+        {TAB_ACTIONS.map(({ Icon, onClick }, index) => (
+          <TabActionItem onClick={onClick} key={index}>
             <Icon style={{ width: "1.6rem", height: "1.6rem" }} />
           </TabActionItem>
         ))}

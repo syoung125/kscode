@@ -3,7 +3,7 @@ import React, { MouseEventHandler } from "react";
 export type IconProps = {
   style?: React.CSSProperties;
   fill?: string;
-  onClick?: MouseEventHandler<SVGSVGElement>;
+  onClick?: MouseEventHandler<unknown>;
 };
 
 /**

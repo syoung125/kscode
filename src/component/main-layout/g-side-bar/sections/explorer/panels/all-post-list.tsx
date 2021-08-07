@@ -14,6 +14,7 @@ function AllPostListPanel() {
       <ul style={{ whiteSpace: "nowrap" }}>
         {postSlugs.map((slug) => (
           <SingleDepthListItem
+            key={slug}
             slug={slug}
             isSelected={currentSlugs === slug}
             onClick={handleListItemClick}
