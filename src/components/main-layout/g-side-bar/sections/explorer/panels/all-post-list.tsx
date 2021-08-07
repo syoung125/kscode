@@ -1,5 +1,5 @@
 import Panel from "@src/components/common/molecules/panel";
-import { SingleDepthListItem } from "@src/components/common/atom";
+import { SingleDepthListItem } from "@src/components/common/atoms";
 
 import { useAppContext } from "@src/contexts/app";
 
