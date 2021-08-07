@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import OpenPostListTabItem from "./item";
-import EllipsisIcon from "@src/asset/icons/ellipsis";
+import EllipsisIcon from "@src/components/common/icons/ellipsis";
 import Color from "@src/asset/colors";
 
 import { useAppContext } from "@src/contexts/app";

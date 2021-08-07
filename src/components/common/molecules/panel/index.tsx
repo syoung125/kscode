@@ -1,7 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { ChevronDownIcon, ChevronRightIcon } from "@src/asset/icons";
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@src/components/common/icons";
 
 export type PanelProps = {
   header: string;

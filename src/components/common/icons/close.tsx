@@ -1,4 +1,4 @@
-import { WHITE } from "../colors";
+import { WHITE } from "../../../asset/colors";
 import { IconProps } from ".";
 
 function CloseIcon({ style, fill = WHITE, onClick }: IconProps) {

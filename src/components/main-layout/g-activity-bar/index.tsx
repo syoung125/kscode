@@ -8,7 +8,7 @@ import {
   ExtensionsIcon,
   AccountIcon,
   SettingsGearIcon,
-} from "@src/asset/icons";
+} from "@src/components/common/icons";
 import ActionItem from "./action-item";
 
 import { ExplorerSection } from "../g-side-bar/sections";
