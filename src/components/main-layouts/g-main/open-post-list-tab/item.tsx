@@ -5,6 +5,7 @@ import { CloseIcon } from "@src/components/common/icons";
 
 export type OpenPostListTabItemProps = {
   emoji?: string;
+  id: string;
   slug: string;
   isSelected?: boolean;
   onClick?: (slug: string) => void;
@@ -14,6 +15,7 @@ export type OpenPostListTabItemProps = {
 
 function OpenPostListTabItem({
   emoji = "📝",
+  id,
   slug,
   isSelected = false,
   onClick = (slug: string) => null,

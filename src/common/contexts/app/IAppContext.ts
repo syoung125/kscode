@@ -1,13 +1,15 @@
+import { PostSlug } from "@src/common/types/post.type";
+
 export interface IAppContext {
   state: {
     selectedActionItem: number;
-    postSlugs: string[];
-    openPostSlugs: string[];
-    currentSlugs: string;
+    postSlugs: PostSlug[];
+    openPostSlugs: PostSlug[];
+    currentSlugs: PostSlug | null;
   };
   action: {
     setSelectedActionItem: (selectedActionItem: number) => void;
-    handleListItemClick: (selectedSlug: string) => void;
-    closePost: (selectedSlug: string) => void;
+    handleListItemClick: (selectedId: string) => void;
+    closePost: (selectedId: string) => void;
   };
 }

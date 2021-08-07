@@ -28,9 +28,10 @@ function OpenPostListTab() {
       <ListWrapper>
         {openPostSlugs.map((slug) => (
           <OpenPostListTabItem
-            key={slug}
-            slug={slug}
-            isSelected={currentSlugs === slug}
+            key={slug.id}
+            id={slug.id}
+            slug={slug.slug}
+            isSelected={currentSlugs?.id === slug?.id}
             onClick={handleListItemClick}
             showCloseButton
             onClose={closePost}

@@ -7,30 +7,32 @@ export const ListItemHeight = "2rem";
 
 export type SingleDepthListItemProps = {
   emoji?: string;
+  id: string;
   slug: string;
   isSelected?: boolean;
-  onClick?: (slug: string) => void;
+  onClick?: (id: string) => void;
   showCloseButton?: boolean;
-  onClose?: (slug: string) => void;
+  onClose?: (id: string) => void;
 };
 
 function SingleDepthListItem({
   emoji = "📝",
+  id,
   slug,
   isSelected = false,
-  onClick = (slug: string) => null,
+  onClick = () => null,
   showCloseButton = false,
-  onClose = (slug: string) => null,
+  onClose = () => null,
 }: SingleDepthListItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = showCloseButton && (isSelected || isHovered);
 
   const handleClick = () => {
-    onClick(slug);
+    onClick(id);
   };
 
   const handleCloseClick = () => {
-    onClose(slug);
+    onClose(id);
   };
 
   const handleMouseOver = () => {

@@ -13,7 +13,8 @@ import {
 
 import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/common/contexts/app";
-import { getPostSlugs } from "@src/lib/apis/posts";
+import PostService from "@src/common/services/post.service";
+import { PostSlug } from "@src/common/types/post.type";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -49,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export type MyAppProps = AppProps & {
-  postSlugs: string[];
+  postSlugs: PostSlug[];
 };
 
 function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
@@ -81,7 +82,7 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
 }
 
 MyApp.getInitialProps = async () => {
-  const postSlugs = await getPostSlugs();
+  const postSlugs: PostSlug[] = await PostService.getPostSlugList();
   return {
     postSlugs,
   };

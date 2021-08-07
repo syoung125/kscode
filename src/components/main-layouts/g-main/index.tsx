@@ -27,6 +27,6 @@ const Breadcrumbs = styled.div`
   height: 1.6rem;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.article`
   padding: 1.6rem;
 `;
