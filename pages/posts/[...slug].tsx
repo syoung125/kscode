@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostSlugs, PostType } from "@src/api/posts";
+import { getPostBySlug, getPostSlugs, PostType } from "@src/lib/apis/posts";
 
 export type PostDetailProps = {
   post: PostType;
