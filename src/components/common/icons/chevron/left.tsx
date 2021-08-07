@@ -1,13 +1,16 @@
-import { WHITE } from "@src/common/constants/colors";
+import { useTheme } from "styled-components";
+
 import { IconProps } from "..";
 
-function ChevronLeftIcon({ style, fill = WHITE }: IconProps) {
+function ChevronLeftIcon({ style, fill }: IconProps) {
+  const { colors } = useTheme();
+
   return (
     <svg
       style={{ width: "1.6rem", height: "1.6rem", ...style }}
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
-      fill={fill}
+      fill={fill || colors.scheme.$white}
     >
       <path
         fillRule="evenodd"

@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
-import Color from "@src/common/constants/colors";
 
 export type OpenPostListTabItemProps = {
   emoji?: string;
@@ -64,20 +63,18 @@ function OpenPostListTabItem({
 export default OpenPostListTabItem;
 
 const Wrapper = styled.li<{ isSelected: boolean }>`
+  ${({ isSelected, theme }) => `
   display: flex;
   flex-direction: row;
   align-items: center;
 
   height: 2.4rem;
   padding: 0 0.8rem;
-  background-color: ${({ isSelected }) =>
-    isSelected
-      ? Color.OpenPostListTab.focused.background
-      : Color.OpenPostListTab.unfocused.background};
-  color: ${({ isSelected }) =>
-    isSelected
-      ? Color.OpenPostListTab.focused.foreground
-      : Color.OpenPostListTab.unfocused.foreground};
+  background-color:
+    ${isSelected ? theme.colors.scheme.$gray500 : theme.colors.scheme.$gray300};
+  color: ${theme.colors.scheme.$white};
+  opacity: ${isSelected ? 1 : 0.4};
+`}
 `;
 
 const Slug = styled.p`

@@ -83,7 +83,7 @@ export default GActivityBar;
 
 const Wrapper = styled.nav`
   min-width: 3rem;
-  background-color: rgb(51, 51, 51);
+  background-color: ${({ theme }) => theme.colors.semanticScheme.activityBarBg};
 
   display: flex;
   flex-direction: column;

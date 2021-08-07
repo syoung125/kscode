@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BLUE } from "@src/common/constants/colors";
-
 function GFooter() {
   return <Wrapper></Wrapper>;
 }
@@ -15,5 +13,5 @@ const Wrapper = styled.footer`
   align-items: center;
 
   height: 1.6rem;
-  background-color: ${BLUE};
+  background-color: ${({ theme }) => theme.colors.semanticScheme.footerBg};
 `;

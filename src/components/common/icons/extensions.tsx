@@ -1,15 +1,17 @@
 import React from "react";
+import { useTheme } from "styled-components";
 
-import { WHITE } from "@src/common/constants/colors";
 import { IconProps } from ".";
 
-function ExtensionsIcon({ style, fill = WHITE }: IconProps) {
+function ExtensionsIcon({ style, fill }: IconProps) {
+  const { colors } = useTheme();
+
   return (
     <svg
       style={{ width: "1.4rem", height: "1.4rem", ...style }}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      fill={fill}
+      fill={fill || colors.scheme.$white}
     >
       <path
         fillRule="evenodd"

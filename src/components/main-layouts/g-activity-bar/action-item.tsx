@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-import { ActivityBar, TRANSPARENT } from "../../../common/constants/colors";
+import styled, { useTheme } from "styled-components";
 
 import { ActionItemType } from ".";
 
@@ -11,20 +9,17 @@ export type ActionItemProps = Pick<ActionItemType, "Icon"> & {
 };
 
 function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
+  const { colors } = useTheme();
+
   return (
-    <Wrapper
-      onClick={onClick}
-      style={{
-        borderLeft: `0.16rem solid ${
-          isSelected ? ActivityBar.foreground : TRANSPARENT
-        }`,
-      }}
-    >
+    <Wrapper onClick={onClick} isSelected={isSelected}>
       <Icon
-        style={{ width: "1.4rem", heigth: "1.4rem" }}
-        fill={
-          isSelected ? ActivityBar.foreground : ActivityBar.inactiveForeground
-        }
+        style={{
+          width: "1.4rem",
+          heigth: "1.4rem",
+          opacity: isSelected ? 1 : 0.4,
+        }}
+        fill={colors.scheme.$white}
       />
     </Wrapper>
   );
@@ -32,11 +27,15 @@ function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
 
 export default React.memo(ActionItem);
 
-const Wrapper = styled.li`
+const Wrapper = styled.li<{ isSelected?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 3rem;
   margin-bottom: 0.4rem;
+  ${({ isSelected, theme }) =>
+    `border-left: 0.16rem solid ${
+      isSelected ? theme.colors.scheme.$white : "transparent"
+    }`};
 `;
