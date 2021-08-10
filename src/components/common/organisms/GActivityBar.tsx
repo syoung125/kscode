@@ -1,53 +1,17 @@
+import React from "react";
 import styled from "styled-components";
 
-import {
-  FilesIcon,
-  SearchIcon,
-  SourceControlIcon,
-  RunAndDebugIcon,
-  ExtensionsIcon,
-  AccountIcon,
-  SettingsGearIcon,
-} from "@src/components/common/icons";
-import ActionItem from "./action-item";
-
-import { ExplorerSection } from "../g-side-bar/sections";
+import { AccountIcon, SettingsGearIcon } from "@src/components/common/icons";
+import { ActionItem } from "../atoms";
 
 import { useAppContext } from "@src/common/contexts/app";
+import { ACTION_ITEMS } from "@src/components/layouts/main-layout";
 
 export type ActionItemType = {
   label: string;
   Icon: React.ElementType;
   Content: React.ElementType;
 };
-
-export const ACTION_ITEMS: ActionItemType[] = [
-  {
-    label: "EXPLORER",
-    Icon: FilesIcon,
-    Content: ExplorerSection,
-  },
-  {
-    label: "SEARCH",
-    Icon: SearchIcon,
-    Content: () => <>SEARCH</>,
-  },
-  {
-    label: "SOURCE CONTROL",
-    Icon: SourceControlIcon,
-    Content: () => <>SOURCE CONTROL</>,
-  },
-  {
-    label: "RUN AND DEBUG",
-    Icon: RunAndDebugIcon,
-    Content: () => <>RUN AND DEBUG</>,
-  },
-  {
-    label: "EXTENSIONS",
-    Icon: ExtensionsIcon,
-    Content: () => <>EXTENSIONS</>,
-  },
-];
 
 function GActivityBar() {
   const {

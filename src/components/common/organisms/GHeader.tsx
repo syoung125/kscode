@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-function GFooter() {
+function GHeader() {
   return <Wrapper></Wrapper>;
 }
 
-export default React.memo(GFooter);
+export default GHeader;
 
-const Wrapper = styled.footer`
+const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 1.6rem;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.footerBg};
+  background-color: ${({ theme }) => theme.colors.semanticScheme.headerBg};
 `;

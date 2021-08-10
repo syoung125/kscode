@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { useAppContext } from "@src/common/contexts/app";
 
-import { ACTION_ITEMS } from "../g-activity-bar";
+import { ACTION_ITEMS } from "@src/components/layouts/main-layout";
 
 function GSideBar() {
   const {
