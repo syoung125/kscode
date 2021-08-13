@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+export const GHeaderHeight = "1.6rem";
+
 function GHeader() {
-  return <Wrapper></Wrapper>;
+  return <Wrapper />;
 }
 
 export default GHeader;
@@ -12,6 +14,6 @@ const Wrapper = styled.header`
   justify-content: center;
   align-items: center;
 
-  height: 1.6rem;
+  min-height: ${GHeaderHeight};
   background-color: ${({ theme }) => theme.colors.semanticScheme.headerBg};
 `;
