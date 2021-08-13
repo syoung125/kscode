@@ -1,34 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import { useAppContext } from "@src/common/contexts/app";
-
 import { ACTION_ITEMS } from "@src/components/layouts/main-layout";
+import { useDrag } from "@src/common/hooks";
 
-function GSideBar() {
-  const {
-    state: { selectedActionItem },
-  } = useAppContext();
+export type GSideBarProps = {
+  currentActionItem: number | null;
+};
 
-  const { Content } = ACTION_ITEMS[selectedActionItem];
+function GSideBar({ currentActionItem = 0 }: GSideBarProps) {
+  const [width, setWidth] = useState(240);
+
+  const { isDragging, startDrag } = useDrag((movement) => {
+    setWidth(width + movement.x);
+  });
+
+  if (currentActionItem === null) {
+    return null;
+  }
+
+  const { label, Content } = ACTION_ITEMS[currentActionItem];
 
   return (
-    <Wrapper>
-      <Title>{ACTION_ITEMS[selectedActionItem].label}</Title>
-      <ContentWrapper>
-        <Content />
-      </ContentWrapper>
+    <Wrapper width={width}>
+      <Title>{label}</Title>
+      <ContentWrapper>{Content}</ContentWrapper>
+      <DraggableLine onMouseDown={startDrag} isVisible={isDragging} />
     </Wrapper>
   );
 }
 
 export default GSideBar;
 
-const Wrapper = styled.section`
+const Wrapper = styled.section<{ width: number }>`
   display: flex;
   flex-direction: column;
+  position: relative;
 
-  width: 20rem;
+  width: ${(props) => props.width}px;
   background-color: ${({ theme }) => theme.colors.scheme.$gray400};
 `;
 
@@ -43,4 +52,18 @@ const Title = styled.h2`
 
 const ContentWrapper = styled.div`
   height: 100%;
+`;
+
+const DraggableLine = styled.div<{ isVisible: boolean }>`
+  width: 0.2rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+
+  background-color: ${({ theme, isVisible }) =>
+    isVisible ? theme.colors.scheme.$blue : "transparent"};
+
+  &:hover {
+    cursor: col-resize;
+  }
 `;
