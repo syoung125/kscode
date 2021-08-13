@@ -19,7 +19,6 @@ const AppContextProvider = ({
 }: AppContextProviderProps) => {
   const router = useRouter();
 
-  const [selectedActionItem, setSelectedActionItem] = useState<number>(0);
   const [openPostSlugs, setOpenPostSlugs] = useState<PostSlug[]>([]);
   const [currentSlugs, setCurrentSlugs] = useState<PostSlug | null>(null);
 
@@ -49,13 +48,11 @@ const AppContextProvider = ({
 
   const appStore: IAppContext = {
     state: {
-      selectedActionItem,
       postSlugs,
       openPostSlugs,
       currentSlugs,
     },
     action: {
-      setSelectedActionItem,
       handleListItemClick,
       closePost,
     },

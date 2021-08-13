@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import OpenPostListTab from "./open-post-list-tab";
+import OpenPostListTab from "../../editor-container/OpenPostListTab";
 
-export type GMainProps = {
+export type GEditorContainerProps = {
   children: React.ReactNode;
 };
 
-function GMain({ children }: GMainProps) {
+function GEditorContainer({ children }: GEditorContainerProps) {
   return (
     <Wrapper>
       <OpenPostListTab />
@@ -16,7 +16,7 @@ function GMain({ children }: GMainProps) {
   );
 }
 
-export default GMain;
+export default GEditorContainer;
 
 const Wrapper = styled.section`
   flex: 1;

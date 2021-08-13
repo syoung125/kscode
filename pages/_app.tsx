@@ -1,15 +1,9 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 
-import {
-  GHeader,
-  GActivityBar,
-  GSideBar,
-  GFooter,
-  GMain,
-} from "@src/components/main-layouts";
+import { MainLayout } from "@src/components/layouts";
 
 import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/common/contexts/app";
@@ -64,17 +58,9 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
       <GlobalStyle />
       <ThemeProvider theme={{ colors: dark }}>
         <AppContextProvider postSlugs={postSlugs}>
-          <Wrapper>
-            <GHeader />
-            <MainWrapper>
-              <GActivityBar />
-              <GSideBar />
-              <GMain>
-                <Component {...pageProps} />
-              </GMain>
-            </MainWrapper>
-            <GFooter />
-          </Wrapper>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
         </AppContextProvider>
       </ThemeProvider>
     </>
@@ -89,21 +75,3 @@ MyApp.getInitialProps = async () => {
 };
 
 export default MyApp;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
-  color: ${({ theme }) => theme.colors.scheme.$white};
-`;
-
-const MainWrapper = styled.main`
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-
-  flex: 1;
-`;

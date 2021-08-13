@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+export const GFooterHeight = "1.6rem";
+
 function GFooter() {
-  return <Wrapper></Wrapper>;
+  return <Wrapper />;
 }
 
-export default React.memo(GFooter);
+export default GFooter;
 
 const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: 1.6rem;
+  min-height: ${GFooterHeight};
   background-color: ${({ theme }) => theme.colors.semanticScheme.footerBg};
 `;

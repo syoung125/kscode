@@ -65,7 +65,7 @@ const Body = styled.div<{
   isOpen: boolean;
   maxHeight?: string;
 }>`
-  overflow-y: auto;
+  overflow: hidden;
   ${({ isOpen, maxHeight }) =>
     maxHeight ? `height:${isOpen ? maxHeight : 0};` : `flex:${isOpen ? 1 : 0};`}
   transition: all 0.3s ease-out;
