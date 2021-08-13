@@ -1,5 +1,7 @@
-import Panel from "@src/components/common/molecules/panel";
-import { SingleDepthListItem } from "@src/components/common/atoms";
+import {
+  AccordionItem,
+  SingleDepthListItem,
+} from "@src/components/common/atoms";
 
 import { useAppContext } from "@src/common/contexts/app";
 
@@ -10,7 +12,7 @@ function AllPostListPanel() {
   } = useAppContext();
 
   return (
-    <Panel header="KSCODE" isActivated={true} hasLine>
+    <AccordionItem title="KSCODE" defaultExpanded={true} hasLine>
       <ul style={{ whiteSpace: "nowrap" }}>
         {postSlugs.map((slug) => (
           <SingleDepthListItem
@@ -22,7 +24,7 @@ function AllPostListPanel() {
           />
         ))}
       </ul>
-    </Panel>
+    </AccordionItem>
   );
 }
 

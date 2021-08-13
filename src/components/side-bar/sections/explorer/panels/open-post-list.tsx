@@ -1,5 +1,7 @@
-import Panel from "@src/components/common/molecules/panel";
-import { SingleDepthListItem } from "@src/components/common/atoms";
+import {
+  AccordionItem,
+  SingleDepthListItem,
+} from "@src/components/common/atoms";
 
 import { useAppContext } from "@src/common/contexts/app";
 
@@ -12,8 +14,8 @@ function OpenPostListPanel() {
   } = useAppContext();
 
   return (
-    <Panel
-      header="OPEN POSTS"
+    <AccordionItem
+      title="OPEN POSTS"
       maxHeight={`calc(${ListItemHeight}* ${openPostSlugs.length})`}
     >
       <ul style={{ whiteSpace: "nowrap" }}>
@@ -29,7 +31,7 @@ function OpenPostListPanel() {
           />
         ))}
       </ul>
-    </Panel>
+    </AccordionItem>
   );
 }
 
