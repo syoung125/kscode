@@ -6,47 +6,45 @@ import {
   ChevronRightIcon,
 } from "@src/components/common/icons";
 
-export type PanelProps = {
-  header: string;
+export type AccordionItemProps = {
+  title: string;
   children: React.ReactNode;
-  isActivated?: boolean;
+  defaultExpanded?: boolean;
   hasLine?: boolean;
   maxHeight?: string;
 };
 
-function Panel({
-  header,
+function AccordionItem({
+  title,
   children,
-  isActivated,
+  defaultExpanded,
   hasLine,
   maxHeight,
-}: PanelProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(!!isActivated);
+}: AccordionItemProps) {
+  const [isExpanded, setIsExpanded] = useState<boolean>(!!defaultExpanded);
 
   const handleHeaderClick = () => {
-    setIsOpen(!isOpen);
+    setIsExpanded(!isExpanded);
   };
 
-  const LeftIcon = isOpen ? ChevronDownIcon : ChevronRightIcon;
+  const ChevronIcon = isExpanded ? ChevronDownIcon : ChevronRightIcon;
 
   return (
     <>
       <Header onClick={handleHeaderClick} hasLine={hasLine}>
-        <LeftIcon style={{ width: "1rem", height: "1rem" }} />
-        <Title>{header}</Title>
+        <ChevronIcon style={{ width: "1rem", height: "1rem" }} />
+        <Title>{title}</Title>
       </Header>
-      <Body isOpen={isOpen} maxHeight={maxHeight}>
+      <Content isExpanded={isExpanded} maxHeight={maxHeight}>
         {children}
-      </Body>
+      </Content>
     </>
   );
 }
 
-export default Panel;
+export default AccordionItem;
 
-const Header = styled.div<{
-  hasLine?: boolean;
-}>`
+const Header = styled.div<Pick<AccordionItemProps, "hasLine">>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,12 +59,14 @@ const Title = styled.p`
   padding-left: 0.4rem;
 `;
 
-const Body = styled.div<{
-  isOpen: boolean;
+const Content = styled.div<{
+  isExpanded: boolean;
   maxHeight?: string;
 }>`
   overflow: hidden;
-  ${({ isOpen, maxHeight }) =>
-    maxHeight ? `height:${isOpen ? maxHeight : 0};` : `flex:${isOpen ? 1 : 0};`}
+  ${({ isExpanded, maxHeight }) =>
+    maxHeight
+      ? `height:${isExpanded ? maxHeight : 0};`
+      : `flex:${isExpanded ? 1 : 0};`}
   transition: all 0.3s ease-out;
 `;
