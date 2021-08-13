@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import styled from "styled-components";
 
 import {
@@ -12,12 +12,25 @@ import {
 export type MainLayoutProps = PropsWithChildren<{}>;
 
 function MainLayout({ children }: MainLayoutProps) {
+  const [currentActionItem, setCurrentActionItem] = useState<number | null>(0);
+
+  const handleActionItemClick = (index: number) => () => {
+    if (index === currentActionItem) {
+      setCurrentActionItem(null);
+      return;
+    }
+    setCurrentActionItem(index);
+  };
+
   return (
     <Wrapper>
       <GHeader />
       <MainContentsWrapper>
-        <GActivityBar />
-        <GSideBar />
+        <GActivityBar
+          currentActionItem={currentActionItem}
+          onItemClick={handleActionItemClick}
+        />
+        <GSideBar currentActionItem={currentActionItem} />
         <GEditorContainer>{children}</GEditorContainer>
       </MainContentsWrapper>
       <GFooter />

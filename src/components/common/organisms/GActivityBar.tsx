@@ -1,28 +1,20 @@
-import React from "react";
 import styled from "styled-components";
 
 import { AccountIcon, SettingsGearIcon } from "@src/components/common/icons";
 import { ActionItem } from "../atoms";
 
-import { useAppContext } from "@src/common/contexts/app";
 import { ACTION_ITEMS } from "@src/components/layouts/main-layout";
 
-export type ActionItemType = {
-  label: string;
-  Icon: React.ElementType;
-  Content: React.ElementType;
+export type GActivityBarProps = {
+  currentActionItem: number | null;
+  // eslint-disable-next-line no-unused-vars
+  onItemClick: (_index: number) => () => void;
 };
 
-function GActivityBar() {
-  const {
-    state: { selectedActionItem },
-    action: { setSelectedActionItem },
-  } = useAppContext();
-
-  const handleActionItemClick = (index: number) => () => {
-    setSelectedActionItem(index);
-  };
-
+function GActivityBar({
+  currentActionItem = 0,
+  onItemClick,
+}: GActivityBarProps) {
   return (
     <Wrapper>
       <ul>
@@ -30,8 +22,8 @@ function GActivityBar() {
           <ActionItem
             key={label}
             Icon={Icon}
-            onClick={handleActionItemClick(index)}
-            isSelected={index === selectedActionItem}
+            onClick={onItemClick(index)}
+            isSelected={index === currentActionItem}
           />
         ))}
       </ul>
