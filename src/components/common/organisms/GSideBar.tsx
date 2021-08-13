@@ -37,6 +37,8 @@ const Wrapper = styled.section<{ width: number }>`
   flex-direction: column;
   position: relative;
 
+  overflow: hidden;
+
   width: ${(props) => props.width}px;
   background-color: ${({ theme }) => theme.colors.scheme.$gray400};
 `;
