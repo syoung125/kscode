@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { ActionItemType } from "../organisms/GActivityBar";
+import { ActionItemType } from "../organisms/GSideBar";
 
 export type ActionItemProps = Pick<ActionItemType, "Icon"> & {
   onClick: () => void;

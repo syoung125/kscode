@@ -6,14 +6,17 @@ import {
   SourceControlIcon,
   RunAndDebugIcon,
   ExtensionsIcon,
-} from "../../common/icons";
+  AccountIcon,
+  SettingsGearIcon,
+} from "../../icons";
 
-import { ExplorerSection } from "../../side-bar/sections";
+import { ExplorerSection } from "../../../side-bar/sections";
 
 export type ActionItemType = {
   label: string;
   Icon: React.ElementType;
-  Content: React.ReactNode;
+  Content?: React.ReactNode;
+  href?: string;
 };
 
 export const ACTION_ITEMS: ActionItemType[] = [
@@ -41,5 +44,15 @@ export const ACTION_ITEMS: ActionItemType[] = [
     label: "EXTENSIONS",
     Icon: ExtensionsIcon,
     Content: "EXTENSIONS",
+  },
+  {
+    label: "MY PAGE",
+    Icon: AccountIcon,
+    href: "/my-page",
+  },
+  {
+    label: "SETTING",
+    Icon: SettingsGearIcon,
+    href: "/setting",
   },
 ];
