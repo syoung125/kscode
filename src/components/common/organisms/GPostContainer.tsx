@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import OpenPostsTab from "../../editor-container/OpenPostsTab";
+import OpenPostsTab from "../../editor-container/OpenPostListTab";
 
 export type GPostContainerProps = {
   children: React.ReactNode;

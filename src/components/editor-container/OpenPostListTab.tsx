@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import OpenPostListTabItem from "./OpenPostListTabItem";
+import { TabItem } from "../common/atoms";
 import EllipsisIcon from "@src/components/common/icons/ellipsis";
 
 import { useAppContext } from "@src/common/contexts/app";
@@ -17,7 +17,7 @@ const TAB_ACTIONS: TabActionType[] = [
   },
 ];
 
-function OpenPostListTab() {
+function OpenPostsTab() {
   const {
     state: { openPostSlugs, currentSlugs },
     action: { handleListItemClick, closePost },
@@ -27,14 +27,12 @@ function OpenPostListTab() {
     <Wrapper>
       <ListWrapper>
         {openPostSlugs.map((slug) => (
-          <OpenPostListTabItem
+          <TabItem
             key={slug.id}
-            id={slug.id}
-            slug={slug.slug}
+            title={slug.slug}
             isSelected={currentSlugs?.id === slug?.id}
-            onClick={handleListItemClick}
-            showCloseButton
-            onClose={closePost}
+            onClick={() => handleListItemClick(slug.id)}
+            onClose={() => closePost(slug.id)}
           />
         ))}
       </ListWrapper>
@@ -49,7 +47,7 @@ function OpenPostListTab() {
   );
 }
 
-export default OpenPostListTab;
+export default OpenPostsTab;
 
 const Row = css`
   display: flex;
