@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
+import P from "../P";
 
 export const ListItemHeight = "2rem";
 
@@ -85,10 +86,10 @@ display: flex;
 `}
 `;
 
-const Emoji = styled.p`
+const Emoji = styled(P)`
   padding-left: 0.4rem;
 `;
 
-const Slug = styled.p`
+const Slug = styled(P)`
   padding-left: 0.4rem;
 `;
