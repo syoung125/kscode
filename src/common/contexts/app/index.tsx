@@ -19,38 +19,32 @@ const AppContextProvider = ({
 }: AppContextProviderProps) => {
   const router = useRouter();
 
-  const [openPostSlugs, setOpenPostSlugs] = useState<PostSlug[]>([]);
-  const [currentSlugs, setCurrentSlugs] = useState<PostSlug | null>(null);
+  const [openPostSlugIds, setOpenPostSlugIds] = useState<string[]>([]);
+  const [currentSlugId, setCurrentSlugId] = useState<string | null>(null);
 
-  const getPostSlug = (id: string) => {
-    return postSlugs.find((postSlug) => postSlug.id === id) ?? null;
-  };
-
-  const closePost = (selectedId: string) => {
-    const newOpenPostSlugs = openPostSlugs.filter(
-      (slug) => slug.id !== selectedId
-    );
-    setOpenPostSlugs(newOpenPostSlugs);
-  };
-
-  const openPost = (selectedId: string) => {
-    if (openPostSlugs.find((slug) => slug.id === selectedId) !== undefined) {
+  const openPost = (id: string) => {
+    if (openPostSlugIds.find((_id) => _id === id) !== undefined) {
       return;
     }
-    setOpenPostSlugs([...openPostSlugs, getPostSlug(selectedId) as PostSlug]);
+    setOpenPostSlugIds([...openPostSlugIds, id]);
   };
 
-  const handleListItemClick = (selectedId: string) => {
-    setCurrentSlugs(getPostSlug(selectedId));
-    openPost(selectedId);
-    router.push(`/posts/${selectedId}`);
+  const closePost = (id: string) => {
+    const newOpenPostSlugs = openPostSlugIds.filter((_id) => _id !== id);
+    setOpenPostSlugIds(newOpenPostSlugs);
+  };
+
+  const handleListItemClick = (id: string) => {
+    setCurrentSlugId(id);
+    openPost(id);
+    router.push(`/posts/${id}`);
   };
 
   const appStore: IAppContext = {
     state: {
       postSlugs,
-      openPostSlugs,
-      currentSlugs,
+      openPostSlugs: postSlugs.filter(({ id }) => openPostSlugIds.includes(id)),
+      currentSlugs: postSlugs.find(({ id }) => id === currentSlugId) ?? null,
     },
     action: {
       handleListItemClick,
