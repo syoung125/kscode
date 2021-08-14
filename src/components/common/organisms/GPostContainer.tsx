@@ -1,16 +1,38 @@
 import styled from "styled-components";
 
-import OpenPostsTab from "../../editor-container/OpenPostListTab";
+import { Tabs, TabItemType, TabsActionType } from "../molecules";
+import EllipsisIcon from "@src/components/common/icons/ellipsis";
+
+import { useAppContext } from "@src/common/contexts/app";
+
+const TAB_ACTIONS: TabsActionType[] = [
+  {
+    Icon: EllipsisIcon,
+    onClick: () => null,
+  },
+];
 
 export type GPostContainerProps = {
   children: React.ReactNode;
 };
 
 function GPostContainer({ children }: GPostContainerProps) {
+  const {
+    state: { openPostSlugs, currentSlugs },
+    action: { handleListItemClick, closePost },
+  } = useAppContext();
+
+  const tabItems: TabItemType[] = openPostSlugs.map(({ id, slug }) => ({
+    title: slug,
+    isSelected: currentSlugs?.id === id,
+    onClick: () => handleListItemClick(id),
+    onClose: () => closePost(id),
+  }));
+
   return (
     <Wrapper>
-      <OpenPostsTab />
-      <Breadcrumbs></Breadcrumbs>
+      <Tabs items={tabItems} actions={TAB_ACTIONS} />
+      <Breadcrumbs />
       <ContentWrapper>{children}</ContentWrapper>
     </Wrapper>
   );
