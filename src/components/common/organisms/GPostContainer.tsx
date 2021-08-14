@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
-import OpenPostListTab from "../../editor-container/OpenPostListTab";
+import OpenPostsTab from "../../editor-container/OpenPostsTab";
 
-export type GEditorContainerProps = {
+export type GPostContainerProps = {
   children: React.ReactNode;
 };
 
-function GEditorContainer({ children }: GEditorContainerProps) {
+function GPostContainer({ children }: GPostContainerProps) {
   return (
     <Wrapper>
-      <OpenPostListTab />
+      <OpenPostsTab />
       <Breadcrumbs></Breadcrumbs>
       <ContentWrapper>{children}</ContentWrapper>
     </Wrapper>
   );
 }
 
-export default GEditorContainer;
+export default GPostContainer;
 
 const Wrapper = styled.section`
   flex: 1;

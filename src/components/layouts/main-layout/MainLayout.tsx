@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {
   GHeader,
   GSideBar,
-  GEditorContainer,
+  GPostContainer,
   GFooter,
 } from "@src/components/common/organisms";
 
@@ -16,7 +16,7 @@ function MainLayout({ children }: MainLayoutProps) {
       <GHeader />
       <MainContentsWrapper>
         <GSideBar />
-        <GEditorContainer>{children}</GEditorContainer>
+        <GPostContainer>{children}</GPostContainer>
       </MainContentsWrapper>
       <GFooter />
     </Wrapper>
