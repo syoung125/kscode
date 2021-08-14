@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import P from "./P";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -53,9 +54,10 @@ const Header = styled.div<Pick<AccordionItemProps, "hasLine">>`
     hasLine && "border-top:1px solid rgba(204, 204, 204, 0.2);"}
 `;
 
-const Title = styled.p`
-  font-size: 0.8rem;
-  font-weight: 600;
+const Title = styled(P).attrs({
+  size: "small",
+  weight: "bold",
+})`
   padding-left: 0.4rem;
 `;
 

@@ -1,5 +1,6 @@
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
+import { P } from "@src/components/common/atoms";
 
 export type PostDetailProps = {
   post: Post;
@@ -20,10 +21,12 @@ function PostDetail({ post }: PostDetailProps) {
 
   return (
     <>
-      <p>{id}</p>
+      <P>{id}</P>
       <br />
-      <h1>{title}</h1>
-      <p>({date})</p>
+      <P size="large">
+        {title}
+        <P size="small">({date})</P>
+      </P>
       <br />
       <div dangerouslySetInnerHTML={{ __html: markdown }} />
     </>

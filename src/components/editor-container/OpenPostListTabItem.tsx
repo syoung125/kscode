@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import { P } from "../common/atoms";
 import { CloseIcon } from "@src/components/common/icons";
 
 export type OpenPostListTabItemProps = {
@@ -48,8 +49,9 @@ function OpenPostListTabItem({
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
     >
-      <p>{emoji}</p>
-      <Slug>{slug}</Slug>
+      <Slug>
+        {emoji} {slug}
+      </Slug>
       <CloseIcon
         style={{
           width: "1rem",
@@ -79,10 +81,10 @@ const Wrapper = styled.li<{ isSelected: boolean }>`
 `}
 `;
 
-const Slug = styled.p`
+const Slug = styled(P).attrs({
+  ellipsis: true,
+  preWrap: true,
+})`
   padding: 0 0.4rem;
   width: 8rem;
-
-  text-overflow: ellipsis;
-  overflow: hidden;
 `;
