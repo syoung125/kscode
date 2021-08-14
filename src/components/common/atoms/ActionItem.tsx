@@ -25,7 +25,7 @@ function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
   );
 }
 
-export default React.memo(ActionItem);
+export default ActionItem;
 
 const Wrapper = styled.li<{ isSelected?: boolean }>`
   display: flex;
