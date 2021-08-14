@@ -18,12 +18,12 @@ function ExplorerSection() {
       maxHeight: `calc(${ListItemHeight}* ${openPostSlugs.length})`,
       children: (
         <ul style={{ whiteSpace: "nowrap" }}>
-          {openPostSlugs.map((slug) => (
+          {openPostSlugs.map(({ id, slug }) => (
             <SingleDepthListItem
-              key={slug.id}
-              id={slug.id}
-              slug={slug.slug}
-              isSelected={currentSlugs?.id === slug.id}
+              key={id}
+              id={id}
+              slug={slug}
+              isSelected={currentSlugs?.id === id}
               onClick={handleListItemClick}
               showCloseButton
               onClose={closePost}
@@ -37,12 +37,12 @@ function ExplorerSection() {
       defaultExpanded: true,
       children: (
         <ul style={{ whiteSpace: "nowrap" }}>
-          {postSlugs.map((slug) => (
+          {postSlugs.map(({ id, slug }) => (
             <SingleDepthListItem
-              key={slug.id}
-              id={slug.id}
-              slug={slug.slug}
-              isSelected={currentSlugs?.id === slug.id}
+              key={id}
+              id={id}
+              slug={slug}
+              isSelected={currentSlugs?.id === id}
               onClick={handleListItemClick}
             />
           ))}
