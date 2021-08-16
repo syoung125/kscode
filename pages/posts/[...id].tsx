@@ -36,10 +36,10 @@ function PostDetail({ post }: PostDetailProps) {
 export default PostDetail;
 
 export async function getStaticPaths() {
-  const paths = await PostService.getPostSlugList();
+  const paths = await PostService.getPostPaths();
   return {
-    paths: paths.map(({ id }) => ({
-      params: { id: id.split("/") },
+    paths: paths.map((path) => ({
+      params: { id: path.split("/") },
     })),
     fallback: false,
   };

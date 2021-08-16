@@ -2,7 +2,6 @@ import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext } from "react";
 
 import { IAppContext } from "./IAppContext";
-import { PostSlug } from "@src/common/types/post.type";
 
 const AppContext = createContext<IAppContext>(undefined!);
 
@@ -10,44 +9,41 @@ const useAppContext = () => useContext(AppContext);
 
 type AppContextProviderProps = {
   children: React.ReactNode;
-  postSlugs: PostSlug[];
+  postPaths: string[];
 };
 
 const AppContextProvider = ({
   children,
-  postSlugs,
+  postPaths,
 }: AppContextProviderProps) => {
   const router = useRouter();
 
-  const [openPostSlugIds, setOpenPostSlugIds] = useState<string[]>([]);
-  const [currentSlugId, setCurrentSlugId] = useState<string | null>(null);
+  const [openPostPaths, setOpenPostPaths] = useState<string[]>([]);
+  const [currentPostPath, setCurrentPostPath] = useState<string | null>(null);
 
-  const openPost = (id: string) => {
-    if (openPostSlugIds.find((_id) => _id === id) !== undefined) {
+  const selectPost = (path: string) => {
+    setCurrentPostPath(path);
+    router.push(`/posts/${path}`);
+
+    if (openPostPaths.find((_path) => _path === path) !== undefined) {
       return;
     }
-    setOpenPostSlugIds([...openPostSlugIds, id]);
+    setOpenPostPaths([...openPostPaths, path]);
   };
 
-  const closePost = (id: string) => {
-    const newOpenPostSlugs = openPostSlugIds.filter((_id) => _id !== id);
-    setOpenPostSlugIds(newOpenPostSlugs);
-  };
-
-  const handleListItemClick = (id: string) => {
-    setCurrentSlugId(id);
-    openPost(id);
-    router.push(`/posts/${id}`);
+  const closePost = (path: string) => {
+    const newOpenPostPaths = openPostPaths.filter((_path) => _path !== path);
+    setOpenPostPaths(newOpenPostPaths);
   };
 
   const appStore: IAppContext = {
     state: {
-      postSlugs,
-      openPostSlugs: postSlugs.filter(({ id }) => openPostSlugIds.includes(id)),
-      currentSlugs: postSlugs.find(({ id }) => id === currentSlugId) ?? null,
+      postPaths,
+      openPostPaths,
+      currentPostPath,
     },
     action: {
-      handleListItemClick,
+      selectPost,
       closePost,
     },
   };

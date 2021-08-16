@@ -1,5 +1,6 @@
 {
   "extends": ["eslint:recommended", "next", "prettier"],
+  "ignorePatterns": [ "**/__tests__/*.spec.ts"],
   "rules": {
     "no-unused-vars": "warn",
     "no-undef": "off",

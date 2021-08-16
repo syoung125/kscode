@@ -8,7 +8,6 @@ import { MainLayout } from "@src/components/layouts";
 import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
-import { PostSlug } from "@src/common/types/post.type";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -44,10 +43,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export type MyAppProps = AppProps & {
-  postSlugs: PostSlug[];
+  postPaths: string[];
 };
 
-function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
+function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
   return (
     <>
       <Head>
@@ -57,7 +56,7 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={{ colors: dark }}>
-        <AppContextProvider postSlugs={postSlugs}>
+        <AppContextProvider postPaths={postPaths}>
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>
@@ -68,9 +67,9 @@ function MyApp({ Component, pageProps, postSlugs }: MyAppProps) {
 }
 
 MyApp.getInitialProps = async () => {
-  const postSlugs: PostSlug[] = await PostService.getPostSlugList();
+  const postPaths: string[] = await PostService.getPostPaths();
   return {
-    postSlugs,
+    postPaths,
   };
 };
 

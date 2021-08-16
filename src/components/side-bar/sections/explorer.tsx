@@ -1,3 +1,4 @@
+import { FileTree } from "@src/components/common/organisms";
 import { Accordion, AccordionDataType } from "@src/components/common/molecules";
 import {
   SingleDepthListItem,
@@ -5,28 +6,28 @@ import {
 } from "@src/components/common/atoms";
 
 import { useAppContext } from "@src/common/contexts/app";
+import { getFileName } from "@src/common/helpers";
 
 function ExplorerSection() {
   const {
-    state: { openPostSlugs, postSlugs, currentSlugs },
-    action: { handleListItemClick, closePost },
+    state: { openPostPaths, postPaths, currentPostPath },
+    action: { selectPost, closePost },
   } = useAppContext();
 
   const explorerAccordionData: AccordionDataType[] = [
     {
       title: "OPEN POSTS",
-      maxHeight: `calc(${ListItemHeight}* ${openPostSlugs.length})`,
+      maxHeight: `calc(${ListItemHeight}* ${openPostPaths.length})`,
       children: (
         <ul style={{ whiteSpace: "nowrap" }}>
-          {openPostSlugs.map(({ id, slug }) => (
+          {openPostPaths.map((path) => (
             <SingleDepthListItem
-              key={id}
-              id={id}
-              slug={slug}
-              isSelected={currentSlugs?.id === id}
-              onClick={handleListItemClick}
+              key={path}
+              title={getFileName(path)}
+              isSelected={currentPostPath === path}
+              onClick={() => selectPost(path)}
+              onClose={() => closePost(path)}
               showCloseButton
-              onClose={closePost}
             />
           ))}
         </ul>
@@ -36,17 +37,11 @@ function ExplorerSection() {
       title: "KSCODE",
       defaultExpanded: true,
       children: (
-        <ul style={{ whiteSpace: "nowrap" }}>
-          {postSlugs.map(({ id, slug }) => (
-            <SingleDepthListItem
-              key={id}
-              id={id}
-              slug={slug}
-              isSelected={currentSlugs?.id === id}
-              onClick={handleListItemClick}
-            />
-          ))}
-        </ul>
+        <FileTree
+          filePaths={postPaths}
+          selectedFilePath={currentPostPath}
+          onFileClick={selectPost}
+        />
       ),
     },
   ];

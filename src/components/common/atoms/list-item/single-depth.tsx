@@ -8,48 +8,30 @@ export const ListItemHeight = "2rem";
 
 export type SingleDepthListItemProps = {
   emoji?: string;
-  id: string;
-  slug: string;
+  title: string;
   isSelected?: boolean;
-  onClick?: (id: string) => void;
+  onClick?: () => void;
+  onClose?: () => void;
   showCloseButton?: boolean;
-  onClose?: (id: string) => void;
 };
 
 function SingleDepthListItem({
   emoji = "📝",
-  id,
-  slug,
+  title,
   isSelected = false,
   onClick = () => null,
-  showCloseButton = false,
   onClose = () => null,
+  showCloseButton = false,
 }: SingleDepthListItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = showCloseButton && (isSelected || isHovered);
 
-  const handleClick = () => {
-    onClick(id);
-  };
-
-  const handleCloseClick = () => {
-    onClose(id);
-  };
-
-  const handleMouseOver = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   return (
     <Row
       isSelected={isSelected}
-      onClick={handleClick}
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      onMouseOver={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <CloseIcon
         style={{
@@ -57,10 +39,10 @@ function SingleDepthListItem({
           height: "1rem",
           visibility: isCloseVisible ? "visible" : "hidden",
         }}
-        onClick={handleCloseClick}
+        onClick={onClose}
       />
       <Emoji>{emoji}</Emoji>
-      <Slug>{slug}</Slug>
+      <Title>{title}</Title>
     </Row>
   );
 }
@@ -90,6 +72,6 @@ const Emoji = styled(P)`
   padding-left: 0.4rem;
 `;
 
-const Slug = styled(P)`
+const Title = styled(P)`
   padding-left: 0.4rem;
 `;
