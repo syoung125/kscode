@@ -18,25 +18,22 @@ const AppContextProvider = ({
 }: AppContextProviderProps) => {
   const router = useRouter();
 
-  const [openPostSlugIds, setOpenPostSlugIds] = useState<string[]>([]);
-  const [currentSlugId, setCurrentSlugId] = useState<string | null>(null);
+  const [openPostPaths, setOpenPostPaths] = useState<string[]>([]);
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
 
-  const openPost = (id: string) => {
-    if (openPostSlugIds.find((_id) => _id === id) !== undefined) {
+  const selectPost = (path: string) => {
+    setCurrentPath(path);
+    router.push(`/posts/${path}`);
+
+    if (openPostPaths.find((_path) => _path === path) !== undefined) {
       return;
     }
-    setOpenPostSlugIds([...openPostSlugIds, id]);
+    setOpenPostPaths([...openPostPaths, path]);
   };
 
-  const closePost = (id: string) => {
-    const newOpenPostSlugs = openPostSlugIds.filter((_id) => _id !== id);
-    setOpenPostSlugIds(newOpenPostSlugs);
-  };
-
-  const handleListItemClick = (id: string) => {
-    setCurrentSlugId(id);
-    openPost(id);
-    router.push(`/posts/${id}`);
+  const closePost = (path: string) => {
+    const newOpenPostPaths = openPostPaths.filter((_path) => _path !== path);
+    setOpenPostPaths(newOpenPostPaths);
   };
 
   const getPostSlug = (path: string) => {
@@ -51,17 +48,17 @@ const AppContextProvider = ({
         slug: getPostSlug(path),
       })),
       openPostSlugs: postPaths
-        .filter((path) => openPostSlugIds.includes(path))
+        .filter((path) => openPostPaths.includes(path))
         .map((path) => ({
           id: path,
           slug: getPostSlug(path),
         })),
-      currentSlugs: currentSlugId
-        ? { id: currentSlugId, slug: getPostSlug(currentSlugId) }
+      currentSlugs: currentPath
+        ? { id: currentPath, slug: getPostSlug(currentPath) }
         : null,
     },
     action: {
-      handleListItemClick,
+      selectPost,
       closePost,
     },
   };

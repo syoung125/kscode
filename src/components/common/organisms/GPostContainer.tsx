@@ -19,13 +19,13 @@ export type GPostContainerProps = {
 function GPostContainer({ children }: GPostContainerProps) {
   const {
     state: { openPostSlugs, currentSlugs },
-    action: { handleListItemClick, closePost },
+    action: { selectPost, closePost },
   } = useAppContext();
 
   const tabItems: TabItemType[] = openPostSlugs.map(({ id, slug }) => ({
     title: slug,
     isSelected: currentSlugs?.id === id,
-    onClick: () => handleListItemClick(id),
+    onClick: () => selectPost(id),
     onClose: () => closePost(id),
   }));
 

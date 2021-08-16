@@ -9,7 +9,7 @@ import { useAppContext } from "@src/common/contexts/app";
 function ExplorerSection() {
   const {
     state: { openPostSlugs, postSlugs, currentSlugs },
-    action: { handleListItemClick, closePost },
+    action: { selectPost, closePost },
   } = useAppContext();
 
   const explorerAccordionData: AccordionDataType[] = [
@@ -24,7 +24,7 @@ function ExplorerSection() {
               id={id}
               slug={slug}
               isSelected={currentSlugs?.id === id}
-              onClick={handleListItemClick}
+              onClick={selectPost}
               showCloseButton
               onClose={closePost}
             />
@@ -43,7 +43,7 @@ function ExplorerSection() {
               id={id}
               slug={slug}
               isSelected={currentSlugs?.id === id}
-              onClick={handleListItemClick}
+              onClick={selectPost}
             />
           ))}
         </ul>

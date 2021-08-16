@@ -7,7 +7,7 @@ export interface IAppContext {
     currentSlugs: PostSlug | null;
   };
   action: {
-    handleListItemClick: (id: string) => void;
-    closePost: (id: string) => void;
+    selectPost: (path: string) => void;
+    closePost: (path: string) => void;
   };
 }
