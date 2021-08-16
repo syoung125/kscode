@@ -1,8 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext } from "react";
 
-import { getFileName } from "@src/common/helpers";
-
 import { IAppContext } from "./IAppContext";
 
 const AppContext = createContext<IAppContext>(undefined!);
