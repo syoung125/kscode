@@ -4,6 +4,7 @@ import { Tabs, TabItemType, TabsActionType } from "../molecules";
 import EllipsisIcon from "@src/components/common/icons/ellipsis";
 
 import { useAppContext } from "@src/common/contexts/app";
+import { getFileName } from "@src/common/helpers";
 
 const TAB_ACTIONS: TabsActionType[] = [
   {
@@ -18,15 +19,15 @@ export type GPostContainerProps = {
 
 function GPostContainer({ children }: GPostContainerProps) {
   const {
-    state: { openPostSlugs, currentSlugs },
+    state: { openPostPaths, currentPostPath },
     action: { selectPost, closePost },
   } = useAppContext();
 
-  const tabItems: TabItemType[] = openPostSlugs.map(({ id, slug }) => ({
-    title: slug,
-    isSelected: currentSlugs?.id === id,
-    onClick: () => selectPost(id),
-    onClose: () => closePost(id),
+  const tabItems: TabItemType[] = openPostPaths.map((path) => ({
+    title: getFileName(path),
+    isSelected: currentPostPath === path,
+    onClick: () => selectPost(path),
+    onClose: () => closePost(path),
   }));
 
   return (

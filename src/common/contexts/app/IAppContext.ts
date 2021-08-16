@@ -1,10 +1,8 @@
-import { PostSlug } from "@src/common/types/post.type";
-
 export interface IAppContext {
   state: {
-    postSlugs: PostSlug[];
-    openPostSlugs: PostSlug[];
-    currentSlugs: PostSlug | null;
+    postPaths: string[];
+    openPostPaths: string[];
+    currentPostPath: string | null;
   };
   action: {
     selectPost: (path: string) => void;

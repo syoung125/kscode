@@ -1,6 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext } from "react";
 
+import { getFileName } from "@src/common/helpers";
+
 import { IAppContext } from "./IAppContext";
 
 const AppContext = createContext<IAppContext>(undefined!);
@@ -19,10 +21,10 @@ const AppContextProvider = ({
   const router = useRouter();
 
   const [openPostPaths, setOpenPostPaths] = useState<string[]>([]);
-  const [currentPath, setCurrentPath] = useState<string | null>(null);
+  const [currentPostPath, setCurrentPostPath] = useState<string | null>(null);
 
   const selectPost = (path: string) => {
-    setCurrentPath(path);
+    setCurrentPostPath(path);
     router.push(`/posts/${path}`);
 
     if (openPostPaths.find((_path) => _path === path) !== undefined) {
@@ -36,26 +38,11 @@ const AppContextProvider = ({
     setOpenPostPaths(newOpenPostPaths);
   };
 
-  const getPostSlug = (path: string) => {
-    const splittedPath = path.split("/");
-    return splittedPath[splittedPath.length - 1];
-  };
-
   const appStore: IAppContext = {
     state: {
-      postSlugs: postPaths.map((path) => ({
-        id: path,
-        slug: getPostSlug(path),
-      })),
-      openPostSlugs: postPaths
-        .filter((path) => openPostPaths.includes(path))
-        .map((path) => ({
-          id: path,
-          slug: getPostSlug(path),
-        })),
-      currentSlugs: currentPath
-        ? { id: currentPath, slug: getPostSlug(currentPath) }
-        : null,
+      postPaths,
+      openPostPaths,
+      currentPostPath,
     },
     action: {
       selectPost,

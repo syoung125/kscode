@@ -5,25 +5,26 @@ import {
 } from "@src/components/common/atoms";
 
 import { useAppContext } from "@src/common/contexts/app";
+import { getFileName } from "@src/common/helpers";
 
 function ExplorerSection() {
   const {
-    state: { openPostSlugs, postSlugs, currentSlugs },
+    state: { openPostPaths, postPaths, currentPostPath },
     action: { selectPost, closePost },
   } = useAppContext();
 
   const explorerAccordionData: AccordionDataType[] = [
     {
       title: "OPEN POSTS",
-      maxHeight: `calc(${ListItemHeight}* ${openPostSlugs.length})`,
+      maxHeight: `calc(${ListItemHeight}* ${openPostPaths.length})`,
       children: (
         <ul style={{ whiteSpace: "nowrap" }}>
-          {openPostSlugs.map(({ id, slug }) => (
+          {openPostPaths.map((path) => (
             <SingleDepthListItem
-              key={id}
-              id={id}
-              slug={slug}
-              isSelected={currentSlugs?.id === id}
+              key={path}
+              id={path}
+              slug={getFileName(path)}
+              isSelected={currentPostPath === path}
               onClick={selectPost}
               showCloseButton
               onClose={closePost}
@@ -37,12 +38,12 @@ function ExplorerSection() {
       defaultExpanded: true,
       children: (
         <ul style={{ whiteSpace: "nowrap" }}>
-          {postSlugs.map(({ id, slug }) => (
+          {postPaths.map((path) => (
             <SingleDepthListItem
-              key={id}
-              id={id}
-              slug={slug}
-              isSelected={currentSlugs?.id === id}
+              key={path}
+              id={path}
+              slug={path}
+              isSelected={currentPostPath === path}
               onClick={selectPost}
             />
           ))}
