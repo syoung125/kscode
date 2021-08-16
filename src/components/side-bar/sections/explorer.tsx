@@ -1,3 +1,4 @@
+import { FileTree } from "@src/components/common/organisms";
 import { Accordion, AccordionDataType } from "@src/components/common/molecules";
 import {
   SingleDepthListItem,
@@ -22,12 +23,11 @@ function ExplorerSection() {
           {openPostPaths.map((path) => (
             <SingleDepthListItem
               key={path}
-              id={path}
-              slug={getFileName(path)}
+              title={getFileName(path)}
               isSelected={currentPostPath === path}
-              onClick={selectPost}
+              onClick={() => selectPost(path)}
+              onClose={() => closePost(path)}
               showCloseButton
-              onClose={closePost}
             />
           ))}
         </ul>
@@ -37,17 +37,11 @@ function ExplorerSection() {
       title: "KSCODE",
       defaultExpanded: true,
       children: (
-        <ul style={{ whiteSpace: "nowrap" }}>
-          {postPaths.map((path) => (
-            <SingleDepthListItem
-              key={path}
-              id={path}
-              slug={path}
-              isSelected={currentPostPath === path}
-              onClick={selectPost}
-            />
-          ))}
-        </ul>
+        <FileTree
+          filePaths={postPaths}
+          selectedFilePath={currentPostPath}
+          onFileClick={selectPost}
+        />
       ),
     },
   ];
