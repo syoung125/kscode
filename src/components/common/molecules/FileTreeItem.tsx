@@ -81,6 +81,6 @@ const Row = styled.div<Pick<FileTreeItemProps, "isSelected">>`
 `;
 
 const StyledDiv = styled.div`
-  margin-left: 1.6rem;
+  margin-left: 0.6rem;
   ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray100}`};
 `;

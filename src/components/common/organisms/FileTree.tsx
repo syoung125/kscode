@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 import { FileTreeItem } from "../molecules";
 
 import { isFolder, TreeItem, TreeView } from "@src/common/classes";
@@ -31,7 +33,12 @@ function FileTree({ filePaths, selectedFilePath, onFileClick }: FileTreeProps) {
       );
     });
 
-  return <>{renderChildren(root.children)}</>;
+  return <StyledDiv>{renderChildren(root.children)}</StyledDiv>;
 }
 
 export default FileTree;
+
+const StyledDiv = styled.div`
+  margin-left: 0.6rem;
+  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray100}`};
+`;
