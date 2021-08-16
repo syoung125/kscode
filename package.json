@@ -6,6 +6,7 @@
   "scripts": {
     "format": "prettier --write **/*.{ts,tsx}",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "test": "jest",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
