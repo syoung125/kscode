@@ -2,7 +2,6 @@ import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext } from "react";
 
 import { IAppContext } from "./IAppContext";
-import { PostSlug } from "@src/common/types/post.type";
 
 const AppContext = createContext<IAppContext>(undefined!);
 
@@ -10,12 +9,12 @@ const useAppContext = () => useContext(AppContext);
 
 type AppContextProviderProps = {
   children: React.ReactNode;
-  postSlugs: PostSlug[];
+  postPaths: string[];
 };
 
 const AppContextProvider = ({
   children,
-  postSlugs,
+  postPaths,
 }: AppContextProviderProps) => {
   const router = useRouter();
 
@@ -40,11 +39,26 @@ const AppContextProvider = ({
     router.push(`/posts/${id}`);
   };
 
+  const getPostSlug = (path: string) => {
+    const splittedPath = path.split("/");
+    return splittedPath[splittedPath.length - 1];
+  };
+
   const appStore: IAppContext = {
     state: {
-      postSlugs,
-      openPostSlugs: postSlugs.filter(({ id }) => openPostSlugIds.includes(id)),
-      currentSlugs: postSlugs.find(({ id }) => id === currentSlugId) ?? null,
+      postSlugs: postPaths.map((path) => ({
+        id: path,
+        slug: getPostSlug(path),
+      })),
+      openPostSlugs: postPaths
+        .filter((path) => openPostSlugIds.includes(path))
+        .map((path) => ({
+          id: path,
+          slug: getPostSlug(path),
+        })),
+      currentSlugs: currentSlugId
+        ? { id: currentSlugId, slug: getPostSlug(currentSlugId) }
+        : null,
     },
     action: {
       handleListItemClick,
