@@ -8,18 +8,20 @@ export default class TreeView {
 
   createTree(filePaths: string[]) {
     filePaths.map((filePath) => {
-      this.addFileToTree(filePath);
+      this.addFile(filePath);
     });
     return [];
   }
 
-  addFileToTree(path: string) {
-    const splittedPaths = path.split("/");
-    const lastIdx = splittedPaths.length - 1;
-    const fileName = splittedPaths[lastIdx];
+  addFile(path: string) {
+    const fileName = path.split("/").reverse()[0];
+    this.accessToLeafFolder(path, this.root).add(new File(fileName, path));
+  }
 
-    splittedPaths
-      .slice(0, lastIdx)
+  accessToLeafFolder(path: string, root: Folder) {
+    const splittedPaths = path.split("/");
+    return splittedPaths
+      .slice(0, splittedPaths.length - 1)
       .reduce(
         (acc, currFolderName, i) =>
           this.accessToFolder(
@@ -27,9 +29,8 @@ export default class TreeView {
             currFolderName,
             splittedPaths.slice(0, i + 1).join("/")
           ),
-        this.root
-      )
-      .add(new File(fileName, path));
+        root
+      );
   }
 
   accessToFolder(currFolder: Folder, folderName: string, path: string): Folder {

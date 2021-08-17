@@ -13,18 +13,10 @@ export class TreeItem {
   }
 }
 
-export class File extends TreeItem {
-  constructor(name: string, path: string = "") {
-    super(name, path);
-  }
-}
+export class File extends TreeItem {}
 
 export class Folder extends TreeItem {
   private _children: Array<TreeItem> = [];
-
-  constructor(name: string, path: string = "") {
-    super(name, path);
-  }
 
   add(treeItem: TreeItem): Folder {
     this._children.push(treeItem);
