@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import styled from "styled-components";
 
 import { P } from ".";
@@ -22,6 +22,11 @@ function TabItem({
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = isSelected || isHovered;
 
+  const handleClose: MouseEventHandler<SVGElement> = (e) => {
+    e.stopPropagation();
+    onClose();
+  };
+
   return (
     <Wrapper
       isSelected={isSelected}
@@ -32,7 +37,7 @@ function TabItem({
       <Emoji>{emoji}</Emoji>
       <Title>{title}</Title>
       <CloseIcon
-        onClick={onClose}
+        onClick={handleClose}
         style={{
           width: "1rem",
           height: "1rem",
