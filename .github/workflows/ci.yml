@@ -47,5 +47,8 @@ jobs:
       - name: Lint check
         run: yarn lint
 
+      - name: Tsc check
+        run: yarn tsc
+
       - name: Test check
         run: yarn test
