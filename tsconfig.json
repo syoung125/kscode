@@ -14,7 +14,9 @@
     "isolatedModules": true,
     "noImplicitAny": true,
     "noEmitOnError": true,
+    "strictNullChecks": true,
     "jsx": "preserve",
+    "noImplicitReturns": true,
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"]
