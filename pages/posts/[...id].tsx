@@ -1,12 +1,28 @@
+import { useEffect } from "react";
+
+import { P } from "@src/components/common/atoms";
+
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
-import { P } from "@src/components/common/atoms";
+import { useAppContext } from "@src/common/contexts/app";
 
 export type PostDetailProps = {
   post: Post;
 };
 
 function PostDetail({ post }: PostDetailProps) {
+  const {
+    action: { selectPost },
+  } = useAppContext();
+
+  useEffect(() => {
+    if (!post) {
+      return;
+    }
+    selectPost(post.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [post]);
+
   if (!post) {
     return null;
   }

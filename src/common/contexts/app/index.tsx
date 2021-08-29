@@ -31,7 +31,7 @@ const AppContextProvider = ({
   }, [currentPostPath]);
 
   useEffect(() => {
-    if (openPostPaths.length === 0) {
+    if (openPostPaths.length === 0 && currentPostPath !== null) {
       setCurrentPostPath(null);
       router.push(`/`);
       return;
