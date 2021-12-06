@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "format": "prettier --write **/*.{ts,tsx}",
+    "prettier": "prettier --write **/*.{ts,tsx}",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "tsc": "tsc",
     "test": "jest",
