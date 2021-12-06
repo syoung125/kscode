@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
+            ["@types/node", "npm:16.11.11"],
             ["@types/react", "npm:17.0.8"],
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],
@@ -1724,6 +1725,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-15.6.1-1a0b9c8653-8ed16d4f74.zip/node_modules/@types/node/",
           "packageDependencies": [
             ["@types/node", "npm:15.6.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:16.11.11", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.11-d8efa4328b-1c472bd63f.zip/node_modules/@types/node/",
+          "packageDependencies": [
+            ["@types/node", "npm:16.11.11"]
           ],
           "linkType": "HARD",
         }]
@@ -6481,6 +6489,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["kscode", "workspace:."],
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
+            ["@types/node", "npm:16.11.11"],
             ["@types/react", "npm:17.0.8"],
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],

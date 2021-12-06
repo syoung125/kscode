@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/marked": "^2.0.3",
+    "@types/node": "^16.11.11",
     "@types/react": "17.0.8",
     "@types/styled-components": "^5.1.9",
     "@types/webpack-env": "^1.16.0",
