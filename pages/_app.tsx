@@ -51,8 +51,8 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
   return (
     <>
       <Head>
-        <title>KSCode</title>
-        <meta name="description" content="Ko Seoyoung Coding Blog" />
+        <title>{`KSCode | Seoyoung's Tech Blog`}</title>
+        <meta name="description" content="Ko Seoyoung Tech Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
