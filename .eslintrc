@@ -4,6 +4,7 @@
   "rules": {
     "no-unused-vars": "warn",
     "no-undef": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "import/no-anonymous-default-export":"off"
   }
 }
