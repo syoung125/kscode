@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 
-import { MainLayout } from "@src/components/layouts";
+import { MainLayout } from "@src/components/common/layouts";
 
 import { dark } from "@src/common/colors";
 import { AppContextProvider } from "@src/common/contexts/app";
