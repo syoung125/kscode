@@ -17,6 +17,7 @@
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "@next/env": "^12.0.7",
+    "encoding": "^0.1.13",
     "gray-matter": "^4.0.3",
     "marked": "^2.0.6",
     "next": "^11.0.1",
