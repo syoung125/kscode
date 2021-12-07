@@ -942,6 +942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/env@npm:^12.0.7":
+  version: 12.0.7
+  resolution: "@next/env@npm:12.0.7"
+  checksum: 98258ead3fd384ead612385c89aad4f4bbcb71fdd28a2e8c8abaa7cbdc63070edb849efc859b3d45215aa5c37cb256fb8cb4958708ea2e1f4b3e968102eba93b
+  languageName: node
+  linkType: hard
+
 "@next/eslint-plugin-next@npm:11.0.1":
   version: 11.0.1
   resolution: "@next/eslint-plugin-next@npm:11.0.1"
@@ -5232,6 +5239,7 @@ __metadata:
   resolution: "kscode@workspace:."
   dependencies:
     "@babel/runtime": ^7.16.3
+    "@next/env": ^12.0.7
     "@types/jest": ^27.0.1
     "@types/marked": ^2.0.3
     "@types/node": ^16.11.11

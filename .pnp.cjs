@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@babel/runtime", "npm:7.16.3"],
+            ["@next/env", "npm:12.0.7"],
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
@@ -1399,6 +1400,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@next-env-npm-11.0.1-319a456799-56fc85a19f.zip/node_modules/@next/env/",
           "packageDependencies": [
             ["@next/env", "npm:11.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:12.0.7", {
+          "packageLocation": "./.yarn/cache/@next-env-npm-12.0.7-800cff2a75-98258ead3f.zip/node_modules/@next/env/",
+          "packageDependencies": [
+            ["@next/env", "npm:12.0.7"]
           ],
           "linkType": "HARD",
         }]
@@ -6498,6 +6506,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["kscode", "workspace:."],
             ["@babel/runtime", "npm:7.16.3"],
+            ["@next/env", "npm:12.0.7"],
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
