@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   }
   body {
     font-size: 1rem;
