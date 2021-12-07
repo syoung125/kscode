@@ -1,5 +1,7 @@
+import styled from "styled-components";
+
 import { FileTree } from "@src/components/common/organisms";
-import { Accordion, AccordionDataType } from "@src/components/common/molecules";
+import { AccordionSection } from "@src/components/common/molecules";
 import {
   SingleDepthListItem,
   ListItemHeight,
@@ -8,17 +10,24 @@ import {
 import { useAppContext } from "@src/common/contexts/app";
 import { getFileName } from "@src/common/helpers";
 
-function ExplorerSection() {
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export default function ExplorerSection() {
   const {
     state: { openPostPaths, postPaths, currentPostPath },
     action: { selectPost, closePost },
   } = useAppContext();
 
-  const explorerAccordionData: AccordionDataType[] = [
-    {
-      title: "OPEN POSTS",
-      maxHeight: `calc(${ListItemHeight}* ${openPostPaths.length})`,
-      children: (
+  return (
+    <Wrapper>
+      <AccordionSection
+        title="OPEN POSTS"
+        maxHeight={`calc(${ListItemHeight}* ${openPostPaths.length})`}
+      >
         <ul style={{ whiteSpace: "nowrap" }}>
           {openPostPaths.map((path) => (
             <SingleDepthListItem
@@ -31,22 +40,14 @@ function ExplorerSection() {
             />
           ))}
         </ul>
-      ),
-    },
-    {
-      title: "KSCODE",
-      defaultExpanded: true,
-      children: (
+      </AccordionSection>
+      <AccordionSection title="KSCODE" defaultExpanded>
         <FileTree
           filePaths={postPaths}
           selectedFilePath={currentPostPath}
           onFileClick={selectPost}
         />
-      ),
-    },
-  ];
-
-  return <Accordion items={explorerAccordionData} />;
+      </AccordionSection>
+    </Wrapper>
+  );
 }
-
-export default ExplorerSection;

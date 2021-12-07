@@ -1,5 +1,5 @@
-export * from "./Accordion";
-export { default as Accordion } from "./Accordion";
+export * from "./AccordionSection";
+export { default as AccordionSection } from "./AccordionSection";
 
 export * from "./Tabs";
 export { default as Tabs } from "./Tabs";
