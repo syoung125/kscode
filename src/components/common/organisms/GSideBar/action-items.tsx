@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ElementType, ReactNode } from "react";
 
 import {
   FilesIcon,
@@ -6,16 +6,14 @@ import {
   SourceControlIcon,
   RunAndDebugIcon,
   ExtensionsIcon,
-  AccountIcon,
-  SettingsGearIcon,
 } from "../../icons";
 
 import { ExplorerSection } from "../../../side-bar/sections";
 
 export type ActionItemType = {
   label: string;
-  Icon: React.ElementType;
-  Content?: React.ReactNode;
+  Icon: ElementType;
+  Content?: ReactNode;
   href?: string;
 };
 
@@ -44,15 +42,5 @@ export const ACTION_ITEMS: ActionItemType[] = [
     label: "EXTENSIONS",
     Icon: ExtensionsIcon,
     Content: "EXTENSIONS",
-  },
-  {
-    label: "MY PAGE",
-    Icon: AccountIcon,
-    href: "/my-page",
-  },
-  {
-    label: "SETTING",
-    Icon: SettingsGearIcon,
-    href: "/setting",
   },
 ];

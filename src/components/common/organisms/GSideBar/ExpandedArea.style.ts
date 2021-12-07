@@ -1,15 +1,6 @@
 import styled from "styled-components";
 
-const ActivityBar = styled.nav`
-  min-width: 3rem;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.activityBarBg};
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
- const ExpandedArea = styled.section<{ width: number }>`
+const Wrapper = styled.section<{ width: number }>`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -20,7 +11,7 @@ const ActivityBar = styled.nav`
   background-color: ${({ theme }) => theme.colors.scheme.$gray400};
 `;
 
- const Title = styled.h2`
+const Title = styled.h2`
   height: 2.4rem;
   line-height: 2.4rem;
   font-size: 0.8rem;
@@ -29,11 +20,11 @@ const ActivityBar = styled.nav`
   opacity: 0.6;
 `;
 
- const ContentWrapper = styled.div`
+const ContentWrapper = styled.div`
   height: 100%;
 `;
 
- const DraggableLine = styled.div<{ isVisible: boolean }>`
+const DraggableLine = styled.div<{ isVisible: boolean }>`
   width: 0.2rem;
   height: 100%;
   position: absolute;
@@ -47,11 +38,9 @@ const ActivityBar = styled.nav`
   }
 `;
 
-
 export default {
-    ActivityBar,
-    ExpandedArea,
-    Title,
-    ContentWrapper,
-    DraggableLine
-}
+  Wrapper,
+  Title,
+  ContentWrapper,
+  DraggableLine,
+};

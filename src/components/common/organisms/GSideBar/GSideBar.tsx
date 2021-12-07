@@ -1,66 +1,52 @@
 import React, { useState } from "react";
 
-import { ActionItem } from "../../atoms";
+import { AccountIcon, SettingsGearIcon } from "../../icons";
 
-import { useDrag } from "@src/common/hooks";
+import ActionItem from "./ActionItem";
+import ExpandedArea from "./ExpandedArea";
 
-import { ACTION_ITEMS } from "@src/components/layouts/main-layout";
+import Style from "./GSideBar.style";
 
-import Style from "./GSideBar.styles";
-
-const INITIAL_WIDTH = 240;
-const MIN_WIDTH = 80;
+import { ACTION_ITEMS } from "./action-items";
 
 function GSideBar() {
-  const [currentActionItem, setCurrentActionItem] = useState<number | null>(0);
-
-  const [width, setWidth] = useState(INITIAL_WIDTH);
-  const { isDragging, startDrag } = useDrag((movement) => {
-    const nextWidth = width + movement.x;
-    if (nextWidth <= MIN_WIDTH) {
-      setCurrentActionItem(null);
-      setWidth(INITIAL_WIDTH);
-      return;
-    }
-    setWidth(nextWidth);
-  });
+  const [selectedActionItem, setSelectedActionItem] = useState<number | null>(
+    0
+  );
 
   const handleActionItemClick = (index: number) => () => {
-    setCurrentActionItem(index === currentActionItem ? null : index);
+    setSelectedActionItem(index === selectedActionItem ? null : index);
   };
 
-  const renderUpperActionItems = () =>
-    ACTION_ITEMS.slice(0, 5).map(({ label, Icon }, index) => (
+  const renderActionItems = () =>
+    ACTION_ITEMS.map(({ label, Icon }, index) => (
       <ActionItem
         key={label}
         Icon={Icon}
         onClick={handleActionItemClick(index)}
-        isSelected={index === currentActionItem}
+        isSelected={index === selectedActionItem}
       />
     ));
 
-  const renderLowerActionItems = () =>
-    ACTION_ITEMS.slice(5).map(({ label, Icon }) => (
-      <ActionItem key={label} Icon={Icon} onClick={() => null} />
-    ));
-
-  const isExpanded =
-    currentActionItem !== undefined && currentActionItem !== null;
-  const { label, Content } = ACTION_ITEMS[currentActionItem ?? 0];
+  const { label, Content } = ACTION_ITEMS[selectedActionItem ?? 0];
   return (
-    <>
+    <Style.Wrapper>
       <Style.ActivityBar>
-        <ul>{renderUpperActionItems()}</ul>
-        <ul>{renderLowerActionItems()}</ul>
+        <ul>{renderActionItems()}</ul>
+        <ul>
+          <ActionItem Icon={AccountIcon} onClick={() => null} />
+          <ActionItem Icon={SettingsGearIcon} onClick={() => null} />
+        </ul>
       </Style.ActivityBar>
-      {isExpanded && (
-        <Style.ExpandedArea width={width}>
-          <Style.Title>{label}</Style.Title>
-          <Style.ContentWrapper>{Content}</Style.ContentWrapper>
-          <Style.DraggableLine onMouseDown={startDrag} isVisible={isDragging} />
-        </Style.ExpandedArea>
+      {selectedActionItem != null && (
+        <ExpandedArea
+          title={label}
+          onSelectedActionItemChange={setSelectedActionItem}
+        >
+          {Content}
+        </ExpandedArea>
       )}
-    </>
+    </Style.Wrapper>
   );
 }
 
