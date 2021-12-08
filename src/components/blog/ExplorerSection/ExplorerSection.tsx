@@ -20,6 +20,7 @@ export default function ExplorerSection() {
       <AccordionSection
         title="OPEN POSTS"
         maxHeight={`calc(${OPEN_POST_LIST_ITEM_HEIGHT}* ${openPostPaths.length})`}
+        defaultExpanded
       >
         <OpenPostList
           openPostPaths={openPostPaths}
