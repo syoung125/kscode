@@ -36,6 +36,7 @@ export default function OpenPostListItem({
     >
       <CloseIcon
         style={{
+          minWidth: "1rem",
           width: "1rem",
           height: "1rem",
           visibility: isCloseVisible ? "visible" : "hidden",
