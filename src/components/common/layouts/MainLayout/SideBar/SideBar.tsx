@@ -1,23 +1,23 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 
 import { useDrag } from "@src/common/hooks";
 
-import Style from "./ExpandedArea.style";
+import { ACTION_ITEMS } from "../action-items";
+
+import Style from "./SideBar.style";
 
 const INITIAL_WIDTH = 240;
 const MIN_WIDTH = 80;
 
-export type ExpandedAreaProps = {
-  title: string;
-  children: ReactNode;
+export type SideBarProps = {
+  selectedActionItem: number | null;
   onSelectedActionItemChange: (index: number | null) => void;
 };
 
-export default function ExpandedArea({
-  title,
-  children,
+export default function SideBar({
+  selectedActionItem,
   onSelectedActionItemChange,
-}: ExpandedAreaProps) {
+}: SideBarProps) {
   const [width, setWidth] = useState(INITIAL_WIDTH);
   const { isDragging, startDrag } = useDrag((movement) => {
     const nextWidth = width + movement.x;
@@ -29,10 +29,15 @@ export default function ExpandedArea({
     setWidth(nextWidth);
   });
 
+  if (selectedActionItem == null) {
+    return null;
+  }
+
+  const { label, Content } = ACTION_ITEMS[selectedActionItem ?? 0];
   return (
     <Style.Wrapper width={width}>
-      <Style.Title>{title}</Style.Title>
-      <Style.ContentWrapper>{children}</Style.ContentWrapper>
+      <Style.Title>{label}</Style.Title>
+      <Style.ContentWrapper>{Content}</Style.ContentWrapper>
       <Style.DraggableLine onMouseDown={startDrag} isVisible={isDragging} />
     </Style.Wrapper>
   );

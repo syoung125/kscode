@@ -6,9 +6,9 @@ import {
   SourceControlIcon,
   RunAndDebugIcon,
   ExtensionsIcon,
-} from "../../icons";
+} from "@src/components/common/icons";
 
-import { ExplorerSection } from "../../../side-bar/sections";
+import { ExplorerSection } from "@src/components/side-bar/sections";
 
 export type ActionItemType = {
   label: string;

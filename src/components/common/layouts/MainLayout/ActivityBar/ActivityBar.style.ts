@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const ActivityBar = styled.nav`
+const Wrapper = styled.nav`
   min-width: 3rem;
   background-color: ${({ theme }) => theme.colors.semanticScheme.activityBarBg};
 
@@ -16,5 +11,4 @@ const ActivityBar = styled.nav`
 
 export default {
   Wrapper,
-  ActivityBar,
 };

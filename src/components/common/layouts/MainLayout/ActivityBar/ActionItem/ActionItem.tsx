@@ -1,16 +1,19 @@
-import React from "react";
+import React, { ElementType } from "react";
 import { useTheme } from "styled-components";
-
-import { ActionItemType } from ".";
 
 import Style from "./ActionItem.style";
 
-export type ActionItemProps = Pick<ActionItemType, "Icon"> & {
+export type ActionItemProps = {
   onClick: () => void;
+  Icon: ElementType;
   isSelected?: boolean;
 };
 
-function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
+export default function ActionItem({
+  onClick,
+  Icon,
+  isSelected,
+}: ActionItemProps) {
   const { colors } = useTheme();
 
   return (
@@ -26,5 +29,3 @@ function ActionItem({ onClick, Icon, isSelected }: ActionItemProps) {
     </Style.Wrapper>
   );
 }
-
-export default ActionItem;

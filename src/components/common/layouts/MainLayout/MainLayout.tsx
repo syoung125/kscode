@@ -1,42 +1,40 @@
-import { PropsWithChildren } from "react";
-import styled from "styled-components";
+import { ReactNode, useState } from "react";
 
-import {
-  GHeader,
-  GSideBar,
-  GPostContainer,
-  GFooter,
-} from "@src/components/common/organisms";
+import ActivityBar from "./ActivityBar";
+import SideBar from "./SideBar";
+import OpenPostTabs from "./OpenPostTabs";
 
-export type MainLayoutProps = PropsWithChildren<{}>;
+import Style from "./MainLayout.style";
+
+export type MainLayoutProps = {
+  children: ReactNode;
+};
 
 function MainLayout({ children }: MainLayoutProps) {
+  const [selectedActionItem, setSelectedActionItem] = useState<number | null>(
+    0
+  );
+
   return (
-    <Wrapper>
-      <GHeader />
-      <MainContentsWrapper>
-        <GSideBar />
-        <GPostContainer>{children}</GPostContainer>
-      </MainContentsWrapper>
-      <GFooter />
-    </Wrapper>
+    <Style.Wrapper>
+      <Style.Header />
+      <Style.Row>
+        <ActivityBar
+          selectedActionItem={selectedActionItem}
+          onSelectedActionItemChange={setSelectedActionItem}
+        />
+        <SideBar
+          selectedActionItem={selectedActionItem}
+          onSelectedActionItemChange={setSelectedActionItem}
+        />
+        <Style.Main>
+          <OpenPostTabs />
+          <Style.Article>{children}</Style.Article>
+        </Style.Main>
+      </Style.Row>
+      <Style.Footer />
+    </Style.Wrapper>
   );
 }
 
 export default MainLayout;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  height: 100vh;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
-  color: ${({ theme }) => theme.colors.scheme.$white};
-`;
-
-const MainContentsWrapper = styled.main`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-`;

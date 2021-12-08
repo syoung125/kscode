@@ -1,10 +1,10 @@
 import { MouseEventHandler, useState } from "react";
-import styled from "styled-components";
 
-import { P } from ".";
 import { CloseIcon } from "@src/components/common/icons";
 
-export type TabItemProps = {
+import Style from "./OpenPostTab.style";
+
+export type OpenPostTabProps = {
   emoji?: string;
   title: string;
   isSelected?: boolean;
@@ -12,13 +12,13 @@ export type TabItemProps = {
   onClose?: () => void;
 };
 
-function TabItem({
+export default function OpenPostTab({
   emoji = "📝",
   title,
   isSelected = false,
   onClick = () => null,
   onClose = () => null,
-}: TabItemProps) {
+}: OpenPostTabProps) {
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = isSelected || isHovered;
 
@@ -28,14 +28,14 @@ function TabItem({
   };
 
   return (
-    <Wrapper
+    <Style.Wrapper
       isSelected={isSelected}
       onClick={onClick}
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Emoji>{emoji}</Emoji>
-      <Title>{title}</Title>
+      <Style.Emoji>{emoji}</Style.Emoji>
+      <Style.Title>{title}</Style.Title>
       <CloseIcon
         onClick={handleClose}
         style={{
@@ -44,37 +44,6 @@ function TabItem({
           visibility: isCloseVisible ? "visible" : "hidden",
         }}
       />
-    </Wrapper>
+    </Style.Wrapper>
   );
 }
-
-export default TabItem;
-
-const Wrapper = styled.li<{ isSelected: boolean }>`
-  ${({ isSelected, theme }) => `
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  height: 2.4rem;
-  padding: 0 0.8rem;
-  margin-right: 0.1rem;
-
-  background-color:
-    ${isSelected ? theme.colors.scheme.$gray500 : theme.colors.scheme.$gray300};
-  color: ${theme.colors.scheme.$white};
-  opacity: ${isSelected ? 1 : 0.4};
-`}
-`;
-
-const Emoji = styled(P).attrs({})`
-  margin-right: 0.8rem;
-`;
-
-const Title = styled(P).attrs({
-  ellipsis: true,
-  preWrap: true,
-})`
-  margin-right: 0.8rem;
-  width: 8rem;
-`;
