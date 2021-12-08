@@ -1,12 +1,12 @@
 import { useState } from "react";
-import styled from "styled-components";
 
 import { CloseIcon } from "@src/components/common/icons";
-import P from "../P";
 
-export const ListItemHeight = "2rem";
+import Style from "./OpenPostListItem.style";
 
-export type SingleDepthListItemProps = {
+export const OPEN_POST_LIST_ITEM_HEIGHT = "2rem";
+
+export type OpenPostListItemProps = {
   emoji?: string;
   title: string;
   isSelected?: boolean;
@@ -15,19 +15,20 @@ export type SingleDepthListItemProps = {
   showCloseButton?: boolean;
 };
 
-function SingleDepthListItem({
+export default function OpenPostListItem({
   emoji = "📝",
   title,
   isSelected = false,
   onClick = () => null,
   onClose = () => null,
   showCloseButton = false,
-}: SingleDepthListItemProps) {
+}: OpenPostListItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = showCloseButton && (isSelected || isHovered);
 
   return (
-    <Row
+    <Style.Wrapper
+      height={OPEN_POST_LIST_ITEM_HEIGHT}
       isSelected={isSelected}
       onClick={onClick}
       onMouseOver={() => setIsHovered(true)}
@@ -41,37 +42,8 @@ function SingleDepthListItem({
         }}
         onClick={onClose}
       />
-      <Emoji>{emoji}</Emoji>
-      <Title>{title}</Title>
-    </Row>
+      <Style.Emoji>{emoji}</Style.Emoji>
+      <Style.Title>{title}</Style.Title>
+    </Style.Wrapper>
   );
 }
-
-export default SingleDepthListItem;
-
-const Row = styled.li<{ isSelected: boolean }>`
-  ${({ isSelected, theme }) => `
-display: flex;
-  flex-direction: Row;
-  align-items: center;
-
-  height: ${ListItemHeight};
-  padding-left: 2rem;
-
-  ${
-    isSelected
-      ? `background-color: ${theme.colors.scheme.$gray100};`
-      : `&:hover { 
-            background-color: ${theme.colors.scheme.$gray200};
-         }`
-  }
-`}
-`;
-
-const Emoji = styled(P)`
-  padding-left: 0.4rem;
-`;
-
-const Title = styled(P)`
-  padding-left: 0.4rem;
-`;
