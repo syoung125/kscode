@@ -4,12 +4,12 @@ import { P } from "@src/components/common/atoms";
 
 const Wrapper = styled.li<{ isSelected: boolean; height: string }>`
   ${({ height, isSelected, theme }) => `
-display: flex;
+  display: flex;
   flex-direction: Row;
   align-items: center;
 
   height: ${height};
-  padding-left: 2rem;
+  padding-left: 1.2rem;
 
   ${
     isSelected
