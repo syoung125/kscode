@@ -9,12 +9,13 @@ export type IconProps = {
 /**
  * Activity Bar Icons
  */
-export { default as FilesIcon } from "./files";
-export { default as SearchIcon } from "./search";
-export { default as SourceControlIcon } from "./source-control";
-export { default as RunAndDebugIcon } from "./run-n-debug";
-export { default as ExtensionsIcon } from "./extensions";
-export { default as AccountIcon } from "./account";
-export { default as SettingsGearIcon } from "./settings-gear";
-export { default as CloseIcon } from "./close";
 export * from "./chevron";
+export { default as AccountIcon } from "./account";
+export { default as CloseIcon } from "./close";
+export { default as EllipsisIcon } from "./ellipsis";
+export { default as ExtensionsIcon } from "./extensions";
+export { default as FilesIcon } from "./files";
+export { default as RunAndDebugIcon } from "./run-n-debug";
+export { default as SearchIcon } from "./search";
+export { default as SettingsGearIcon } from "./settings-gear";
+export { default as SourceControlIcon } from "./source-control";
