@@ -22,22 +22,9 @@ const AppContextProvider = ({
   const [currentPostPath, setCurrentPostPath] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!currentPostPath) {
-      return;
-    }
-
-    router.push(`/posts/${currentPostPath}`);
+    router.push(currentPostPath != null ? `/posts/${currentPostPath}` : "/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPostPath]);
-
-  useEffect(() => {
-    if (openPostPaths.length === 0 && currentPostPath !== null) {
-      setCurrentPostPath(null);
-      router.push(`/`);
-      return;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [openPostPaths.length]);
 
   const selectPost = (path: string) => {
     setCurrentPostPath(path);
@@ -52,9 +39,13 @@ const AppContextProvider = ({
     const newOpenPostPaths = openPostPaths.filter((_path) => _path !== path);
     setOpenPostPaths(newOpenPostPaths);
 
-    if (path === currentPostPath && newOpenPostPaths.length !== 0) {
-      const nextCurrPostPath = newOpenPostPaths[newOpenPostPaths.length - 1];
-      selectPost(nextCurrPostPath);
+    if (newOpenPostPaths.length === 0) {
+      setCurrentPostPath(null);
+      return;
+    }
+
+    if (path === currentPostPath) {
+      setCurrentPostPath(newOpenPostPaths[newOpenPostPaths.length - 1]);
     }
   };
 

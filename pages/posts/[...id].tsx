@@ -16,12 +16,9 @@ function PostDetail({ post }: PostDetailProps) {
   } = useAppContext();
 
   useEffect(() => {
-    if (!post) {
-      return;
-    }
-    selectPost(post.id);
+    selectPost(post?.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [post]);
+  }, []);
 
   if (!post) {
     return null;
