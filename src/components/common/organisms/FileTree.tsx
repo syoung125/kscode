@@ -40,5 +40,5 @@ export default FileTree;
 
 const StyledDiv = styled.div`
   margin-left: 0.6rem;
-  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray100}`};
+  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray200}`};
 `;

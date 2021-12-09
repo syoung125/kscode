@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { BLUE, GRAY_300 } from "@src/common/constants/palette";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,7 +17,7 @@ const Header = styled.header`
   align-items: center;
 
   min-height: 1.6rem;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.headerBg};
+  background-color: ${GRAY_300};
 `;
 
 const Row = styled.div`
@@ -42,7 +44,7 @@ const Footer = styled.footer`
   align-items: center;
 
   min-height: 1.6rem;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.footerBg};
+  background-color: ${BLUE};
 `;
 
 export default {

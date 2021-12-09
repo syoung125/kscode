@@ -74,13 +74,13 @@ const Row = styled.div<Pick<FileTreeItemProps, "isSelected">>`
 
   ${({ isSelected, theme }) =>
     isSelected
-      ? `background-color: ${theme.colors.scheme.$gray100};`
+      ? `background-color: ${theme.colors.scheme.$gray200};`
       : `&:hover { 
-            background-color: ${theme.colors.scheme.$gray200};
+            background-color: ${theme.colors.scheme.$gray300};
          }`}
 `;
 
 const StyledDiv = styled.div`
   margin-left: 0.6rem;
-  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray100}`};
+  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray200}`};
 `;

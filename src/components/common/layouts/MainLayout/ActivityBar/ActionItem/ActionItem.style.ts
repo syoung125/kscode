@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { WHITE } from "@src/common/constants/palette";
+
 const Wrapper = styled.li<{ isSelected?: boolean }>`
   display: flex;
   justify-content: center;
@@ -7,10 +9,8 @@ const Wrapper = styled.li<{ isSelected?: boolean }>`
 
   height: 3rem;
   margin-bottom: 0.4rem;
-  ${({ isSelected, theme }) =>
-    `border-left: 0.16rem solid ${
-      isSelected ? theme.colors.scheme.$white : "transparent"
-    }`};
+  ${({ isSelected }) =>
+    `border-left: 0.16rem solid ${isSelected ? WHITE : "transparent"}`};
 `;
 
 export default {

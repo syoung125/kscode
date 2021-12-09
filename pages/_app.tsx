@@ -5,7 +5,7 @@ import reset from "styled-reset";
 
 import { MainLayout } from "@src/components/common/layouts";
 
-import { dark } from "@src/common/colors";
+import { dark } from "@src/common/themes";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
 

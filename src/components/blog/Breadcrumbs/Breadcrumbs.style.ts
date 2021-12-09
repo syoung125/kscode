@@ -12,12 +12,11 @@ const Path = styled(P)`
   width: 60%;
 
   font-weight: 300;
+  color: ${({ theme }) => theme.colors.scheme.$gray100};
 
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-
-  opacity: 0.6;
 `;
 
 export default {

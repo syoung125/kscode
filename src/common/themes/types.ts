@@ -1,4 +1,4 @@
-const globalColorGroupNames = ["white", "gray", "blue"] as const;
+const globalColorGroupNames = ["white", "gray"] as const;
 export type GlobalColorGroup = typeof globalColorGroupNames[number];
 export function isGlobalColorGroup(str: string): str is GlobalColorGroup {
   return globalColorGroupNames.includes(str as GlobalColorGroup);
@@ -10,20 +10,13 @@ type MakeTokenSet<
 > = `$${TGroup}${TLightness[number]}`;
 export type ColorToken =
   | "$white"
-  | MakeTokenSet<"gray", [100, 200, 300, 400, 500]>
-  | "$blue";
+  | MakeTokenSet<"gray", [100, 200, 300, 400, 500, 600]>;
 
 export type ColorScheme = Record<ColorToken, string>;
 
-export type SemanticColorScheme = {
-  headerBg: ColorToken | string;
-  activityBarBg: ColorToken | string;
-  sideBarBg: ColorToken | string;
-  mainBg: ColorToken | string;
-  footerBg: ColorToken | string;
-};
+export type SemanticColorKey = "sideBarBg" | "mainBg";
 
-export type SemanticColorKey = keyof SemanticColorScheme;
+export type SemanticColorScheme = Record<SemanticColorKey, string>;
 
 export type ColorTheme = {
   /**
@@ -32,7 +25,7 @@ export type ColorTheme = {
   scheme: ColorScheme;
 
   /**
-   * Sematic color object (isn't eagerly populated)
+   * Sematic color object
    */
   semanticScheme: SemanticColorScheme;
 };

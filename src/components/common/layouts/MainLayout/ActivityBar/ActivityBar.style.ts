@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+import { GRAY_400 } from "@src/common/constants/palette";
+
 const Wrapper = styled.nav`
   min-width: 3rem;
-  background-color: ${({ theme }) => theme.colors.semanticScheme.activityBarBg};
+  background-color: ${GRAY_400};
 
   display: flex;
   flex-direction: column;

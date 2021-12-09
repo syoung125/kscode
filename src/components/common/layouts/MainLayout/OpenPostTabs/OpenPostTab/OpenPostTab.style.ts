@@ -13,9 +13,10 @@ const Wrapper = styled.li<{ isSelected: boolean }>`
   margin-right: 0.1rem;
 
   background-color:
-    ${isSelected ? theme.colors.scheme.$gray500 : theme.colors.scheme.$gray300};
-  color: ${theme.colors.scheme.$white};
-  opacity: ${isSelected ? 1 : 0.4};
+    ${isSelected ? theme.colors.scheme.$gray600 : theme.colors.scheme.$gray400};
+  color: ${
+    isSelected ? theme.colors.scheme.$white : theme.colors.scheme.$gray100
+  };
 `}
 `;
 

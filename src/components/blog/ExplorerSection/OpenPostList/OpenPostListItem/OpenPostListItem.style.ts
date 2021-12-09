@@ -13,9 +13,9 @@ const Wrapper = styled.li<{ isSelected: boolean; height: string }>`
 
   ${
     isSelected
-      ? `background-color: ${theme.colors.scheme.$gray100};`
+      ? `background-color: ${theme.colors.scheme.$gray200};`
       : `&:hover { 
-            background-color: ${theme.colors.scheme.$gray200};
+            background-color: ${theme.colors.scheme.$gray300};
          }`
   }
 `}

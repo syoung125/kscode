@@ -1,5 +1,6 @@
 import React, { ElementType } from "react";
-import { useTheme } from "styled-components";
+
+import { GRAY_100, WHITE } from "@src/common/constants/palette";
 
 import Style from "./ActionItem.style";
 
@@ -14,17 +15,11 @@ export default function ActionItem({
   Icon,
   isSelected,
 }: ActionItemProps) {
-  const { colors } = useTheme();
-
   return (
     <Style.Wrapper onClick={onClick} isSelected={isSelected}>
       <Icon
-        style={{
-          width: "1.4rem",
-          heigth: "1.4rem",
-          opacity: isSelected ? 1 : 0.4,
-        }}
-        fill={colors.scheme.$white}
+        style={{ width: "1.4rem", heigth: "1.4rem" }}
+        fill={isSelected ? WHITE : GRAY_100}
       />
     </Style.Wrapper>
   );
