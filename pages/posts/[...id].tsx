@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { P } from "@src/components/common/atoms";
+import { Breadcrumbs } from "@src/components/blog";
 
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
@@ -34,8 +35,6 @@ function PostDetail({ post }: PostDetailProps) {
 
   return (
     <>
-      <P>{id}</P>
-      <br />
       <P size="large">
         {title}
         <P size="small">({date})</P>

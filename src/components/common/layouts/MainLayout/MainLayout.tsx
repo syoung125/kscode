@@ -1,5 +1,9 @@
 import { ReactNode, useState } from "react";
 
+import { Breadcrumbs } from "@src/components/blog";
+
+import { useAppContext } from "@src/common/contexts/app";
+
 import ActivityBar from "./ActivityBar";
 import SideBar from "./SideBar";
 import OpenPostTabs from "./OpenPostTabs";
@@ -11,6 +15,10 @@ export type MainLayoutProps = {
 };
 
 function MainLayout({ children }: MainLayoutProps) {
+  const {
+    state: { currentPostPath },
+  } = useAppContext();
+
   const [selectedActionItem, setSelectedActionItem] = useState<number | null>(
     0
   );
@@ -29,6 +37,7 @@ function MainLayout({ children }: MainLayoutProps) {
         />
         <Style.Main>
           <OpenPostTabs />
+          <Breadcrumbs path={currentPostPath ?? ""} />
           <Style.Article>{children}</Style.Article>
         </Style.Main>
       </Style.Row>
