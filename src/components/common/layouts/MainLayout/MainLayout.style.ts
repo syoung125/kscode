@@ -33,7 +33,7 @@ const Main = styled.main`
 `;
 
 const Article = styled.article`
-  padding: 1.6rem;
+  padding: 0.4rem 1.6rem;
 `;
 
 const Footer = styled.footer`
