@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import FileTreeItem from "./FileTreeItem";
 
-import { FileTreeItem } from "../molecules";
+import { isFolder, TreeItem, TreeView } from "./classes";
 
-import { isFolder, TreeItem, TreeView } from "@src/common/classes";
+import Style from "./FileTree.style";
 
 export type FileTreeProps = {
   filePaths: string[];
@@ -10,7 +10,11 @@ export type FileTreeProps = {
   onFileClick: (path: string) => void;
 };
 
-function FileTree({ filePaths, selectedFilePath, onFileClick }: FileTreeProps) {
+export default function FileTree({
+  filePaths,
+  selectedFilePath,
+  onFileClick,
+}: FileTreeProps) {
   const root = new TreeView(filePaths).root;
 
   const renderChildren = (children: TreeItem[]) =>
@@ -33,12 +37,5 @@ function FileTree({ filePaths, selectedFilePath, onFileClick }: FileTreeProps) {
       );
     });
 
-  return <StyledDiv>{renderChildren(root.children)}</StyledDiv>;
+  return <Style.Wrapper>{renderChildren(root.children)}</Style.Wrapper>;
 }
-
-export default FileTree;
-
-const StyledDiv = styled.div`
-  margin-left: 0.6rem;
-  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray200}`};
-`;

@@ -1,4 +1,4 @@
-import { Folder, File, TreeItem, TreeView } from "../../../src/common/classes";
+import { Folder, File, TreeItem, TreeView } from ".";
 
 describe("TreeView", () => {
   it("createTree", () => {

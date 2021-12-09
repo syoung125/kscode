@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-appearance: none;
     -webkit-border-radius: 0;
   }
-  ul {
+  ul, li {
     margin: 0;
     padding: 0;
     list-style-type: none; 
