@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 
 import { CloseIcon } from "@src/components/common/icons";
 
@@ -26,6 +26,12 @@ export default function OpenPostListItem({
   const [isHovered, setIsHovered] = useState(false);
   const isCloseVisible = showCloseButton && (isSelected || isHovered);
 
+  const handleCloseClick = (e: MouseEvent<SVGSVGElement>) => {
+    e.stopPropagation();
+
+    onClose();
+  };
+
   return (
     <Style.Wrapper
       height={OPEN_POST_LIST_ITEM_HEIGHT}
@@ -41,7 +47,7 @@ export default function OpenPostListItem({
           height: "1rem",
           visibility: isCloseVisible ? "visible" : "hidden",
         }}
-        onClick={onClose}
+        onClick={handleCloseClick}
       />
       <Style.Emoji>{emoji}</Style.Emoji>
       <Style.Title>{title}</Style.Title>
