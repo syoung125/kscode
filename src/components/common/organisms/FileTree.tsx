@@ -6,7 +6,7 @@ import { isFolder, TreeItem, TreeView } from "@src/common/classes";
 
 export type FileTreeProps = {
   filePaths: string[];
-  selectedFilePath: string | null;
+  selectedFilePath?: string | null;
   onFileClick: (path: string) => void;
 };
 

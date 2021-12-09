@@ -19,10 +19,13 @@ const AppContextProvider = ({
   const router = useRouter();
 
   const [openPostPaths, setOpenPostPaths] = useState<string[]>([]);
-  const [currentPostPath, setCurrentPostPath] = useState<string | null>(null);
+  const [currentPostPath, setCurrentPostPath] = useState<string | null>();
 
   useEffect(() => {
-    router.push(currentPostPath != null ? `/posts/${currentPostPath}` : "/");
+    if (currentPostPath === undefined) {
+      return;
+    }
+    router.push(currentPostPath ? `/posts/${currentPostPath}` : "/");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPostPath]);
 

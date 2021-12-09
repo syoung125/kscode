@@ -4,7 +4,7 @@ import OpenPostListItem from "./OpenPostListItem";
 
 export type OpenPostListProps = {
   openPostPaths: string[];
-  currentPostPath: string | null;
+  currentPostPath?: string | null;
   selectPost: (path: string) => void;
   closePost: (path: string) => void;
 };
