@@ -1,7 +1,6 @@
 import { PropsWithChildren, useState, ElementType } from "react";
 import styled from "styled-components";
 
-import { P } from "../atoms";
 import {
   ChevronDownIcon,
   ChevronRightIcon,
@@ -26,6 +25,7 @@ function FileTreeItem({
   if (!children) {
     return (
       <Row isSelected={isSelected} onClick={onClick}>
+        <div style={{ width: "1rem", height: "1rem" }} />
         <Title>📝 {title}</Title>
       </Row>
     );
@@ -35,16 +35,14 @@ function FileTreeItem({
     setIsExpanded(!isExpanded);
   };
 
-  const [ChevronIcon, emoji]: [ElementType, string] = isExpanded
-    ? [ChevronDownIcon, "📂"]
-    : [ChevronRightIcon, "📁"];
+  const ChevronIcon: ElementType = isExpanded
+    ? ChevronDownIcon
+    : ChevronRightIcon;
   return (
     <Wrapper>
       <Row onClick={toggleExpand}>
         <ChevronIcon style={{ width: "1rem", height: "1rem" }} />
-        <Title>
-          {emoji} {title}
-        </Title>
+        <Title>📂 {title}</Title>
       </Row>
       {isExpanded && <StyledDiv>{children}</StyledDiv>}
     </Wrapper>
@@ -58,11 +56,15 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled(P).attrs({
-  size: "small",
-  weight: "bold",
-})`
-  padding-left: 0.4rem;
+const Title = styled.span`
+  padding: 0 0.4rem;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Row = styled.div<Pick<FileTreeItemProps, "isSelected">>`

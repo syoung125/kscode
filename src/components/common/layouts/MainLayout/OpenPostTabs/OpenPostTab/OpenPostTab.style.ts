@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { P } from "@src/components/common/atoms";
-
 const Wrapper = styled.li<{ isSelected: boolean }>`
   ${({ isSelected, theme }) => `
   display: flex;
@@ -20,20 +18,15 @@ const Wrapper = styled.li<{ isSelected: boolean }>`
 `}
 `;
 
-const Emoji = styled(P).attrs({})`
-  margin-right: 0.8rem;
-`;
-
-const Title = styled(P).attrs({
-  ellipsis: true,
-  preWrap: true,
-})`
-  margin-right: 0.8rem;
+const Title = styled.p`
   width: 8rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export default {
   Wrapper,
-  Emoji,
   Title,
 };

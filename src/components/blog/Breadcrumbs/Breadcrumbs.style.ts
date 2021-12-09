@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-import { P } from "@src/components/common/atoms";
-
 const Wrapper = styled.div`
   width: 100%;
 
   padding: 0.6rem 1.6rem;
 `;
 
-const Path = styled(P)`
+const Path = styled.p`
   width: 60%;
 
   font-weight: 300;

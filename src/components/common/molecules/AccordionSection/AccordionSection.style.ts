@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import P from "../../atoms/P";
-
 import { AccordionSectionProps } from "./AccordionSection";
 
 const Header = styled.div<Pick<AccordionSectionProps, "hasLine">>`
@@ -14,10 +12,10 @@ const Header = styled.div<Pick<AccordionSectionProps, "hasLine">>`
     hasLine && "border-top:1px solid rgba(204, 204, 204, 0.2);"}
 `;
 
-const Title = styled(P).attrs({
-  size: "small",
-  weight: "bold",
-})`
+const Title = styled.b`
+  font-size: 0.8rem;
+  font-weight: 700;
+
   padding-left: 0.4rem;
 `;
 

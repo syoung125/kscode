@@ -49,8 +49,9 @@ export default function OpenPostListItem({
         }}
         onClick={handleCloseClick}
       />
-      <Style.Emoji>{emoji}</Style.Emoji>
-      <Style.Title>{title}</Style.Title>
+      <Style.Title>
+        {emoji} {title}
+      </Style.Title>
     </Style.Wrapper>
   );
 }

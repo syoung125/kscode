@@ -34,8 +34,9 @@ export default function OpenPostTab({
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Style.Emoji>{emoji}</Style.Emoji>
-      <Style.Title>{title}</Style.Title>
+      <Style.Title>
+        {emoji} {title}
+      </Style.Title>
       <CloseIcon
         onClick={handleClose}
         style={{

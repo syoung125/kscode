@@ -1,8 +1,5 @@
 import { useEffect } from "react";
 
-import { P } from "@src/components/common/atoms";
-import { Breadcrumbs } from "@src/components/blog";
-
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
 import { useAppContext } from "@src/common/contexts/app";
@@ -26,7 +23,6 @@ function PostDetail({ post }: PostDetailProps) {
   }
 
   const {
-    id,
     content: {
       meta: { title, date },
       markdown,
@@ -35,10 +31,9 @@ function PostDetail({ post }: PostDetailProps) {
 
   return (
     <>
-      <P size="large">
-        {title}
-        <P size="small">({date})</P>
-      </P>
+      <h1>
+        {title} ({date})
+      </h1>
       <br />
       <div dangerouslySetInnerHTML={{ __html: markdown }} />
     </>
