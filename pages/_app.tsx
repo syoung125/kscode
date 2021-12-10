@@ -3,8 +3,6 @@ import type { AppProps } from "next/app";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 
-import { MainLayout } from "@src/components/common/layouts";
-
 import { dark } from "@src/common/themes";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
@@ -58,9 +56,7 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
       <GlobalStyle />
       <ThemeProvider theme={{ colors: dark }}>
         <AppContextProvider postPaths={postPaths}>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
+          <Component {...pageProps} />
         </AppContextProvider>
       </ThemeProvider>
     </>

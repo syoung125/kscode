@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 
+import { MainLayout } from "@src/components/common/layouts";
+import { OpenPostTabs, Breadcrumbs, PostTemplate } from "@src/components/blog";
+
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
 import { useAppContext } from "@src/common/contexts/app";
 
-export type PostDetailProps = {
+export type PostDetailPageProps = {
   post: Post;
 };
 
-function PostDetail({ post }: PostDetailProps) {
+export default function PostDetailPage({ post }: PostDetailPageProps) {
   const {
     action: { selectPost },
   } = useAppContext();
@@ -22,25 +25,14 @@ function PostDetail({ post }: PostDetailProps) {
     return null;
   }
 
-  const {
-    content: {
-      meta: { title, date },
-      markdown,
-    },
-  } = post;
-
   return (
-    <>
-      <h1>
-        {title} ({date})
-      </h1>
-      <br />
-      <div dangerouslySetInnerHTML={{ __html: markdown }} />
-    </>
+    <MainLayout>
+      <OpenPostTabs />
+      <Breadcrumbs path={post.id} />
+      <PostTemplate post={post} />
+    </MainLayout>
   );
 }
-
-export default PostDetail;
 
 export async function getStaticPaths() {
   const paths = await PostService.getPostPaths();

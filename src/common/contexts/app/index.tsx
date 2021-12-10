@@ -25,7 +25,7 @@ const AppContextProvider = ({
     if (currentPostPath === undefined) {
       return;
     }
-    router.push(currentPostPath ? `/blog/${currentPostPath}` : "/");
+    router.push(currentPostPath ? `/blog/${currentPostPath}` : "/blog");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPostPath]);
 

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100%;
+  display: flex;
+  align-items: center;
 
-  padding: 0.6rem 1.6rem;
+  width: 100%;
+  min-height: 2rem;
+
+  padding: 0 1.6rem;
 `;
 
 const Path = styled.p`
