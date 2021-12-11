@@ -1,16 +1,13 @@
+import { useThemeContext } from "@src/common/contexts/theme";
+
 import Style from "./ThemeSwitcher.style";
 
-export type ThemeType = "light" | "dark";
+export default function ThemeSwitcher() {
+  const {
+    state: { theme },
+    action: { toggleTheme },
+  } = useThemeContext();
 
-export type ThemeSwitcherProps = {
-  theme: ThemeType;
-  toggleTheme: () => void;
-};
-
-export default function ThemeSwitcher({
-  theme,
-  toggleTheme,
-}: ThemeSwitcherProps) {
   return (
     <Style.Wrapper onClick={toggleTheme}>
       <span>🌝</span>

@@ -1,9 +1,8 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "@src/common/styles/global.style";
-import { dark } from "@src/common/themes";
+import { ThemeContextProvider } from "@src/common/contexts/theme";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
 
@@ -20,11 +19,11 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={{ colors: dark }}>
+      <ThemeContextProvider defaultTheme="dark">
         <AppContextProvider postPaths={postPaths}>
           <Component {...pageProps} />
         </AppContextProvider>
-      </ThemeProvider>
+      </ThemeContextProvider>
     </>
   );
 }
