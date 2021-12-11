@@ -12,6 +12,7 @@ type AppContextProviderProps = {
   postPaths: string[];
 };
 
+// @TODO : refactor, store 라이브러리로 관리
 const AppContextProvider = ({
   children,
   postPaths,
