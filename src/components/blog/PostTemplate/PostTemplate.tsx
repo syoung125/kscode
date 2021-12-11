@@ -10,7 +10,7 @@ export default function PostTemplate({ post }: PostTemplateProps) {
   const {
     content: {
       meta: { title, date },
-      markdown: html,
+      html,
     },
   } = post;
 

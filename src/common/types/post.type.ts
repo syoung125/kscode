@@ -4,7 +4,7 @@ export type PostMeta = Record<PostMetaType, string>;
 
 export type PostContent = {
   meta: PostMeta;
-  markdown: string;
+  html: string;
 };
 
 export type Post = {

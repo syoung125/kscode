@@ -18,13 +18,13 @@ const getPostPaths = async () => {
 const getPost = async (id: string): Promise<Post> => {
   const fileContent = await import(`@src/contents/blog/${id}`);
   const meta = matter(fileContent.default);
-  const markdown = marked(meta.content);
+  const html = marked(meta.content);
 
   return {
     id,
     content: {
       meta: meta.data as PostMeta,
-      markdown,
+      html,
     },
   };
 };
