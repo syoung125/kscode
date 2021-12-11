@@ -1,4 +1,5 @@
 import { AccountIcon, SettingsGearIcon } from "@src/components/common/icons";
+import { ThemeSwitcher } from "@src/components/common/molecules";
 
 import { ACTION_ITEMS } from "../action-items";
 
@@ -32,11 +33,12 @@ export default function ActivityBar({
 
   return (
     <Style.Wrapper>
-      <ul>{renderActionItems()}</ul>
-      <ul>
+      <Style.Ul>{renderActionItems()}</Style.Ul>
+      <Style.Ul>
+        <ThemeSwitcher />
         <ActionItem Icon={AccountIcon} onClick={() => null} />
         <ActionItem Icon={SettingsGearIcon} onClick={() => null} />
-      </ul>
+      </Style.Ul>
     </Style.Wrapper>
   );
 }

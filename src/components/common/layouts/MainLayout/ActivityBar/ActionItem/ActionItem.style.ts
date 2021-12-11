@@ -7,8 +7,8 @@ const Wrapper = styled.li<{ isSelected?: boolean }>`
   justify-content: center;
   align-items: center;
 
+  width: 3rem;
   height: 3rem;
-  margin-bottom: 0.4rem;
   ${({ isSelected }) =>
     `border-left: 0.16rem solid ${isSelected ? WHITE : "transparent"}`};
 `;
