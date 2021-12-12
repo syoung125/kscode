@@ -26,7 +26,7 @@ export default function PostTemplate({ post }: PostTemplateProps) {
           </Style.Row>
         </Style.Header>
         <Style.PostContents
-          className="post-contents"
+          className="postContents"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </Style.Article>

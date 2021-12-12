@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { postContentsStyles } from "./PostContents.style";
+
 const Wrapper = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
@@ -63,6 +65,8 @@ const Date = styled.p`
 
 const PostContents = styled.div`
   margin-top: 2rem;
+
+  ${postContentsStyles}
 `;
 
 export default {

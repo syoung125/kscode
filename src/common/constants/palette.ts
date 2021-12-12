@@ -2,6 +2,7 @@ export const WHITE = "#FFF";
 export const BLACK = "#000";
 
 export const BLUE = "#007fd4";
+export const PINK = "#ff56ac";
 
 export const GRAY_100 = "#7a7a7a";
 export const GRAY_200 = "#505050";
