@@ -1,2 +1,2 @@
 export * from "./markdown.helper";
-export * from "./path-.helpers";
+export * from "./path.helpers";
