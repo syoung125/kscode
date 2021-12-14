@@ -1,4 +1,4 @@
-import { AccordionSection } from "@src/components/common/molecules";
+import { AccordionSection } from "@src/components/blog";
 
 import { useAppContext } from "@src/common/contexts/app";
 
