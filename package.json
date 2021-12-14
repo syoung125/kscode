@@ -12,7 +12,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy":"rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add -f out/ && git checkout -b temp-for-deploy-gh-pages && git commit -m \"Deploy Next.js to gh-pages\" && git subtree split --prefix out -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages && git checkout main && git branch -D temp-for-deploy-gh-pages"
+    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add -f out/ && git checkout -b temp-for-deploy-gh-pages && git commit -m \"Deploy Next.js to gh-pages\" && git subtree split --prefix out -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages && git checkout main && git branch -D temp-for-deploy-gh-pages"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.3",
@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.3",
     "marked": "^2.0.6",
     "next": "^11.0.1",
+    "prismjs": "^1.25.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-is": "^17.0.2",
@@ -32,6 +33,7 @@
     "@types/jest": "^27.0.1",
     "@types/marked": "^2.0.3",
     "@types/node": "^16.11.11",
+    "@types/prismjs": "^1.16.6",
     "@types/react": "17.0.8",
     "@types/styled-components": "^5.1.9",
     "@types/webpack-env": "^1.16.0",

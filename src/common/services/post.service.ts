@@ -1,5 +1,6 @@
 import matter from "gray-matter";
-import marked from "marked";
+
+import { parseMarkdown } from "../helpers";
 
 import { PostMeta, Post } from "../types/post.type";
 
@@ -18,7 +19,7 @@ const getPostPaths = async () => {
 const getPost = async (id: string): Promise<Post> => {
   const fileContent = await import(`@src/contents/blog/${id}`);
   const meta = matter(fileContent.default);
-  const html = marked(meta.content);
+  const html = parseMarkdown(meta.content);
 
   return {
     id,

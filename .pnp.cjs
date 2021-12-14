@@ -40,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
+            ["@types/prismjs", "npm:1.16.6"],
             ["@types/react", "npm:17.0.8"],
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],
@@ -55,6 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["marked", "npm:2.0.6"],
             ["next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:11.0.1"],
             ["prettier", "npm:2.3.2"],
+            ["prismjs", "npm:1.25.0"],
             ["raw-loader", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:4.0.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:17.0.2"],
@@ -1760,6 +1762,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-prettier-npm-2.3.2-377cc404e1-c4313e1665.zip/node_modules/@types/prettier/",
           "packageDependencies": [
             ["@types/prettier", "npm:2.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/prismjs", [
+        ["npm:1.16.6", {
+          "packageLocation": "./.yarn/cache/@types-prismjs-npm-1.16.6-607ce26945-fcb489d19d.zip/node_modules/@types/prismjs/",
+          "packageDependencies": [
+            ["@types/prismjs", "npm:1.16.6"]
           ],
           "linkType": "HARD",
         }]
@@ -6511,6 +6522,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
+            ["@types/prismjs", "npm:1.16.6"],
             ["@types/react", "npm:17.0.8"],
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],
@@ -6526,6 +6538,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["marked", "npm:2.0.6"],
             ["next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:11.0.1"],
             ["prettier", "npm:2.3.2"],
+            ["prismjs", "npm:1.25.0"],
             ["raw-loader", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:4.0.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:17.0.2"],
@@ -7853,6 +7866,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ansi-regex", "npm:5.0.0"],
             ["ansi-styles", "npm:5.2.0"],
             ["react-is", "npm:17.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["prismjs", [
+        ["npm:1.25.0", {
+          "packageLocation": "./.yarn/cache/prismjs-npm-1.25.0-8d60169ac0-04d8eae9d1.zip/node_modules/prismjs/",
+          "packageDependencies": [
+            ["prismjs", "npm:1.25.0"]
           ],
           "linkType": "HARD",
         }]

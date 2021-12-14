@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { BLUE, PINK } from "@src/common/constants/palette";
+import { BLUE, GRAY_400, PINK } from "@src/common/constants/palette";
 
 export const postContentsStyles = css`
   line-height: 1.7;
@@ -100,7 +100,9 @@ export const postContentsStyles = css`
     color: ${PINK};
   }
 
-  pre {
+  pre[class*="language-"] {
+    background-color: ${GRAY_400};
+
     margin: 1rem 0;
     border-radius: 0.8rem;
 

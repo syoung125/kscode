@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import prismjs from "prismjs";
+import "prismjs/themes/prism-tomorrow.css";
+
 import { Post } from "@src/common/types/post.type";
 
 import Style from "./PostTemplate.style";
@@ -13,6 +17,10 @@ export default function PostTemplate({ post }: PostTemplateProps) {
       html,
     },
   } = post;
+
+  useEffect(() => {
+    prismjs.highlightAll();
+  }, []);
 
   return (
     <Style.Wrapper>
