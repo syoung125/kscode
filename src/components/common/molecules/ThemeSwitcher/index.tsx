@@ -1,6 +1,6 @@
 import { useThemeContext } from "@src/common/contexts/theme";
 
-import Style from "./ThemeSwitcher.style";
+import Style from "./index.style";
 
 export default function ThemeSwitcher() {
   const {

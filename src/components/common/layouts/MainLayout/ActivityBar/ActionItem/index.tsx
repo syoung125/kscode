@@ -2,7 +2,7 @@ import React, { ElementType } from "react";
 
 import { GRAY_100, WHITE } from "@src/common/constants/palette";
 
-import Style from "./ActionItem.style";
+import Style from "./index.style";
 
 export type ActionItemProps = {
   onClick: () => void;

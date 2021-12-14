@@ -3,7 +3,7 @@ import { ReactNode, useState } from "react";
 import ActivityBar from "./ActivityBar";
 import SideBar from "./SideBar";
 
-import Style from "./MainLayout.style";
+import Style from "./index.style";
 
 export type MainLayoutProps = {
   children: ReactNode;

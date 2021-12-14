@@ -5,7 +5,7 @@ import { ACTION_ITEMS } from "../action-items";
 
 import ActionItem from "./ActionItem";
 
-import Style from "./ActivityBar.style";
+import Style from "./index.style";
 
 export type ActivityBarProps = {
   selectedActionItem: number | null;

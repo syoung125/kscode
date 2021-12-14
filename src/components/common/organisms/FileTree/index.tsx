@@ -2,7 +2,7 @@ import FileTreeItem from "./FileTreeItem";
 
 import { isFolder, TreeItem, TreeView } from "./classes";
 
-import Style from "./FileTree.style";
+import Style from "./index.style";
 
 export type FileTreeProps = {
   filePaths: string[];

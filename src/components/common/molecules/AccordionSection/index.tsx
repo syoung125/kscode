@@ -5,7 +5,7 @@ import {
   ChevronRightIcon,
 } from "@src/components/common/icons";
 
-import Style from "./AccordionSection.style";
+import Style from "./index.style";
 
 export type AccordionSectionProps = {
   title: string;

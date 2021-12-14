@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { AccordionSectionProps } from "./AccordionSection";
+import { AccordionSectionProps } from ".";
 
 const Header = styled.div<Pick<AccordionSectionProps, "hasLine">>`
   display: flex;

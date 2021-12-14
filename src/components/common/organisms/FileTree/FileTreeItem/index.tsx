@@ -5,7 +5,7 @@ import {
   ChevronRightIcon,
 } from "@src/components/common/icons";
 
-import Style from "./FileTreeItem.style";
+import Style from "./index.style";
 
 export type FileTreeItemProps = PropsWithChildren<{
   title: string;

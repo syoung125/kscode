@@ -4,7 +4,7 @@ import { useDrag } from "@src/common/hooks";
 
 import { ACTION_ITEMS } from "../action-items";
 
-import Style from "./SideBar.style";
+import Style from "./index.style";
 
 const INITIAL_WIDTH = 240;
 const MIN_WIDTH = 80;
