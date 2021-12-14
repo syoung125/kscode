@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { postContentsStyles } from "./PostContents.style";
+import { postContentsStyles } from "./post-contents.style";
 
 const Wrapper = styled.div`
   overflow-x: hidden;

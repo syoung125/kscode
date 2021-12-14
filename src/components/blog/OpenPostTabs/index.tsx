@@ -3,7 +3,7 @@ import OpenPostTab from "./OpenPostTab";
 import { useAppContext } from "@src/common/contexts/app";
 import { getFileName } from "@src/common/helpers";
 
-import Style from "./OpenPostTabs.style";
+import Style from "./index.style";
 
 export default function OpenPostTabs() {
   const {

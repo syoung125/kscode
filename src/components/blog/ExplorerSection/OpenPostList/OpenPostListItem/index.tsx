@@ -1,50 +1,57 @@
-import { MouseEventHandler, useState } from "react";
+import { useState, MouseEvent } from "react";
 
 import { CloseIcon } from "@src/components/common/icons";
 
-import Style from "./OpenPostTab.style";
+import Style from "./index.style";
 
-export type OpenPostTabProps = {
+export const OPEN_POST_LIST_ITEM_HEIGHT = "2rem";
+
+export type OpenPostListItemProps = {
   emoji?: string;
   title: string;
   isSelected?: boolean;
   onClick?: () => void;
   onClose?: () => void;
+  showCloseButton?: boolean;
 };
 
-export default function OpenPostTab({
+export default function OpenPostListItem({
   emoji = "📝",
   title,
   isSelected = false,
   onClick = () => null,
   onClose = () => null,
-}: OpenPostTabProps) {
+  showCloseButton = false,
+}: OpenPostListItemProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const isCloseVisible = isSelected || isHovered;
+  const isCloseVisible = showCloseButton && (isSelected || isHovered);
 
-  const handleClose: MouseEventHandler<SVGElement> = (e) => {
+  const handleCloseClick = (e: MouseEvent<SVGSVGElement>) => {
     e.stopPropagation();
+
     onClose();
   };
 
   return (
     <Style.Wrapper
+      height={OPEN_POST_LIST_ITEM_HEIGHT}
       isSelected={isSelected}
       onClick={onClick}
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Style.Title>
-        {emoji} {title}
-      </Style.Title>
       <CloseIcon
-        onClick={handleClose}
         style={{
+          minWidth: "1rem",
           width: "1rem",
           height: "1rem",
           visibility: isCloseVisible ? "visible" : "hidden",
         }}
+        onClick={handleCloseClick}
       />
+      <Style.Title>
+        {emoji} {title}
+      </Style.Title>
     </Style.Wrapper>
   );
 }

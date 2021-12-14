@@ -4,7 +4,7 @@ import "prismjs/themes/prism-tomorrow.css";
 
 import { Post } from "@src/common/types/post.type";
 
-import Style from "./PostTemplate.style";
+import Style from "./index.style";
 
 export type PostTemplateProps = {
   post: Post;

@@ -3,11 +3,11 @@ import { AccordionSection } from "@src/components/common/molecules";
 
 import { useAppContext } from "@src/common/contexts/app";
 
-import { OPEN_POST_LIST_ITEM_HEIGHT } from "./OpenPostList/OpenPostListItem/OpenPostListItem";
+import { OPEN_POST_LIST_ITEM_HEIGHT } from "./OpenPostList/OpenPostListItem";
 
 import OpenPostList from "./OpenPostList";
 
-import Style from "./ExplorerSection.style";
+import Style from "./index.style";
 
 export default function ExplorerSection() {
   const {

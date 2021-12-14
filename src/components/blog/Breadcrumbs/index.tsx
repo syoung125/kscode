@@ -1,4 +1,4 @@
-import Style from "./Breadcrumbs.style";
+import Style from "./index.style";
 
 export type BreadcrumbsProps = {
   path: string;
