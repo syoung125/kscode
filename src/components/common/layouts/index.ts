@@ -1,1 +1,1 @@
-export { default as MainLayout } from "./MainLayout";
+export { default as BlogLayout } from "./blog-layout";
