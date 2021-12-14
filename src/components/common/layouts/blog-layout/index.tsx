@@ -5,11 +5,11 @@ import SideBar from "./side-bar";
 
 import Style from "./index.style";
 
-export type MainLayoutProps = {
+export type BlogLayoutProps = {
   children: ReactNode;
 };
 
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function BlogLayout({ children }: BlogLayoutProps) {
   const [selectedActionItem, setSelectedActionItem] = useState<number | null>(
     0
   );

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { MainLayout } from "@src/components/common/layouts";
+import { BlogLayout } from "@src/components/common/layouts";
 import { OpenPostTabs, Breadcrumbs, PostTemplate } from "@src/components/blog";
 
 import PostService from "@src/common/services/post.service";
@@ -26,11 +26,11 @@ export default function PostDetailPage({ post }: PostDetailPageProps) {
   }
 
   return (
-    <MainLayout>
+    <BlogLayout>
       <OpenPostTabs />
       <Breadcrumbs path={post.id} />
       <PostTemplate post={post} />
-    </MainLayout>
+    </BlogLayout>
   );
 }
 

@@ -1,5 +1,5 @@
-import { MainLayout } from "@src/components/common/layouts";
+import { BlogLayout } from "@src/components/common/layouts";
 
 export default function BlogHomePage() {
-  return <MainLayout>{`Welcome to Seoyoung's Tech Blog`}</MainLayout>;
+  return <BlogLayout>{`Welcome to Seoyoung's Tech Blog`}</BlogLayout>;
 }
