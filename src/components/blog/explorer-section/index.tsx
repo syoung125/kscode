@@ -3,9 +3,9 @@ import { AccordionSection } from "@src/components/common/molecules";
 
 import { useAppContext } from "@src/common/contexts/app";
 
-import { OPEN_POST_LIST_ITEM_HEIGHT } from "./OpenPostList/OpenPostListItem";
+import { OPEN_POST_LIST_ITEM_HEIGHT } from "./open-post-list/open-post-list-item";
 
-import OpenPostList from "./OpenPostList";
+import OpenPostList from "./open-post-list";
 
 import Style from "./index.style";
 

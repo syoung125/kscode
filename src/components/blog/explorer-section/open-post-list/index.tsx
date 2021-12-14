@@ -1,6 +1,6 @@
 import { getFileName } from "@src/common/helpers";
 
-import OpenPostListItem from "./OpenPostListItem";
+import OpenPostListItem from "./open-post-list-item";
 
 export type OpenPostListProps = {
   openPostPaths: string[];

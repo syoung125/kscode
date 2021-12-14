@@ -1,4 +1,4 @@
-export { default as Breadcrumbs } from "./Breadcrumbs";
-export { default as ExplorerSection } from "./ExplorerSection";
-export { default as OpenPostTabs } from "./OpenPostTabs";
-export { default as PostTemplate } from "./PostTemplate";
+export { default as Breadcrumbs } from "./bread-crumbs";
+export { default as ExplorerSection } from "./explorer-section";
+export { default as OpenPostTabs } from "./open-post-tabs";
+export { default as PostTemplate } from "./post-template";

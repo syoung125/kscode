@@ -1,4 +1,4 @@
-import FileTreeItem from "./FileTreeItem";
+import FileTreeItem from "./file-tree-item";
 
 import { isFolder, TreeItem, TreeView } from "./classes";
 

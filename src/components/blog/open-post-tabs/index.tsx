@@ -1,4 +1,4 @@
-import OpenPostTab from "./OpenPostTab";
+import OpenPostTab from "./open-post-tab";
 
 import { useAppContext } from "@src/common/contexts/app";
 import { getFileName } from "@src/common/helpers";

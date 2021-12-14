@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "@src/components/common/molecules";
 
 import { ACTION_ITEMS } from "../action-items";
 
-import ActionItem from "./ActionItem";
+import ActionItem from "./action-item";
 
 import Style from "./index.style";
 

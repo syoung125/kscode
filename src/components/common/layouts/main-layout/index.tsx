@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 
-import ActivityBar from "./ActivityBar";
-import SideBar from "./SideBar";
+import ActivityBar from "./activity-bar";
+import SideBar from "./side-bar";
 
 import Style from "./index.style";
 
