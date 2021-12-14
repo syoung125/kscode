@@ -56,18 +56,42 @@ export const postContentsStyles = css`
 
   ul,
   ol {
-    padding-left: 4rem;
+    padding-left: 2.4rem;
+  }
 
-    li {
-      list-style-type: disc;
-    }
+  ul > li {
+    list-style-type: disc;
+  }
+
+  ol > li {
+    list-style-type: decimal;
   }
 
   hr {
     margin: 2rem 0;
   }
 
-  code {
+  td,
+  th {
+    border: 1px solid ${({ theme }) => theme.colors.scheme.$gray100};
+    padding: 0.8rem;
+  }
+
+  tr:nth-child(even) {
+    background-color: ${({ theme }) => theme.colors.scheme.$gray400};
+  }
+
+  th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    text-align: center;
+
+    background-color: ${({ theme }) => theme.colors.scheme.$gray200};
+    color: ${({ theme }) => theme.colors.scheme.$white};
+  }
+
+  p code {
     margin: 0 0.2rem;
     padding: 0.1rem 0.2rem;
     border-radius: 0.2rem;
@@ -77,14 +101,9 @@ export const postContentsStyles = css`
   }
 
   pre {
-    background-color: ${({ theme }) => theme.colors.scheme.$gray400};
-
     margin: 1rem 0;
-    padding: 0.8rem;
     border-radius: 0.8rem;
 
-    code {
-      background-color: transparent;
-    }
+    overflow-x: auto;
   }
 `;
