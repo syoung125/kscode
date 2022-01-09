@@ -108,4 +108,20 @@ export const postContentsStyles = css`
 
     overflow-x: auto;
   }
+
+  blockquote {
+    display: flex;
+
+    padding: 1em;
+    margin: 2rem 0;
+    border-left: 0.4rem solid ${({ theme }) => theme.colors.scheme.$gray300};
+
+    background-color: ${({ theme }) => theme.colors.scheme.$gray500};
+
+    white-space: pre-wrap;
+
+    > p {
+      margin: 0;
+    }
+  }
 `;
