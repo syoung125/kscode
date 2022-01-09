@@ -1,5 +1,3 @@
-const debug = process.env.NODE_ENV !== "production";
-
 module.exports = {
   target: "serverless",
   webpack: function (config) {
@@ -7,6 +5,4 @@ module.exports = {
     config.module.rules.push({ test: /\.yml$/, use: "raw-loader" });
     return config;
   },
-  basePath: !debug ? "/Ko-Seoyoung-Code" : "",
-  assetPrefix: !debug ? "/Ko-Seoyoung-Code/" : "",
 };
