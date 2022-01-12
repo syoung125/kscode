@@ -1,0 +1,58 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: CD
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install the project dependencies
+        run: yarn install
+
+      - name: Prettier check
+        run: yarn prettier
+
+      - name: Lint check
+        run: yarn lint
+
+      - name: TS check
+        run: yarn tsc
+        
+      - name: Test check
+        run: yarn test
+
+      - name: Build project
+        run: yarn build
+
+      - name: Deploy
+        run: |
+          yarn export
+          touch out/.nojekyll
+          git config --global user.email "laura120555@gmail.com"
+          git config --global user.name "syoung125"
+          git add -f out/
+          git checkout -b temp-for-deploy-gh-pages
+          git commit -m "Deploy Next.js to gh-pages"
+          git subtree split --prefix out -b gh-pages
+          git push -f origin gh-pages:gh-pages 
+          git branch -D gh-pages 
+          git checkout main
+          git branch -D temp-for-deploy-gh-pages
+      
