@@ -8,7 +8,7 @@ import {
   ExtensionsIcon,
 } from "@src/components/common/icons";
 
-import { ExplorerSection } from "@src/components/blog";
+import ExplorerSection from "./explorer-section";
 
 export type ActionItemType = {
   label: string;

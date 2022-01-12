@@ -1,5 +1,7 @@
+import { Welcome } from "@src/components/home";
+
 function HomePage() {
-  return <>home</>;
+  return <Welcome />;
 }
 
 export default HomePage;

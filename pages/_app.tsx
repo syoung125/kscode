@@ -6,6 +6,8 @@ import { ThemeContextProvider } from "@src/common/contexts/theme";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
 
+import { BlogLayout } from "@src/components/common/layouts";
+
 export type MyAppProps = AppProps & {
   postPaths: string[];
 };
@@ -21,7 +23,9 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
       <GlobalStyle />
       <ThemeContextProvider defaultTheme="dark">
         <AppContextProvider postPaths={postPaths}>
-          <Component {...pageProps} />
+          <BlogLayout>
+            <Component {...pageProps} />
+          </BlogLayout>
         </AppContextProvider>
       </ThemeContextProvider>
     </>

@@ -5,4 +5,12 @@ module.exports = {
     config.module.rules.push({ test: /\.yml$/, use: "raw-loader" });
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/blog",
+        destination: "/",
+      },
+    ];
+  },
 };
