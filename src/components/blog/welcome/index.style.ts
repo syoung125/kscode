@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { BLUE } from "@src/common/constants/palette";
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,7 +15,7 @@ const Title = styled.h1`
   white-space: break-spaces;
   line-height: 1.3;
 
-  text-shadow: ${BLUE} 1px 0 10px;
+  text-shadow: #007fd440 0.3rem 0.3rem;
 
   position: absolute;
   top: 20%;
