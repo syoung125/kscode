@@ -5272,7 +5272,6 @@ __metadata:
     react-dom: 17.0.2
     react-is: ^17.0.2
     styled-components: ^5.3.0
-    styled-reset: ^4.3.4
     typescript: 4.3.2
     webpack: ^5.38.1
   languageName: unknown
@@ -7532,15 +7531,6 @@ __metadata:
   peerDependencies:
     react: 15.x.x || 16.x.x || 17.x.x
   checksum: 74a129dee798466aedd889dca297bcded768ac2eda1012463edab7e8636b6f1d60125b67e8247abab83745c05c1d31bb1c3535c786feee0da5b75bd5dfa578bb
-  languageName: node
-  linkType: hard
-
-"styled-reset@npm:^4.3.4":
-  version: 4.3.4
-  resolution: "styled-reset@npm:4.3.4"
-  peerDependencies:
-    styled-components: ">=4.0.0 || >=5.0.0"
-  checksum: 2a652f1d0276badcf779315589dd1fd5bb3744d619b8caa068c4fd42ab1dd725c59a3e594d62575b6ad8b8e59cf2c155a9036fe473688641d0f583983bc9a6af
   languageName: node
   linkType: hard
 

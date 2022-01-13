@@ -1,0 +1,74 @@
+.postContents {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.postContents h1,
+.postContents h2,
+.postContents h3,
+.postContents h4,
+.postContents h5,
+.postContents h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.postContents h1 {
+  font-size: 2.2rem;
+}
+.postContents h2 {
+  font-size: 2rem;
+}
+.postContents h3 {
+  font-size: 1.8rem;
+}
+.postContents h4 {
+  font-size: 1.6rem;
+}
+.postContents h5 {
+  font-size: 1.4rem;
+}
+.postContents h6 {
+  font-size: 1.3rem;
+}
+.postContents p {
+  margin: 1rem 0;
+}
+.postContents strong,
+.postContents b {
+  font-weight: bold;
+}
+
+.postContents a {
+  color: #007fd4;
+}
+
+.postContents ul,
+.postContents ol {
+  padding-left: 2.4rem;
+}
+
+.postContents ul > li {
+  list-style-type: disc;
+}
+
+.postContents img {
+  max-width: 100%;
+}
+
+.postContents hr {
+  margin: 2rem 0;
+}
+
+.postContents pre {
+  background-color: #333333;
+
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.8rem;
+
+  overflow-x: auto;
+}
