@@ -6,13 +6,13 @@ import Style from "./index.style";
 
 export type FileTreeProps = {
   filePaths: string[];
-  selectedFilePath?: string | null;
+  currentFilePath?: string | null;
   onFileClick: (path: string) => void;
 };
 
 export default function FileTree({
   filePaths,
-  selectedFilePath,
+  currentFilePath,
   onFileClick,
 }: FileTreeProps) {
   const root = new TreeView(filePaths).root;
@@ -31,7 +31,7 @@ export default function FileTree({
         <FileTreeItem
           key={item.name}
           title={item.name}
-          isSelected={item.path === selectedFilePath}
+          isSelected={item.path === currentFilePath}
           onClick={() => onFileClick(item.path)}
         />
       );

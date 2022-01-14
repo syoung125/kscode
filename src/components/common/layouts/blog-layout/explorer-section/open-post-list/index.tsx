@@ -1,26 +1,27 @@
 import { getFileName } from "@src/common/helpers";
+import { Post } from "@src/common/types/post.type";
 
 import OpenPostListItem from "./open-post-list-item";
 
 export type OpenPostListProps = {
-  openPostPaths: string[];
-  currentPostPath?: string | null;
-  selectPost: (path: string) => void;
-  closePost: (path: string) => void;
+  openPosts: Post[];
+  currentPostId?: string | null;
+  selectPost: (id: string) => void;
+  closePost: (id: string) => void;
 };
 
 export default function OpenPostList(props: OpenPostListProps) {
-  const { openPostPaths, currentPostPath, selectPost, closePost } = props;
+  const { openPosts, currentPostId, selectPost, closePost } = props;
 
   return (
     <ul style={{ whiteSpace: "nowrap" }}>
-      {openPostPaths.map((path) => (
+      {openPosts.map(({ id }) => (
         <OpenPostListItem
-          key={path}
-          title={getFileName(path)}
-          isSelected={currentPostPath === path}
-          onClick={() => selectPost(path)}
-          onClose={() => closePost(path)}
+          key={id}
+          title={getFileName(id)}
+          isSelected={currentPostId === id}
+          onClick={() => selectPost(id)}
+          onClose={() => closePost(id)}
           showCloseButton
         />
       ))}

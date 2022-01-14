@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { ThemeContextProvider } from "@src/common/contexts/theme";
 import { AppContextProvider } from "@src/common/contexts/app";
 import PostService from "@src/common/services/post.service";
+import { Post } from "@src/common/types/post.type";
 
 import { BlogLayout } from "@src/components/common/layouts";
 
@@ -11,10 +12,10 @@ import "@src/common/styles/global.css";
 import "@src/common/styles/post.css";
 
 export type MyAppProps = AppProps & {
-  postPaths: string[];
+  posts: Post[];
 };
 
-function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
+function MyApp({ Component, pageProps, posts }: MyAppProps) {
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeContextProvider defaultTheme="dark">
-        <AppContextProvider postPaths={postPaths}>
+        <AppContextProvider posts={posts}>
           <BlogLayout>
             <Component {...pageProps} />
           </BlogLayout>
@@ -34,9 +35,9 @@ function MyApp({ Component, pageProps, postPaths }: MyAppProps) {
 }
 
 MyApp.getInitialProps = async () => {
-  const postPaths: string[] = await PostService.getPostPaths();
+  const posts = await PostService.getPosts();
   return {
-    postPaths,
+    posts,
   };
 };
 

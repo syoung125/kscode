@@ -12,10 +12,8 @@ export type PostTemplateProps = {
 
 export default function PostTemplate({ post }: PostTemplateProps) {
   const {
-    content: {
-      meta: { title, date },
-      html,
-    },
+    meta: { title, date },
+    html,
   } = post;
 
   useEffect(() => {

@@ -1,5 +1,7 @@
-import { useRouter } from "next/dist/client/router";
 import { useState, createContext, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+
+import { Post } from "@src/common/types/post.type";
 
 import { IAppContext } from "./IAppContext";
 
@@ -9,55 +11,53 @@ const useAppContext = () => useContext(AppContext);
 
 type AppContextProviderProps = {
   children: React.ReactNode;
-  postPaths: string[];
+  posts: Post[];
 };
 
-// @TODO : refactor, store 라이브러리로 관리
-const AppContextProvider = ({
-  children,
-  postPaths,
-}: AppContextProviderProps) => {
+const AppContextProvider = ({ children, posts }: AppContextProviderProps) => {
   const router = useRouter();
 
-  const [openPostPaths, setOpenPostPaths] = useState<string[]>([]);
-  const [currentPostPath, setCurrentPostPath] = useState<string | null>();
+  const [openPosts, setOpenPosts] = useState<Post[]>([]);
+  const [currentPostId, setCurrentPostId] = useState<string | null>();
 
   useEffect(() => {
-    if (currentPostPath === undefined) {
+    if (currentPostId === undefined) {
       return;
     }
-    router.push(currentPostPath ? `/blog/${currentPostPath}` : "/blog");
+    router.push(currentPostId ? `/blog/${currentPostId}` : "/blog");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPostPath]);
+  }, [currentPostId]);
 
-  const selectPost = (path: string) => {
-    setCurrentPostPath(path);
+  const selectPost = (id: string) => {
+    setCurrentPostId(id);
 
-    if (openPostPaths.find((_path) => _path === path) !== undefined) {
+    if (openPosts.find((post) => post.id === id) !== undefined) {
       return;
     }
-    setOpenPostPaths([...openPostPaths, path]);
+
+    const targetPost = posts.find((post) => post.id === id);
+    targetPost && setOpenPosts([...openPosts, targetPost]);
   };
 
-  const closePost = (path: string) => {
-    const newOpenPostPaths = openPostPaths.filter((_path) => _path !== path);
-    setOpenPostPaths(newOpenPostPaths);
+  const closePost = (id: string) => {
+    const newOpenPosts = openPosts.filter((post) => post.id !== id);
+    setOpenPosts(newOpenPosts);
 
-    if (newOpenPostPaths.length === 0) {
-      setCurrentPostPath(null);
+    if (newOpenPosts.length === 0) {
+      setCurrentPostId(null);
       return;
     }
 
-    if (path === currentPostPath) {
-      setCurrentPostPath(newOpenPostPaths[newOpenPostPaths.length - 1]);
+    if (id === currentPostId) {
+      setCurrentPostId(newOpenPosts[newOpenPosts.length - 1].id);
     }
   };
 
   const appStore: IAppContext = {
     state: {
-      postPaths,
-      openPostPaths,
-      currentPostPath,
+      posts,
+      openPosts,
+      currentPostId,
     },
     action: {
       selectPost,

@@ -1,11 +1,13 @@
+import { Post } from "@src/common/types/post.type";
+
 export interface IAppContext {
   state: {
-    postPaths: string[];
-    openPostPaths: string[];
-    currentPostPath?: string | null;
+    posts: Post[];
+    openPosts: Post[];
+    currentPostId?: string | null;
   };
   action: {
-    selectPost: (path: string) => void;
-    closePost: (path: string) => void;
+    selectPost: (id: string) => void;
+    closePost: (id: string) => void;
   };
 }

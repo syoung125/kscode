@@ -7,19 +7,19 @@ import Style from "./index.style";
 
 export default function OpenPostTabs() {
   const {
-    state: { openPostPaths, currentPostPath },
+    state: { openPosts, currentPostId },
     action: { selectPost, closePost },
   } = useAppContext();
 
   return (
     <Style.Wrapper>
-      {openPostPaths.map((path) => (
+      {openPosts.map(({ id }) => (
         <OpenPostTab
-          key={path}
-          title={getFileName(path)}
-          isSelected={currentPostPath === path}
-          onClick={() => selectPost(path)}
-          onClose={() => closePost(path)}
+          key={id}
+          title={getFileName(id)}
+          isSelected={currentPostId === id}
+          onClick={() => selectPost(id)}
+          onClose={() => closePost(id)}
         />
       ))}
     </Style.Wrapper>

@@ -2,34 +2,33 @@ import matter from "gray-matter";
 
 import { parseMarkdown } from "../helpers";
 
-import { PostMeta, Post } from "../types/post.type";
+import { Post, PostMeta } from "../types/post.type";
 
-const getPostPaths = async (): Promise<string[]> => {
+const getPosts = async (): Promise<Post[]> => {
   // request only markdown files which is ending with .md
   const context = require.context("src/contents/blog", true);
 
-  let result: string[] = [];
+  let posts: Post[] = [];
   await context.keys().forEach(async (key) => {
     const path = key.slice(2); // 맨 앞 './' 문자열 제거
-    result.push(path);
+    const post = await getPost(path);
+    posts.push(post);
   });
-  return result;
+  return posts;
 };
 
 const getPost = async (id: string): Promise<Post> => {
-  const file = matter.read(`src/contents/blog/${id}`);
+  const { data, content } = matter.read(`src/contents/blog/${id}`);
 
   return {
     id,
-    content: {
-      meta: file.data as PostMeta,
-      html: parseMarkdown(file.content),
-    },
+    meta: data as PostMeta,
+    html: parseMarkdown(content),
   };
 };
 
 const PostService = {
-  getPostPaths,
+  getPosts,
   getPost,
 };
 

@@ -11,7 +11,7 @@ import Style from "./index.style";
 
 export default function ExplorerSection() {
   const {
-    state: { openPostPaths, postPaths, currentPostPath },
+    state: { posts, openPosts, currentPostId },
     action: { selectPost, closePost },
   } = useAppContext();
 
@@ -19,20 +19,20 @@ export default function ExplorerSection() {
     <Style.Wrapper>
       <AccordionSection
         title="OPEN POSTS"
-        maxHeight={`calc(${OPEN_POST_LIST_ITEM_HEIGHT}* ${openPostPaths.length})`}
+        maxHeight={`calc(${OPEN_POST_LIST_ITEM_HEIGHT}* ${openPosts.length})`}
         defaultExpanded
       >
         <OpenPostList
-          openPostPaths={openPostPaths}
-          currentPostPath={currentPostPath}
+          openPosts={openPosts}
+          currentPostId={currentPostId}
           selectPost={selectPost}
           closePost={closePost}
         />
       </AccordionSection>
       <AccordionSection title="KSCODE" defaultExpanded>
         <FileTree
-          filePaths={postPaths}
-          selectedFilePath={currentPostPath}
+          filePaths={posts.map((post) => post.id)}
+          currentFilePath={currentPostId}
           onFileClick={selectPost}
         />
       </AccordionSection>
