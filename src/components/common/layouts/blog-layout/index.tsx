@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import ActivityBar from "./activity-bar";
+import ActivityBar, { ACTION_ITEMS } from "./activity-bar";
 import SideBar from "./side-bar";
 
 import Style from "./index.style";
@@ -10,8 +10,8 @@ export type BlogLayoutProps = {
 };
 
 export default function BlogLayout({ children }: BlogLayoutProps) {
-  const [selectedActionItem, setSelectedActionItem] = useState<number | null>(
-    0
+  const [currentActionItem, setCurrentActionItem] = useState<number | null>(
+    null
   );
 
   return (
@@ -19,13 +19,16 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
       <Style.Header />
       <Style.Row>
         <ActivityBar
-          selectedActionItem={selectedActionItem}
-          onSelectedActionItemChange={setSelectedActionItem}
+          currentActionItem={currentActionItem}
+          onCurrentActionItemChange={setCurrentActionItem}
         />
-        <SideBar
-          selectedActionItem={selectedActionItem}
-          onSelectedActionItemChange={setSelectedActionItem}
-        />
+        {currentActionItem != null && (
+          <SideBar
+            label={ACTION_ITEMS[currentActionItem].label}
+            content={ACTION_ITEMS[currentActionItem].content}
+            onClose={() => setCurrentActionItem(null)}
+          />
+        )}
         <Style.Main>{children}</Style.Main>
       </Style.Row>
       <Style.Footer />

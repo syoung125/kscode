@@ -1,39 +1,82 @@
-import { AccountIcon, SettingsGearIcon } from "@src/components/common/icons";
+import { ElementType, ReactNode } from "react";
+
+import {
+  FilesIcon,
+  SearchIcon,
+  SourceControlIcon,
+  RunAndDebugIcon,
+  ExtensionsIcon,
+  AccountIcon,
+  SettingsGearIcon,
+} from "@src/components/common/icons";
 import { ThemeSwitcher } from "@src/components/common/molecules";
 
-import { ACTION_ITEMS } from "../action-items";
+import ExplorerSection from "../explorer-section";
 
 import ActionItem from "./action-item";
 
 import Style from "./index.style";
 
-export type ActivityBarProps = {
-  selectedActionItem: number | null;
-  onSelectedActionItemChange: (index: number | null) => void;
+export type ActionItemType = {
+  label: string;
+  Icon: ElementType;
+  content?: ReactNode;
+  href?: string;
+};
+
+export const ACTION_ITEMS: ActionItemType[] = [
+  {
+    label: "EXPLORER",
+    Icon: FilesIcon,
+    content: <ExplorerSection />,
+  },
+  {
+    label: "SEARCH",
+    Icon: SearchIcon,
+    content: "SEARCH",
+  },
+  {
+    label: "SOURCE CONTROL",
+    Icon: SourceControlIcon,
+    content: "SOURCE CONTROL",
+  },
+  {
+    label: "RUN AND DEBUG",
+    Icon: RunAndDebugIcon,
+    content: "RUN AND DEBUG",
+  },
+  {
+    label: "EXTENSIONS",
+    Icon: ExtensionsIcon,
+    content: "EXTENSIONS",
+  },
+];
+
+type ActivityBarProps = {
+  currentActionItem: number | null;
+  onCurrentActionItemChange: (index: number | null) => void;
 };
 
 export default function ActivityBar({
-  selectedActionItem,
-  onSelectedActionItemChange,
+  currentActionItem,
+  onCurrentActionItemChange,
 }: ActivityBarProps) {
   const handleActionItemClick = (index: number) => () => {
-    onSelectedActionItemChange(index === selectedActionItem ? null : index);
-  };
-
-  const renderActionItems = () => {
-    return ACTION_ITEMS.map(({ label, Icon }, index) => (
-      <ActionItem
-        key={label}
-        Icon={Icon}
-        onClick={handleActionItemClick(index)}
-        isSelected={index === selectedActionItem}
-      />
-    ));
+    onCurrentActionItemChange(index === currentActionItem ? null : index);
   };
 
   return (
     <Style.Wrapper>
-      <Style.Ul>{renderActionItems()}</Style.Ul>
+      <Style.Ul>
+        {ACTION_ITEMS.map(({ label, Icon }, index) => (
+          <ActionItem
+            key={label}
+            Icon={Icon}
+            onClick={handleActionItemClick(index)}
+            isSelected={index === currentActionItem}
+          />
+        ))}
+      </Style.Ul>
       <Style.Ul>
         <ThemeSwitcher />
         <ActionItem Icon={AccountIcon} onClick={() => null} />
