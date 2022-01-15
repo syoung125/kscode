@@ -28,7 +28,10 @@ export default function SideBar({ label, content, onClose }: SideBarProps) {
 
   return (
     <Style.Wrapper width={width}>
-      <Style.Title>{label}</Style.Title>
+      <Style.TitleWrapper>
+        <Style.Title>{label}</Style.Title>
+        <Style.CloseIcon onClick={onClose} />
+      </Style.TitleWrapper>
       <Style.ContentWrapper>{content}</Style.ContentWrapper>
       <Style.DraggableLine onMouseDown={startDrag} isVisible={isDragging} />
     </Style.Wrapper>

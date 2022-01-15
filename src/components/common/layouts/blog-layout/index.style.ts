@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import { BLUE, GRAY_300 } from "@src/common/constants/palette";
 
-const HEADER_HEIGHT = "1.6rem";
-const FOOTER_HEIGHT = "1.6rem";
+export const HEADER_HEIGHT = "1.6rem";
+export const FOOTER_HEIGHT = "1.6rem";
 
 const Wrapper = styled.div`
   width: 100vw;
