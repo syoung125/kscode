@@ -4,6 +4,7 @@ export type IconProps = {
   style?: React.CSSProperties;
   fill?: string;
   onClick?: MouseEventHandler<SVGSVGElement>;
+  className?: string;
 };
 
 /**
