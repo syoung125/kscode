@@ -6,9 +6,7 @@ export default function Welcome() {
   return (
     <Style.Wrapper>
       <Style.Title>{`Welcome to\nSeoyoung's Tech Blog`}</Style.Title>
-      <Style.WaveWrapper>
-        <Waves />
-      </Style.WaveWrapper>
+      <Waves />
     </Style.Wrapper>
   );
 }

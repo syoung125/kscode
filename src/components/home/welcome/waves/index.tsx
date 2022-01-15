@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 
-import { useCanvasContext } from "@src/common/hooks";
+import { useCanvasContext, useResizeDetector } from "@src/common/hooks";
 
 import { WaveGroup } from "./wave-group";
 
+import Style from "./index.style";
+
 export default function Waves() {
   const { canvasRef, context: ctx } = useCanvasContext();
+  const { width, ref } = useResizeDetector<HTMLDivElement>();
   const requestRef = useRef<number>(0);
 
   const waveGroup = new WaveGroup();
@@ -26,18 +29,16 @@ export default function Waves() {
     requestRef.current = requestAnimationFrame(animate);
   };
 
-  /**  @TODO BugFix: canvas 사이즈 바뀔때마다 resize */
   const resize = () => {
     if (!canvasRef.current || !ctx) return;
 
-    const stageWidth = canvasRef.current.clientWidth;
-    const stageHeight = canvasRef.current.clientHeight;
+    const { clientWidth, clientHeight } = canvasRef.current;
 
-    canvasRef.current.width = stageWidth * 2;
-    canvasRef.current.height = stageHeight * 2;
+    canvasRef.current.width = clientWidth * 2;
+    canvasRef.current.height = clientHeight * 2;
     ctx.scale(2, 2);
 
-    waveGroup.resize(stageWidth, stageHeight);
+    waveGroup.resize(clientWidth, clientHeight);
   };
 
   useEffect(() => {
@@ -50,5 +51,13 @@ export default function Waves() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx]);
 
-  return <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />;
+  useEffect(() => {
+    resize();
+  }, [width]);
+
+  return (
+    <Style.Wrapper ref={ref}>
+      <Style.Canvas ref={canvasRef} />
+    </Style.Wrapper>
+  );
 }
