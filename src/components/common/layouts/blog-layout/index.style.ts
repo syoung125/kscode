@@ -2,13 +2,11 @@ import styled from "styled-components";
 
 import { BLUE, GRAY_300 } from "@src/common/constants/palette";
 
-export const HEADER_HEIGHT = "1.6rem";
-export const FOOTER_HEIGHT = "1.6rem";
+const HEADER_HEIGHT = "1.6rem";
+const FOOTER_HEIGHT = "1.6rem";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
+  width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
   color: ${({ theme }) => theme.colors.scheme.$white};
@@ -19,7 +17,7 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
 
-  min-height: ${HEADER_HEIGHT};
+  height: ${HEADER_HEIGHT};
   background-color: ${GRAY_300};
 `;
 
@@ -32,9 +30,6 @@ const Row = styled.div`
 `;
 
 const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-
   width: 100%;
   height: 100%;
 
@@ -48,7 +43,7 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
 
-  min-height: ${FOOTER_HEIGHT};
+  height: ${FOOTER_HEIGHT};
   background-color: ${BLUE};
 `;
 

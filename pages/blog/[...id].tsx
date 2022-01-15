@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styled from "styled-components";
 
 import {
   OpenPostTabs,
@@ -29,11 +30,11 @@ export default function PostDetailPage({ post }: PostDetailPageProps) {
   }
 
   return (
-    <>
+    <Wrapper>
       <OpenPostTabs />
       <Breadcrumbs path={post.id} />
       <PostTemplate post={post} />
-    </>
+    </Wrapper>
   );
 }
 
@@ -53,3 +54,10 @@ export async function getStaticProps(context: { params: { id: string[] } }) {
     },
   };
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+`;

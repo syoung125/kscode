@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { postContentsStyles } from "./post-contents.style";
 
 const Wrapper = styled.div`
+  flex: 1;
+
   overflow-x: hidden;
   overflow-y: auto;
 `;
