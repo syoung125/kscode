@@ -1,4 +1,4 @@
-import { ColorTheme } from "@src/common/constants/colors";
+import { ColorTheme } from "@src/common/themes/types";
 
 declare module "styled-components" {
   export interface DefaultTheme {
