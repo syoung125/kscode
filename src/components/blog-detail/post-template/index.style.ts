@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { media } from "@src/common/styles/media";
+import { breakpoints } from "@src/common/styles/theme";
 
 import { postContentsStyles } from "./post-contents.style";
 
@@ -17,10 +17,10 @@ const Article = styled.article`
 
   margin: 0 auto;
 
-  ${media.tablet`
+  ${breakpoints.medium} {
     padding: 1.6rem 1.4rem;
     max-width: 100%;
-  `}
+  }
 `;
 
 const Header = styled.header`
@@ -40,9 +40,9 @@ const Title = styled.h1`
 
   margin-bottom: 1.6rem;
 
-  ${media.tablet`
+  ${breakpoints.medium} {
     font-size: 2.2rem;
-  `}
+  }
 `;
 
 const Row = styled.div`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { media } from "@src/common/styles/media";
+import { breakpoints } from "@src/common/styles/theme";
 
 const Wrapper = styled.div`
   position: relative;
@@ -25,9 +25,9 @@ const Title = styled.h1`
 
   text-shadow: #007fd440 0.3rem 0.3rem;
 
-  ${media.tablet`
+  ${breakpoints.medium} {
     font-size: 2.2rem;
-  `}
+  }
 `;
 
 export default {

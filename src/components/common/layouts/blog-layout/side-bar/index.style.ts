@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { media } from "@src/common/styles/media";
+import { breakpoints } from "@src/common/styles/theme";
 import { CloseIcon as _CloseIcon } from "@src/components/common/icons";
 
 import { BLUE } from "@src/common/constants/palette";
@@ -18,15 +18,15 @@ const Wrapper = styled.section<{ width: number }>`
   width: ${(props) => props.width}px;
   background-color: ${({ theme }) => theme.colors.semanticScheme.sideBarBg};
 
-  ${media.phone`
+  ${breakpoints.small} {
     position: absolute;
     left: 3rem;
 
     width: calc(100% - ${ACTIVITY_BAR_WIDTH});
     height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
-    
+
     z-index: 1;
-  `}
+  }
 `;
 
 const TitleWrapper = styled.div`
@@ -49,9 +49,9 @@ const CloseIcon = styled(_CloseIcon).attrs({
 })`
   display: none;
 
-  ${media.phone`
-    display:block;
-  `}
+  ${breakpoints.small} {
+    display: block;
+  }
 `;
 
 const ContentWrapper = styled.div`
