@@ -10,12 +10,14 @@ import {
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
 import { useAppContext } from "@src/common/contexts/app";
+import SEO, { getBlogJSONLD } from "@src/components/common/seo";
 
 export type PostDetailPageProps = {
+  id: string;
   post: Post;
 };
 
-export default function PostDetailPage({ post }: PostDetailPageProps) {
+export default function PostDetailPage({ id, post }: PostDetailPageProps) {
   const {
     action: { selectPost },
   } = useAppContext();
@@ -29,12 +31,33 @@ export default function PostDetailPage({ post }: PostDetailPageProps) {
     return null;
   }
 
+  const path = `/blog/${id}`;
+  const { title, description, thumbnail, date } = post.meta;
+
+  const blogJSONLD = getBlogJSONLD({
+    path,
+    title,
+    description,
+    imageUrl: thumbnail,
+    datePublished: date,
+  });
+
   return (
-    <Wrapper>
-      <OpenPostTabs />
-      <Breadcrumbs path={post.id} />
-      <PostTemplate post={post} />
-    </Wrapper>
+    <>
+      <SEO
+        canonicalPath={path}
+        title={title}
+        description={description}
+        imageUrl={thumbnail}
+        type="article"
+        jsonld={blogJSONLD}
+      />
+      <Wrapper>
+        <OpenPostTabs />
+        <Breadcrumbs path={post.id} />
+        <PostTemplate post={post} />
+      </Wrapper>
+    </>
   );
 }
 
@@ -47,9 +70,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: { params: { id: string[] } }) {
-  const post: Post = await PostService.getPost(context.params.id.join("/"));
+  const id = context.params.id.join("/");
+  const post: Post = await PostService.getPost(id);
   return {
     props: {
+      id,
       post,
     },
   };
