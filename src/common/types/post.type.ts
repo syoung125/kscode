@@ -1,4 +1,4 @@
-const postMetaTypes = ["title", "date", "thumbnail"] as const;
+const postMetaTypes = ["title", "date", "thumbnail", "description"] as const;
 export type PostMetaType = typeof postMetaTypes[number];
 export type PostMeta = Record<PostMetaType, string>;
 

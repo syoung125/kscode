@@ -22,7 +22,11 @@ const getPost = async (id: string): Promise<Post> => {
 
   return {
     id,
-    meta: data as PostMeta,
+    meta: {
+      ...(data as PostMeta),
+      description:
+        data.description ?? content.split("\n").slice(0, 4).join(" "),
+    },
     html: parseMarkdown(content),
   };
 };
