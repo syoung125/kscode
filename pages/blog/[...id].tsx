@@ -63,8 +63,9 @@ export default function PostDetailPage({ id, post }: PostDetailPageProps) {
 
 export async function getStaticPaths() {
   const posts = await PostService.getPosts();
+  const paths = posts.map((post) => ({ params: { id: post.id.split("/") } }));
   return {
-    paths: posts.map((post) => ({ params: { id: post.id.split("/") } })),
+    paths,
     fallback: false,
   };
 }

@@ -9,16 +9,19 @@ const getPosts = async (): Promise<Post[]> => {
   const context = require.context("src/contents/blog", true);
 
   let posts: Post[] = [];
-  await context.keys().forEach(async (key) => {
-    const path = key.slice(2); // 맨 앞 './' 문자열 제거
-    const post = await getPost(path);
-    posts.push(post);
-  });
+  await Promise.all(
+    context.keys().map(async (key) => {
+      const path = key.slice(2); // 맨 앞 './' 문자열 제거
+      const post = await getPost(path);
+      posts.push(post);
+    })
+  );
   return posts;
 };
 
 const getPost = async (id: string): Promise<Post> => {
-  const { data, content } = matter.read(`src/contents/blog/${id}`);
+  const { default: markdown } = await import(`src/contents/blog/${id}`);
+  const { data, content } = matter(markdown);
 
   return {
     id,
