@@ -1,4 +1,4 @@
-import { ElementType, ReactNode } from "react";
+import { ElementType, ReactNode, KeyboardEvent, useRef } from "react";
 
 import {
   FilesIcon,
@@ -61,8 +61,38 @@ export default function ActivityBar({
   currentActionItem,
   onCurrentActionItemChange,
 }: ActivityBarProps) {
-  const handleActionItemClick = (index: number) => () => {
+  const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
+
+  const handleItemClick = (index: number) => () => {
     onCurrentActionItemChange(index === currentActionItem ? null : index);
+  };
+
+  const setFocusToPreviousItem = (index: number) => {
+    const prevItemIdx =
+      index === 0 ? ACTION_ITEMS.length - 1 : (index - 1) % ACTION_ITEMS.length;
+    itemsRef.current[prevItemIdx]?.focus();
+  };
+
+  const setFocusToNextItem = (index: number) => {
+    const nextItenIdx = (index + 1) % ACTION_ITEMS.length;
+    itemsRef.current[nextItenIdx]?.focus();
+  };
+
+  const handleItemKeyDown = (index: number) => (e: KeyboardEvent) => {
+    switch (e.key) {
+      case " ":
+      case "Enter":
+        handleItemClick(index)();
+        return;
+      case "Up":
+      case "ArrowUp":
+        setFocusToPreviousItem(index);
+        return;
+      case "Down":
+      case "ArrowDown":
+        setFocusToNextItem(index);
+        return;
+    }
   };
 
   return (
@@ -70,10 +100,12 @@ export default function ActivityBar({
       <Style.Ul>
         {ACTION_ITEMS.map(({ label, Icon }, index) => (
           <ActionItem
+            ref={(el) => (itemsRef.current[index] = el)}
             key={label}
             Icon={Icon}
-            onClick={handleActionItemClick(index)}
             isSelected={index === currentActionItem}
+            onClick={handleItemClick(index)}
+            onKeyDown={handleItemKeyDown(index)}
           />
         ))}
       </Style.Ul>
