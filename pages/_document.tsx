@@ -37,7 +37,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="ko">
         <Head>
           <link
             href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
