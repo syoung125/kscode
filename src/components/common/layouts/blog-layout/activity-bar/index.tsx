@@ -55,11 +55,13 @@ export const ACTION_ITEMS: ActionItemType[] = [
 type ActivityBarProps = {
   currentActionItem: number | null;
   onCurrentActionItemChange: (index: number | null) => void;
+  onKeyDown: (e: KeyboardEvent) => void;
 };
 
 export default function ActivityBar({
   currentActionItem,
   onCurrentActionItemChange,
+  onKeyDown,
 }: ActivityBarProps) {
   const itemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -96,7 +98,7 @@ export default function ActivityBar({
   };
 
   return (
-    <Style.Wrapper>
+    <Style.Wrapper onKeyDown={onKeyDown}>
       <Style.Ul>
         {ACTION_ITEMS.map(({ label, Icon }, index) => (
           <ActionItem
