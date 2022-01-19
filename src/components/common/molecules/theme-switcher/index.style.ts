@@ -12,11 +12,15 @@ const Wrapper = styled.div`
 
   width: 1.2rem;
   height: 2.8rem;
-
   border-radius: 0.6rem;
-  outline: 2px solid ${BLACK};
 
   background-color: ${BLACK};
+
+  outline: 2px solid ${BLACK};
+
+  &:focus {
+    outline: 2px solid ${WHITE};
+  }
 `;
 
 const Circle = styled.div<{ mode: "light" | "dark" }>`
