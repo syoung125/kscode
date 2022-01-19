@@ -26,8 +26,6 @@ const Circle = styled.div<{ mode: "light" | "dark" }>`
   width: 1.2rem;
   height: 1.2rem;
 
-  padding-left: auto;
-
   border-radius: 50%;
 
   background-color: ${WHITE};
