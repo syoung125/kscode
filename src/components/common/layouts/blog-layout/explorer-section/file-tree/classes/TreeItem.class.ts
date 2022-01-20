@@ -1,10 +1,10 @@
 export class TreeItem<TData = unknown> {
-  constructor(
-    private _name: string,
-    private _path: string = "",
-    private _data?: TData
-  ) {
-    this._name = _name;
+  private _name: string;
+  private _path: string;
+  private _data?: TData;
+
+  constructor(_path: string = "", _data?: TData) {
+    this._name = _path.split("/").reverse()[0];
     this._path = _path;
     this._data = _data;
   }
@@ -32,8 +32,8 @@ export class Folder<TData = unknown> extends TreeItem<TData> {
     return this;
   }
 
-  find(folderName: string): TreeItem<TData> | undefined {
-    return this._children.find((v) => v.name === folderName);
+  find(path: string): TreeItem<TData> | undefined {
+    return this._children.find((v) => v.path === path);
   }
 
   get children(): Array<TreeItem<TData>> {

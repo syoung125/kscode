@@ -20,39 +20,31 @@ export default class TreeView<TData = unknown> {
     );
   }
 
+  private splitPath(path: string) {
+    return path.split("/").filter((v) => !!v);
+  }
+
   addFile(path: string, data?: TData) {
-    const fileName = path.split("/").reverse()[0];
-    this.accessToLeafFolder(path, this.root).add(
-      new File<TData>(fileName, path, data)
-    );
+    const paths = this.splitPath(path);
+    const leafFolderPath = paths.slice(0, paths.length - 1).join("/");
+    this.accessToFolder(leafFolderPath).add(new File<TData>(path, data));
+    return this;
   }
 
-  accessToLeafFolder(path: string, root: Folder<TData>) {
-    const splittedPaths = path.split("/");
-    return splittedPaths
-      .slice(0, splittedPaths.length - 1)
-      .reduce(
-        (acc, currFolderName, i) =>
-          this.accessToFolder(
-            acc,
-            currFolderName,
-            splittedPaths.slice(0, i + 1).join("/")
-          ),
-        root
-      );
-  }
-
-  accessToFolder(
-    currFolder: Folder<TData>,
-    folderName: string,
-    path: string
-  ): Folder<TData> {
-    const nextFolder = currFolder.find(folderName);
-    if (nextFolder !== undefined) {
-      return nextFolder as Folder<TData>;
+  accessToFolder(path: string) {
+    if (!path || path === "/") {
+      return this.root;
     }
-    return currFolder
-      .add(new Folder<TData>(folderName, path))
-      .find(folderName) as Folder<TData>;
+
+    const paths = this.splitPath(path);
+    return paths.reduce((currentRoot, _, i) => {
+      const currentPath = paths.slice(0, i + 1).join("/");
+      const currentFoler = currentRoot.find(currentPath);
+      return currentFoler == null
+        ? (currentRoot
+            .add(new Folder<TData>(currentPath))
+            .find(currentPath) as Folder<TData>)
+        : (currentFoler as Folder<TData>);
+    }, this.root);
   }
 }
