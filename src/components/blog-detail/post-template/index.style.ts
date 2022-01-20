@@ -12,13 +12,13 @@ const Wrapper = styled.div`
 `;
 
 const Article = styled.article`
-  padding: 2.4rem 1.6rem;
-  max-width: 80%;
+  padding: 1.6rem 1.4rem;
+  max-width: 700px;
 
   margin: 0 auto;
 
   ${breakpoints.medium} {
-    padding: 1.6rem 1.4rem;
+    padding: 1.4rem 1.2rem;
     max-width: 100%;
   }
 `;

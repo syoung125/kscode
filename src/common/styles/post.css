@@ -36,6 +36,7 @@
 }
 .postContents p {
   margin: 1rem 0;
+  white-space: pre-line;
 }
 .postContents strong,
 .postContents b {
@@ -48,11 +49,29 @@
 
 .postContents ul,
 .postContents ol {
+  margin: 1rem 0;
   padding-left: 2.4rem;
 }
 
-.postContents ul > li {
+.postContents ul {
   list-style-type: disc;
+}
+.postContents ol {
+  list-style-type: decimal;
+}
+.postContents ul ul,
+.postContents ol ul {
+  list-style-type: circle;
+  margin-top: 0.4rem;
+}
+.postContents ol ol,
+.postContents ul ol {
+  list-style-type: lower-latin;
+  margin-top: 0.4rem;
+}
+
+.postContents li {
+  margin-bottom: 0.4rem;
 }
 
 .postContents img {

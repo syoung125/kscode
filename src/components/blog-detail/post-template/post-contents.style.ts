@@ -23,7 +23,7 @@ export const postContentsStyles = css`
     color: ${({ theme }) => theme.colors.scheme.$white};
   }
 
-  p code {
+  code:not([class*="language"]) {
     margin: 0 0.2rem;
     padding: 0.1rem 0.2rem;
     border-radius: 0.2rem;
@@ -41,7 +41,7 @@ export const postContentsStyles = css`
 
     background-color: ${({ theme }) => theme.colors.scheme.$gray500};
 
-    white-space: pre-wrap;
+    white-space: pre-line;
 
     > p {
       margin: 0;
