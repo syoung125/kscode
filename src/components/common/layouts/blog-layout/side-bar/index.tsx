@@ -4,7 +4,7 @@ import { useDrag } from "@src/common/hooks";
 
 import Style from "./index.style";
 
-const INITIAL_WIDTH = 240;
+const INITIAL_WIDTH = 320;
 const MIN_WIDTH = 80;
 const DRAG_SENSITIVITY = 2;
 

@@ -31,9 +31,9 @@ export default function ExplorerSection() {
       </AccordionSection>
       <AccordionSection title="KSCODE" defaultExpanded>
         <FileTree
-          filePaths={posts.map((post) => post.id)}
-          currentFilePath={currentPostId}
-          onFileClick={selectPost}
+          posts={posts}
+          currentPostId={currentPostId}
+          selectPost={selectPost}
         />
       </AccordionSection>
     </Style.Wrapper>

@@ -1,7 +1,6 @@
 import OpenPostTab from "./open-post-tab";
 
 import { useAppContext } from "@src/common/contexts/app";
-import { getFileName } from "@src/common/helpers";
 
 import Style from "./index.style";
 
@@ -13,10 +12,10 @@ export default function OpenPostTabs() {
 
   return (
     <Style.Wrapper>
-      {openPosts.map(({ id }) => (
+      {openPosts.map(({ id, meta }) => (
         <OpenPostTab
           key={id}
-          title={getFileName(id)}
+          title={meta.title}
           isSelected={currentPostId === id}
           onClick={() => selectPost(id)}
           onClose={() => closePost(id)}

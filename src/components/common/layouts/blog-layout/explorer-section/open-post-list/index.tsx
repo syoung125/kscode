@@ -1,4 +1,3 @@
-import { getFileName } from "@src/common/helpers";
 import { Post } from "@src/common/types/post.type";
 
 import OpenPostListItem from "./open-post-list-item";
@@ -15,10 +14,10 @@ export default function OpenPostList(props: OpenPostListProps) {
 
   return (
     <ul style={{ whiteSpace: "nowrap" }}>
-      {openPosts.map(({ id }) => (
+      {openPosts.map(({ id, meta }) => (
         <OpenPostListItem
           key={id}
-          title={getFileName(id)}
+          title={meta.title}
           isSelected={currentPostId === id}
           onClick={() => selectPost(id)}
           onClose={() => closePost(id)}
