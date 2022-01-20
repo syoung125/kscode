@@ -12,6 +12,7 @@ export type AccordionSectionProps = {
   children: React.ReactNode;
   defaultExpanded?: boolean;
   hasLine?: boolean;
+  height?: string;
   maxHeight?: string;
 };
 
@@ -20,6 +21,7 @@ export default function AccordionSection({
   children,
   defaultExpanded,
   hasLine,
+  height,
   maxHeight,
 }: AccordionSectionProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(!!defaultExpanded);
@@ -36,7 +38,11 @@ export default function AccordionSection({
         <ChevronIcon style={{ width: "1rem", height: "1rem" }} />
         <Style.Title>{title}</Style.Title>
       </Style.Header>
-      <Style.Content isExpanded={isExpanded} maxHeight={maxHeight}>
+      <Style.Content
+        isExpanded={isExpanded}
+        height={height}
+        maxHeight={maxHeight}
+      >
         {children}
       </Style.Content>
     </>

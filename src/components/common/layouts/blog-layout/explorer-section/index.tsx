@@ -9,6 +9,8 @@ import FileTree from "./file-tree";
 
 import Style from "./index.style";
 
+const MAX_VISIBLE_ITEM = 4;
+
 export default function ExplorerSection() {
   const {
     state: { posts, openPosts, currentPostId },
@@ -19,7 +21,8 @@ export default function ExplorerSection() {
     <Style.Wrapper>
       <AccordionSection
         title="OPEN POSTS"
-        maxHeight={`calc(${OPEN_POST_LIST_ITEM_HEIGHT}* ${openPosts.length})`}
+        height={`calc(${OPEN_POST_LIST_ITEM_HEIGHT} * ${openPosts.length})`}
+        maxHeight={`calc(${OPEN_POST_LIST_ITEM_HEIGHT} * ${MAX_VISIBLE_ITEM})`}
         defaultExpanded
       >
         <OpenPostList

@@ -27,6 +27,8 @@ const Row = styled.div`
 
   width: 100%;
   height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
+
+  overflow: hidden;
 `;
 
 const Main = styled.main`

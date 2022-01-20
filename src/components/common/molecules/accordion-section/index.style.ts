@@ -21,13 +21,18 @@ const Title = styled.b`
 
 const Content = styled.div<{
   isExpanded: boolean;
+  height?: string;
   maxHeight?: string;
 }>`
-  overflow: hidden;
-  ${({ isExpanded, maxHeight }) =>
-    maxHeight
-      ? `height:${isExpanded ? maxHeight : 0};`
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  ${({ isExpanded, height }) =>
+    height
+      ? `height:${isExpanded ? height : 0};`
       : `flex:${isExpanded ? 1 : 0};`}
+  ${({ maxHeight }) => (maxHeight ? `max-height: ${maxHeight};` : "")};
+
   transition: all 0.3s ease-out;
 `;
 

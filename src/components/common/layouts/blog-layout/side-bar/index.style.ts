@@ -8,15 +8,16 @@ import { BLUE } from "@src/common/constants/palette";
 import { ACTIVITY_BAR_WIDTH } from "../activity-bar/index.style";
 import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../index.style";
 
+const TITLE_WRAPPER_HEIGHT = "2.4rem";
+
 const Wrapper = styled.section<{ width: number }>`
-  display: flex;
-  flex-direction: column;
   position: relative;
 
-  overflow: hidden;
-
   width: ${(props) => props.width}px;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.semanticScheme.sideBarBg};
+
+  overflow: hidden;
 
   ${breakpoints.small} {
     position: absolute;
@@ -34,7 +35,7 @@ const TitleWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 2.4rem;
+  height: ${TITLE_WRAPPER_HEIGHT};
   padding: 0 0.8rem;
 `;
 
@@ -55,7 +56,7 @@ const CloseIcon = styled(_CloseIcon).attrs({
 `;
 
 const ContentWrapper = styled.div`
-  height: 100%;
+  height: calc(100% - ${TITLE_WRAPPER_HEIGHT});
 `;
 
 const DraggableLine = styled.div<{ isVisible: boolean }>`
