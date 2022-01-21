@@ -60,10 +60,12 @@ const ContentWrapper = styled.div`
 `;
 
 const DraggableLine = styled.div<{ isVisible: boolean }>`
+  position: absolute;
+  top: 0;
+  right: 0;
+
   width: 0.2rem;
   height: 100%;
-  position: absolute;
-  right: 0;
 
   background-color: ${({ isVisible }) => (isVisible ? BLUE : "transparent")};
 
