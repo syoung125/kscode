@@ -504,15 +504,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.16.3":
-  version: 7.16.3
-  resolution: "@babel/runtime@npm:7.16.3"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: ab8ac887096d76185ddbf291d28fb976cd32473696dc497ad4905b784acbd5aa462533ad83a5c5104e10ead28c2e0e119840ee28ed8eff90dcdde9d57f916eda
-  languageName: node
-  linkType: hard
-
 "@babel/template@npm:^7.12.13":
   version: 7.12.13
   resolution: "@babel/template@npm:7.12.13"
@@ -5340,7 +5331,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "kscode@workspace:."
   dependencies:
-    "@babel/runtime": ^7.16.3
     "@next/env": ^12.0.7
     "@types/jest": ^27.0.1
     "@types/marked": ^2.0.3
