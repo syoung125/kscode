@@ -5,13 +5,15 @@ import { GRAY_400 } from "@src/common/constants/palette";
 export const ACTIVITY_BAR_WIDTH = "3rem";
 
 const Wrapper = styled.nav`
-  background-color: ${GRAY_400};
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   width: ${ACTIVITY_BAR_WIDTH};
+
+  background-color: ${GRAY_400};
 `;
 
 const Ul = styled.ul`

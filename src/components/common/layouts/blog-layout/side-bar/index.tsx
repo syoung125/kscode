@@ -6,7 +6,6 @@ import Style from "./index.style";
 
 const INITIAL_WIDTH = 320;
 const MIN_WIDTH = 80;
-const DRAG_SENSITIVITY = 2;
 
 export type SideBarProps = {
   label: string;
@@ -21,7 +20,7 @@ const SideBar = forwardRef(
   ) => {
     const [width, setWidth] = useState(INITIAL_WIDTH);
     const { isDragging, startDrag } = useDrag((movement) => {
-      const nextWidth = width + movement.x * DRAG_SENSITIVITY;
+      const nextWidth = width + movement.x;
       if (nextWidth <= MIN_WIDTH) {
         onClose();
         setWidth(INITIAL_WIDTH);

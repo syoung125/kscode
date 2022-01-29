@@ -2,38 +2,35 @@ import styled from "styled-components";
 
 import { BLUE, GRAY_300 } from "@src/common/constants/palette";
 
-export const HEADER_HEIGHT = "1.6rem";
-export const FOOTER_HEIGHT = "1.6rem";
-
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
   width: 100vw;
   height: 100vh;
+
   background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
   color: ${({ theme }) => theme.colors.scheme.$white};
 `;
 
 const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-shrink: 0;
 
-  height: ${HEADER_HEIGHT};
+  height: 1.6rem;
   background-color: ${GRAY_300};
 `;
 
 const Row = styled.div`
+  flex: 1;
+
   display: flex;
   flex-direction: row;
-
-  width: 100%;
-  height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
 
   overflow: hidden;
 `;
 
 const Main = styled.main`
-  width: 100%;
-  height: 100%;
+  flex: 1;
 
   overflow: hidden;
 
@@ -41,11 +38,9 @@ const Main = styled.main`
 `;
 
 const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-shrink: 0;
 
-  height: ${FOOTER_HEIGHT};
+  height: 1.6rem;
   background-color: ${BLUE};
 `;
 

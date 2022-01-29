@@ -6,36 +6,32 @@ import { CloseIcon as _CloseIcon } from "@src/components/common/icons";
 import { BLUE } from "@src/common/constants/palette";
 
 import { ACTIVITY_BAR_WIDTH } from "../activity-bar/index.style";
-import { HEADER_HEIGHT, FOOTER_HEIGHT } from "../index.style";
-
-const TITLE_WRAPPER_HEIGHT = "2.4rem";
 
 const Wrapper = styled.section<{ width: number }>`
   position: relative;
 
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
   width: ${(props) => props.width}px;
-  height: 100%;
   background-color: ${({ theme }) => theme.colors.semanticScheme.sideBarBg};
 
-  overflow: hidden;
-
   ${breakpoints.small} {
-    position: absolute;
-    left: 3rem;
-
     width: calc(100% - ${ACTIVITY_BAR_WIDTH});
-    height: calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
-
     z-index: 1;
   }
 `;
 
 const TitleWrapper = styled.div`
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  height: ${TITLE_WRAPPER_HEIGHT};
+  height: 2.4rem;
   padding: 0 0.8rem;
 `;
 
@@ -56,7 +52,9 @@ const CloseIcon = styled(_CloseIcon).attrs({
 `;
 
 const ContentWrapper = styled.div`
-  height: calc(100% - ${TITLE_WRAPPER_HEIGHT});
+  flex: 1;
+
+  overflow: hidden;
 `;
 
 const DraggableLine = styled.div<{ isVisible: boolean }>`
