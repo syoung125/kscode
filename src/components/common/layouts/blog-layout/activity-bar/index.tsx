@@ -12,6 +12,7 @@ import {
 import { ThemeSwitcher } from "@src/components/common/molecules";
 
 import ExplorerSection from "../explorer-section";
+import LogSection from "../log-section";
 
 import ActionItem from "./action-item";
 
@@ -36,9 +37,9 @@ export const ACTION_ITEMS: ActionItemType[] = [
     content: "SEARCH",
   },
   {
-    label: "SOURCE CONTROL",
+    label: "POSTING LOG",
     Icon: SourceControlIcon,
-    content: "SOURCE CONTROL",
+    content: <LogSection />,
   },
   {
     label: "RUN AND DEBUG",
