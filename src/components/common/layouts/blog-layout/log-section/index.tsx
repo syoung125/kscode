@@ -1,8 +1,9 @@
 import { useMemo, MouseEvent } from "react";
-import styled from "styled-components";
 
 import { useAppContext } from "@src/common/contexts/app";
 import { Post } from "@src/common/types/post.type";
+
+import ScrollPagenation from "@src/components/common/scroll-pagenation";
 
 import LogItem from "./log-item";
 
@@ -27,24 +28,14 @@ function LogSection() {
   };
 
   return (
-    <Wrapper onClick={handleClick}>
-      {sortedPosts.map((post, i) => (
-        <LogItem
-          key={post.id}
-          currPost={post}
-          prevPost={i === 0 ? null : sortedPosts[i - 1]}
-        />
-      ))}
-    </Wrapper>
+    <ScrollPagenation
+      data={sortedPosts}
+      renderItem={(curr, prev) => (
+        <LogItem key={curr.id} currPost={curr} prevPost={prev} />
+      )}
+      onClick={handleClick}
+    />
   );
 }
 
 export default LogSection;
-
-const Wrapper = styled.ul`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  overflow-y: auto;
-`;
