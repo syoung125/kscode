@@ -18,6 +18,8 @@ import ActionItem from "./action-item";
 
 import Style from "./index.style";
 
+const GITHUB_URL = "https://github.com/syoung125";
+
 export type ActionItemType = {
   label: string;
   Icon: ElementType;
@@ -98,6 +100,10 @@ export default function ActivityBar({
     }
   };
 
+  const openGithubLink = () => {
+    window.open(GITHUB_URL, "_blank");
+  };
+
   return (
     <Style.Wrapper onKeyDown={onKeyDown}>
       <Style.Ul>
@@ -114,7 +120,7 @@ export default function ActivityBar({
       </Style.Ul>
       <Style.Ul>
         <ThemeSwitcher />
-        <ActionItem Icon={AccountIcon} onClick={() => null} />
+        <ActionItem Icon={AccountIcon} onClick={openGithubLink} />
         <ActionItem Icon={SettingsGearIcon} onClick={() => null} />
       </Style.Ul>
     </Style.Wrapper>
