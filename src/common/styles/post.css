@@ -37,6 +37,7 @@
 .postContents p {
   margin: 1rem 0;
   white-space: pre-line;
+  overflow-wrap: anywhere;
 }
 .postContents strong,
 .postContents b {
