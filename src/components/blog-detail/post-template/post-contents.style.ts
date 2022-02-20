@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { PINK } from "@src/common/constants/palette";
+import { PINK, ORANGE } from "@src/common/constants/palette";
 
 export const postContentsStyles = css`
   td,
@@ -30,6 +30,12 @@ export const postContentsStyles = css`
 
     background-color: ${({ theme }) => theme.colors.scheme.$gray300};
     color: ${PINK};
+  }
+
+  strong,
+  b {
+    background-color: ${({ theme }) => theme.colors.scheme.$gray300};
+    color: ${ORANGE};
   }
 
   blockquote {

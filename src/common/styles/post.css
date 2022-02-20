@@ -1,6 +1,6 @@
 .postContents {
   line-height: 1.7;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .postContents h1,
@@ -20,28 +20,37 @@
   font-size: 2.2rem;
 }
 .postContents h2 {
-  font-size: 2rem;
-}
-.postContents h3 {
   font-size: 1.8rem;
 }
-.postContents h4 {
+.postContents h3 {
   font-size: 1.6rem;
 }
+.postContents h4 {
+  font-size: 1.3rem;
+}
 .postContents h5 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .postContents h6 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 .postContents p {
   margin: 1rem 0;
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
+
 .postContents strong,
 .postContents b {
-  font-weight: bold;
+  font-weight: normal;
+}
+
+.postContents code:not([class*="language"]),
+.postContents strong,
+.postContents b {
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  border-radius: 0.2rem;
 }
 
 .postContents a {
@@ -91,4 +100,13 @@
   border-radius: 0.8rem;
 
   overflow-x: auto;
+}
+
+.postContents .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.postContents table {
+  border-collapse: collapse;
 }
