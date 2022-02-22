@@ -9,7 +9,7 @@ import {
   AccountIcon,
   SettingsGearIcon,
 } from "@src/components/common/icons";
-import { ThemeSwitcher } from "@src/components/common/molecules";
+import ThemeSwitcher from "@src/components/common/theme-switcher";
 
 import ExplorerSection from "../explorer-section";
 import LogSection from "../log-section";

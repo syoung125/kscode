@@ -1,6 +1,34 @@
+import { KeyboardEvent } from "react";
 import styled from "styled-components";
 
 import { BLACK, WHITE } from "@src/common/constants/palette";
+
+import { useThemeContext } from "@src/common/contexts/theme";
+
+export default function ThemeSwitcher() {
+  const {
+    state: { theme },
+    action: { toggleTheme },
+  } = useThemeContext();
+
+  const handleClick = () => {
+    toggleTheme();
+  };
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (["Enter", " "].includes(e.key)) {
+      handleClick();
+    }
+  };
+
+  return (
+    <Wrapper tabIndex={0} onClick={handleClick} onKeyDown={handleKeyDown}>
+      <span>🌝</span>
+      <span>🌞</span>
+      <Circle mode={theme} />
+    </Wrapper>
+  );
+}
 
 const Wrapper = styled.div`
   position: relative;
@@ -38,8 +66,3 @@ const Circle = styled.div<{ mode: "light" | "dark" }>`
 
   user-select: auto;
 `;
-
-export default {
-  Wrapper,
-  Circle,
-};
