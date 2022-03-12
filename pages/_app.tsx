@@ -1,8 +1,11 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import { ThemeContextProvider } from "@src/common/contexts/theme";
 import { AppContextProvider } from "@src/common/contexts/app";
+import * as gtag from "@src/common/helpers/gtag";
 import PostService from "@src/common/services/post.service";
 import { Post } from "@src/common/types/post.type";
 
@@ -16,6 +19,22 @@ export type MyAppProps = AppProps & {
 };
 
 function MyApp({ Component, pageProps, posts }: MyAppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      const { title } = window.document;
+      const { href } = window.location;
+
+      gtag.pageview({ url, title, href });
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
