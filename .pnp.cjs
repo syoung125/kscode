@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],
             ["babel-plugin-transform-define", "npm:2.0.0"],
+            ["dotenv", "npm:16.0.0"],
             ["encoding", "npm:0.1.13"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:11.0.1"],
@@ -3962,6 +3963,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["dotenv", [
+        ["npm:16.0.0", {
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.0-ef4a5ccded-664cebb51f.zip/node_modules/dotenv/",
+          "packageDependencies": [
+            ["dotenv", "npm:16.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["electron-to-chromium", [
         ["npm:1.3.742", {
           "packageLocation": "./.yarn/cache/electron-to-chromium-npm-1.3.742-1e53f664c9-4b278d9fe7.zip/node_modules/electron-to-chromium/",
@@ -6621,6 +6631,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/styled-components", "npm:5.1.9"],
             ["@types/webpack-env", "npm:1.16.0"],
             ["babel-plugin-transform-define", "npm:2.0.0"],
+            ["dotenv", "npm:16.0.0"],
             ["encoding", "npm:0.1.13"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:11.0.1"],
