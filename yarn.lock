@@ -1158,6 +1158,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gtag.js@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "@types/gtag.js@npm:0.0.8"
+  checksum: fecb1d772a0cdbf8573741ad4f8932a418bf44c3d38dec01221504e35658040fb82d6c7916577bb2cd5f3eff4a30642bda81fc35847443101eda05cf58107199
+  languageName: node
+  linkType: hard
+
 "@types/hoist-non-react-statics@npm:*":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -5339,6 +5346,7 @@ __metadata:
   resolution: "kscode@workspace:."
   dependencies:
     "@next/env": ^12.0.7
+    "@types/gtag.js": ^0.0.8
     "@types/jest": ^27.0.1
     "@types/marked": ^2.0.3
     "@types/node": ^16.11.11

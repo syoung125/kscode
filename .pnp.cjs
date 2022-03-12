@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@next/env", "npm:12.0.7"],
+            ["@types/gtag.js", "npm:0.0.8"],
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
@@ -1672,6 +1673,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/graceful-fs", "npm:4.1.5"],
             ["@types/node", "npm:15.6.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/gtag.js", [
+        ["npm:0.0.8", {
+          "packageLocation": "./.yarn/cache/@types-gtag.js-npm-0.0.8-2cc584f787-fecb1d772a.zip/node_modules/@types/gtag.js/",
+          "packageDependencies": [
+            ["@types/gtag.js", "npm:0.0.8"]
           ],
           "linkType": "HARD",
         }]
@@ -6623,6 +6633,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["kscode", "workspace:."],
             ["@next/env", "npm:12.0.7"],
+            ["@types/gtag.js", "npm:0.0.8"],
             ["@types/jest", "npm:27.0.1"],
             ["@types/marked", "npm:2.0.3"],
             ["@types/node", "npm:16.11.11"],
