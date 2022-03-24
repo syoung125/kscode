@@ -6,7 +6,7 @@ import { Post, PostMeta } from "../types/post.type";
 
 const getPosts = async (): Promise<Post[]> => {
   // request only markdown files which is ending with .md
-  const context = require.context("src/contents/blog", true);
+  const context = require.context("contents/blog", true);
 
   let posts: Post[] = [];
   await Promise.all(
@@ -20,7 +20,7 @@ const getPosts = async (): Promise<Post[]> => {
 };
 
 const getPost = async (id: string): Promise<Post> => {
-  const { default: markdown } = await import(`src/contents/blog/${id}`);
+  const { default: markdown } = await import(`contents/blog/${id}`);
   const { data, content } = matter(markdown);
 
   return {
