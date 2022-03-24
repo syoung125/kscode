@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import prismjs from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 
-import { Post } from "@src/common/types/post.type";
+import { Post } from "@src/types/post.type";
 
 import Style from "./index.style";
 

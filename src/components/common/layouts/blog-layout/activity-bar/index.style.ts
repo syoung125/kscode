@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { GRAY_400 } from "@src/common/constants/palette";
+import { GRAY_400 } from "@src/constants/palette";
 
 export const ACTIVITY_BAR_WIDTH = "3rem";
 

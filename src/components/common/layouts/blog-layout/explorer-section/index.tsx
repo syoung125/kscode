@@ -1,6 +1,6 @@
 import AccordionSection from "@src/components/common/accordion-section";
 
-import { useAppContext } from "@src/common/contexts/app";
+import { useAppContext } from "@src/contexts/app";
 
 import { OPEN_POST_LIST_ITEM_HEIGHT } from "./open-post-list/open-post-list-item";
 

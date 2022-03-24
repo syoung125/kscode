@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, forwardRef, ForwardedRef } from "react";
 
-import { useDrag } from "@src/common/hooks";
+import { useDrag } from "@src/hooks";
 
 import Style from "./index.style";
 

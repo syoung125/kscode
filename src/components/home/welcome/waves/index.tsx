@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { useCanvasContext, useResizeDetector } from "@src/common/hooks";
+import { useCanvasContext, useResizeDetector } from "@src/hooks";
 
 import { WaveGroup } from "./wave-group";
 

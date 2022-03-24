@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { breakpoints } from "@src/common/styles/theme";
+import { breakpoints } from "@src/styles/theme";
 
 import { postContentsStyles } from "./post-contents.style";
 

@@ -6,7 +6,7 @@ import {
   LIGHT_GRAY_300,
   LIGHT_GRAY_400,
   WHITE,
-} from "@src/common/constants/palette";
+} from "@src/constants/palette";
 
 import { ColorTheme } from "./types";
 

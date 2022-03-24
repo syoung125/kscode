@@ -1,6 +1,6 @@
 import React, { ElementType, KeyboardEvent, ForwardedRef } from "react";
 
-import { GRAY_100, WHITE } from "@src/common/constants/palette";
+import { GRAY_100, WHITE } from "@src/constants/palette";
 
 import Style from "./index.style";
 

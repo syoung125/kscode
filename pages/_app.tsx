@@ -3,16 +3,16 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { ThemeContextProvider } from "@src/common/contexts/theme";
-import { AppContextProvider } from "@src/common/contexts/app";
-import * as gtag from "@src/common/helpers/gtag";
-import PostService from "@src/common/services/post.service";
-import { Post } from "@src/common/types/post.type";
+import { ThemeContextProvider } from "@src/contexts/theme";
+import { AppContextProvider } from "@src/contexts/app";
+import * as gtag from "@src/helpers/gtag";
+import PostService from "@src/services/post.service";
+import { Post } from "@src/types/post.type";
 
 import { BlogLayout } from "@src/components/common/layouts";
 
-import "@src/common/styles/global.css";
-import "@src/common/styles/post.css";
+import "@src/styles/global.css";
+import "@src/styles/post.css";
 
 export type MyAppProps = AppProps & {
   posts: Post[];

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { BLUE, GRAY_300 } from "@src/common/constants/palette";
+import { BLUE, GRAY_300 } from "@src/constants/palette";
 
 const Wrapper = styled.div`
   display: flex;

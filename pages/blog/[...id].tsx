@@ -7,9 +7,9 @@ import {
   PostTemplate,
 } from "@src/components/blog-detail";
 
-import PostService from "@src/common/services/post.service";
-import { Post } from "@src/common/types/post.type";
-import { useAppContext } from "@src/common/contexts/app";
+import PostService from "@src/services/post.service";
+import { Post } from "@src/types/post.type";
+import { useAppContext } from "@src/contexts/app";
 import SEO, { getBlogJSONLD } from "@src/components/common/seo";
 
 export type PostDetailPageProps = {

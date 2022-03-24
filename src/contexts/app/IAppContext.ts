@@ -1,4 +1,4 @@
-import { Post } from "@src/common/types/post.type";
+import { Post } from "@src/types/post.type";
 
 export interface IAppContext {
   state: {

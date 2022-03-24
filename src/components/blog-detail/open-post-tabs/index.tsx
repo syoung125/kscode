@@ -1,6 +1,6 @@
 import OpenPostTab from "./open-post-tab";
 
-import { useAppContext } from "@src/common/contexts/app";
+import { useAppContext } from "@src/contexts/app";
 
 import Style from "./index.style";
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { BLUE } from "@src/common/constants/palette";
-import { Post } from "@src/common/types/post.type";
+import { BLUE } from "@src/constants/palette";
+import { Post } from "@src/types/post.type";
 
 export type LogItemProps = {
   currPost: Pick<Post, "id" | "meta">;

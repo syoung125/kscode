@@ -1,7 +1,7 @@
 import { useMemo, MouseEvent } from "react";
 
-import { useAppContext } from "@src/common/contexts/app";
-import { Post } from "@src/common/types/post.type";
+import { useAppContext } from "@src/contexts/app";
+import { Post } from "@src/types/post.type";
 
 import ScrollPagenation from "@src/components/common/scroll-pagenation";
 

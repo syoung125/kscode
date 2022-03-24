@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { light, dark } from "@src/common/themes";
+import { light, dark } from "@src/themes";
 
 import { IThemeContext, ThemeContext, ThemeType } from "./context";
 

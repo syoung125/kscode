@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { PINK, ORANGE } from "@src/common/constants/palette";
+import { PINK, ORANGE } from "@src/constants/palette";
 
 export const postContentsStyles = css`
   td,

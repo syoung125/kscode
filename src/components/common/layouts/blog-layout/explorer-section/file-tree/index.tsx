@@ -1,6 +1,6 @@
 import FileTreeItem from "./file-tree-item";
 
-import { Post } from "@src/common/types/post.type";
+import { Post } from "@src/types/post.type";
 
 import { isFolder, TreeItem, TreeView } from "./classes";
 

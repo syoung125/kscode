@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { WHITE } from "@src/common/constants/palette";
+import { WHITE } from "@src/constants/palette";
 
 const Wrapper = styled.li<{ isSelected?: boolean }>`
   display: flex;

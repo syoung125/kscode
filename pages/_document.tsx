@@ -8,7 +8,7 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-import { GA_TRACKING_ID } from "@src/common/helpers/gtag";
+import { GA_TRACKING_ID } from "@src/helpers/gtag";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
