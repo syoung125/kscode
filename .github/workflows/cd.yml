@@ -20,6 +20,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "GA_MEASUREMENT_ID=$GA_MEASUREMENT_ID" >> .env
+        env:
+          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+
       - name: Install yarn
         run: npm install -g yarn
 
