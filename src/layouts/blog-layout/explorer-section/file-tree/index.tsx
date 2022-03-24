@@ -1,10 +1,9 @@
-import FileTreeItem from "./file-tree-item";
+import styled from "styled-components";
 
 import { Post } from "@src/types/post.type";
 
+import FileTreeItem from "./file-tree-item";
 import { isFolder, TreeItem, TreeView } from "./classes";
-
-import Style from "./index.style";
 
 export type FileTreeProps = {
   posts: Post[];
@@ -19,8 +18,12 @@ export default function FileTree({
 }: FileTreeProps) {
   const root = new TreeView<Post>(posts, (post) => post.id).root;
 
+  const sortChildren = (children: TreeItem<Post>[]) => {
+    return children.sort((a, b) => (isFolder(a) && !isFolder(b) ? -1 : 0));
+  };
+
   const renderChildren = (children: TreeItem<Post>[]) =>
-    children.map((item) => {
+    sortChildren(children).map((item) => {
       if (isFolder(item)) {
         return (
           <FileTreeItem key={item.name} title={item.name}>
@@ -39,5 +42,10 @@ export default function FileTree({
       );
     });
 
-  return <Style.Wrapper>{renderChildren(root.children)}</Style.Wrapper>;
+  return <Wrapper>{renderChildren(root.children)}</Wrapper>;
 }
+
+const Wrapper = styled.div`
+  margin-left: 0.6rem;
+  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray200}`};
+`;
