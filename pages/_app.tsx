@@ -9,7 +9,7 @@ import * as gtag from "@src/helpers/gtag";
 import PostService from "@src/services/post.service";
 import { Post } from "@src/types/post.type";
 
-import { BlogLayout } from "@src/components/common/layouts";
+import { BlogLayout } from "@src/layouts";
 
 import "@src/styles/global.css";
 import "@src/styles/post.css";
