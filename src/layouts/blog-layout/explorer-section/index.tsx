@@ -1,13 +1,11 @@
-import AccordionSection from "@src/components/common/accordion-section";
+import styled from "styled-components";
 
+import AccordionSection from "@src/components/common/accordion-section";
 import { useAppContext } from "@src/contexts/app";
 
 import { OPEN_POST_LIST_ITEM_HEIGHT } from "./open-post-list/open-post-list-item";
-
 import OpenPostList from "./open-post-list";
 import FileTree from "./file-tree";
-
-import Style from "./index.style";
 
 const MAX_VISIBLE_ITEM = 4;
 
@@ -18,7 +16,7 @@ export default function ExplorerSection() {
   } = useAppContext();
 
   return (
-    <Style.Wrapper>
+    <Wrapper>
       <AccordionSection
         title="OPEN POSTS"
         height={`calc(${OPEN_POST_LIST_ITEM_HEIGHT} * ${openPosts.length})`}
@@ -39,6 +37,12 @@ export default function ExplorerSection() {
           selectPost={selectPost}
         />
       </AccordionSection>
-    </Style.Wrapper>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;

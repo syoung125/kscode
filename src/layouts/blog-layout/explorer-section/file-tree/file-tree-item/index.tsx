@@ -1,8 +1,7 @@
 import { PropsWithChildren, useState, ElementType } from "react";
+import styled from "styled-components";
 
 import { ChevronDownIcon, ChevronRightIcon } from "@src/assets/icons";
-
-import Style from "./index.style";
 
 export type FileTreeItemProps = PropsWithChildren<{
   title: string;
@@ -22,9 +21,9 @@ export default function FileTreeItem({
 
   if (!children) {
     return (
-      <Style.Li isSelected={isSelected} onClick={onClick} isFile>
-        <Style.Title>📝 {title}</Style.Title>
-      </Style.Li>
+      <Li isSelected={isSelected} onClick={onClick} isFile>
+        <Title>📝 {title}</Title>
+      </Li>
     );
   }
 
@@ -36,12 +35,46 @@ export default function FileTreeItem({
     ? ChevronDownIcon
     : ChevronRightIcon;
   return (
-    <Style.Wrapper>
-      <Style.Li onClick={toggleExpand}>
+    <Wrapper>
+      <Li onClick={toggleExpand}>
         <ChevronIcon style={{ width: "1rem", height: "1rem" }} />
-        <Style.Title>📂 {title}</Style.Title>
-      </Style.Li>
-      {isExpanded && <Style.Ul>{children}</Style.Ul>}
-    </Style.Wrapper>
+        <Title>📂 {title}</Title>
+      </Li>
+      {isExpanded && <Ul>{children}</Ul>}
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.li`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Li = styled.li<{ isSelected?: boolean; isFile?: boolean }>`
+  display: flex;
+  align-items: center;
+
+  padding: 0.4rem 0.2rem;
+  ${({ isFile }) => (isFile ? "padding-left: 1.4rem;" : "")};
+
+  ${({ theme }) =>
+    `&:hover { 
+          background-color: ${theme.colors.scheme.$gray300};
+       }`}
+  ${({ isSelected, theme }) =>
+    isSelected ? `background-color: ${theme.colors.scheme.$gray200};` : ``};
+`;
+
+const Title = styled.p`
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;
+
+const Ul = styled.ul`
+  margin-left: 0.6rem;
+  ${({ theme }) => `border-left: 0.4px solid ${theme.colors.scheme.$gray200}`};
+`;

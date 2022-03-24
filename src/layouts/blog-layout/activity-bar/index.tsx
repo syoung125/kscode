@@ -1,4 +1,5 @@
 import { ElementType, ReactNode, KeyboardEvent, useRef } from "react";
+import styled from "styled-components";
 
 import {
   FilesIcon,
@@ -9,6 +10,7 @@ import {
   AccountIcon,
   SettingsGearIcon,
 } from "@src/assets/icons";
+import { GRAY_400 } from "@src/constants/palette";
 import ThemeSwitcher from "@src/components/common/theme-switcher";
 
 import ExplorerSection from "../explorer-section";
@@ -16,9 +18,9 @@ import LogSection from "../log-section";
 
 import ActionItem from "./action-item";
 
-import Style from "./index.style";
-
 const GITHUB_URL = "https://github.com/syoung125";
+
+export const ACTIVITY_BAR_WIDTH = "3rem";
 
 export type ActionItemType = {
   label: string;
@@ -105,8 +107,8 @@ export default function ActivityBar({
   };
 
   return (
-    <Style.Wrapper onKeyDown={onKeyDown}>
-      <Style.Ul>
+    <Wrapper onKeyDown={onKeyDown}>
+      <Ul>
         {ACTION_ITEMS.map(({ label, Icon }, index) => (
           <ActionItem
             ref={(el) => (itemsRef.current[index] = el)}
@@ -117,12 +119,34 @@ export default function ActivityBar({
             onKeyDown={handleItemKeyDown(index)}
           />
         ))}
-      </Style.Ul>
-      <Style.Ul>
+      </Ul>
+      <Ul>
         <ThemeSwitcher />
         <ActionItem Icon={AccountIcon} onClick={openGithubLink} />
         <ActionItem Icon={SettingsGearIcon} onClick={() => null} />
-      </Style.Ul>
-    </Style.Wrapper>
+      </Ul>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.nav`
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: ${ACTIVITY_BAR_WIDTH};
+
+  background-color: ${GRAY_400};
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > :not(:last-child) {
+    margin-bottom: 0.4rem;
+  }
+`;
