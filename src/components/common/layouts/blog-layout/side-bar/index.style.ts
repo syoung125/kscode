@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { breakpoints } from "@src/common/styles/theme";
-import { CloseIcon as _CloseIcon } from "@src/components/common/icons";
+import { CloseIcon as _CloseIcon } from "@src/assets/icons";
 
 import { BLUE } from "@src/common/constants/palette";
 

@@ -1,6 +1,6 @@
 import { MouseEventHandler, useState } from "react";
 
-import { CloseIcon } from "@src/components/common/icons";
+import { CloseIcon } from "@src/assets/icons";
 
 import Style from "./index.style";
 

@@ -8,7 +8,7 @@ import {
   ExtensionsIcon,
   AccountIcon,
   SettingsGearIcon,
-} from "@src/components/common/icons";
+} from "@src/assets/icons";
 import ThemeSwitcher from "@src/components/common/theme-switcher";
 
 import ExplorerSection from "../explorer-section";

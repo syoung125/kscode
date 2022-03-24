@@ -1,9 +1,6 @@
 import { PropsWithChildren, useState, ElementType } from "react";
 
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@src/components/common/icons";
+import { ChevronDownIcon, ChevronRightIcon } from "@src/assets/icons";
 
 import Style from "./index.style";
 

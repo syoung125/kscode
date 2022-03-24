@@ -1,10 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@src/components/common/icons";
+import { ChevronDownIcon, ChevronRightIcon } from "@src/assets/icons";
 
 export type AccordionSectionProps = {
   title: string;
