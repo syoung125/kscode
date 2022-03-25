@@ -64,7 +64,7 @@ export const getBlogJSONLD = ({
 }: {
   path: string;
   title: string;
-  imageUrl: string;
+  imageUrl?: string;
   description: string;
   datePublished: string;
 }) => ({

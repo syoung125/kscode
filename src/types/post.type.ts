@@ -1,6 +1,10 @@
-const postMetaTypes = ["title", "date", "thumbnail", "description"] as const;
-export type PostMetaType = typeof postMetaTypes[number];
-export type PostMeta = Record<PostMetaType, string>;
+export type PostMeta = {
+  title: string;
+  date: string;
+  description: string;
+  thumbnail?: string;
+  tags?: string[];
+};
 
 export type Post = {
   /** id is post file path */
