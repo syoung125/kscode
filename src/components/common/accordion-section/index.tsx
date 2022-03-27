@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { ChevronDownIcon, ChevronRightIcon } from "@src/assets/icons";
 
@@ -58,6 +58,16 @@ const Title = styled.b`
   padding-left: 0.4rem;
 `;
 
+const hideScrollbar = css`
+  &::-webkit-scrollbar {
+    /* Chrome, Safari and Opera */
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+`;
+
 const Content = styled.div<{
   isExpanded: boolean;
   height?: string;
@@ -73,4 +83,6 @@ const Content = styled.div<{
   ${({ maxHeight }) => (maxHeight ? `max-height: ${maxHeight};` : "")};
 
   transition: all 0.3s ease-out;
+
+  ${hideScrollbar}
 `;
