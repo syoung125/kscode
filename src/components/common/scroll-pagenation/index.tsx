@@ -11,15 +11,19 @@ type ScrollPagenationProps<TData = any> = {
 };
 
 function ScrollPagenation({
-  data: initailData,
+  data: initialData,
   pageSize = DEFAULT_PAGE_SIZE,
   renderItem,
   onClick,
 }: ScrollPagenationProps) {
   const wrapperRef = useRef<HTMLUListElement>(null);
 
-  const [data, setData] = useState(initailData.slice(0, pageSize));
+  const [data, setData] = useState(initialData.slice(0, pageSize));
   const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    setData(initialData.slice(0, pageSize));
+  }, [initialData, pageSize]);
 
   const handleScroll = () => {
     if (!wrapperRef.current) {
@@ -49,7 +53,7 @@ function ScrollPagenation({
     offset: number;
     limit: number;
   }) => {
-    return initailData.slice(offset, offset + limit);
+    return initialData.slice(offset, offset + limit);
   };
 
   const loadMore = () => {
