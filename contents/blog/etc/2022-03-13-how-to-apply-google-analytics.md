@@ -1,6 +1,8 @@
 ---
 title: "[GA] Next.js 프로젝트에 구글 애널리틱스 적용하기 (with Typescript)"
 date: "2022.03.13"
+tags:
+  - GA
 ---
 
 GA 초기설정!!

@@ -15,6 +15,7 @@ import ThemeSwitcher from "@src/components/common/theme-switcher";
 
 import ExplorerSection from "../explorer-section";
 import LogSection from "../log-section";
+import SearchSection from "../search-section";
 
 import ActionItem from "./action-item";
 
@@ -38,7 +39,7 @@ export const ACTION_ITEMS: ActionItemType[] = [
   {
     label: "SEARCH",
     Icon: SearchIcon,
-    content: "SEARCH",
+    content: <SearchSection />,
   },
   {
     label: "POSTING LOG",

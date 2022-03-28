@@ -1,6 +1,8 @@
 ---
 title: "[TypeScript] type과 interface의 차이"
 date: "2022.02.16"
+tags:
+  - TypeScript
 ---
 
 `type`과 `interface`는 매우 유사해서 대부분의 경우 개발자의 취향에 맞게 자유롭게 선택해 사용한다.

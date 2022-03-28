@@ -1,6 +1,9 @@
 ---
 title: "[React] Reconciliation이란?\n(+ virtual DOM, 리액트는 선언적)"
 date: "2021.08.29"
+tags:
+  - React
+  - reconciliation
 ---
 
 ## 요약

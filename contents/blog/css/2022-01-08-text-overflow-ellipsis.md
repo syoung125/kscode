@@ -1,6 +1,8 @@
 ---
 title: "[CSS] text-overflow: ellipsis 두줄 이상 처리"
 date: "2022.01.08"
+tags:
+  - CSS
 ---
 
 text ellipsis를 설정하기 위해 찾아본적이 정말 여러번인데 이제는 그만 찾아보고 척척 쓸 때가 되지 않았나 해서 까먹지 않으려고 적어둔다.

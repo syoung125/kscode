@@ -1,6 +1,8 @@
 ---
 title: "[React] Image Lazy Loading 구현하기"
 date: "2021.11.9"
+tags:
+  - React
 ---
 
 ## Image Lazy Loading이란?

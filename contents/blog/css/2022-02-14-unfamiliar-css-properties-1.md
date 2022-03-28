@@ -1,6 +1,8 @@
 ---
 title: "[CSS] 익숙하지 않은 css 속성들 (1) - pointer-events, touch-action, backdrop-filter"
 date: "2022.02.14"
+tags:
+  - CSS
 ---
 
 ## pointer-events: 클릭 이벤트 허용 여부

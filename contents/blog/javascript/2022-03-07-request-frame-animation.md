@@ -1,13 +1,15 @@
 ---
-title: "[JavaScript] requestFrameAnimation 이란?"
+title: "[JavaScript] requestAnimationFrame 이란?"
 date: "2022.03.07"
+tags:
+  - RAF
 ---
 
 ## requestAnimationFrame 이란?
 
-requestFrameAnimation은 canvas나 WebGL 등에서 애내메이션을 구현할 때 주로 사용된다.
+requestAnimationFrame은 canvas나 WebGL 등에서 애내메이션을 구현할 때 주로 사용된다.
 
-애니메이션을 구현하기 위해서는 time loop를 사용해야 하는데, requestFrameAnimation 이전에는 time loop를 구현하기 위해 setInterval 함수를 사용했다.
+애니메이션을 구현하기 위해서는 time loop를 사용해야 하는데, requestAnimationFrame 이전에는 time loop를 구현하기 위해 setInterval 함수를 사용했다.
 예를들어 초당 60프레임을 목표로 한다면 이런식으로 1/60초마다 애니메이션을 실행하는 코드를 작성했다.
 
 ```js
@@ -16,7 +18,7 @@ setInterval(function () {
 }, 1000 / 60);
 ```
 
-requestFrameAnimation는 setInterval과 비슷하지만 브라우저에 더욱 최적화된 함수다.
+requestAnimationFrame는 setInterval과 비슷하지만 브라우저에 더욱 최적화된 함수다.
 
 #### MDN 정의 | Window.requestAnimationFrame()
 

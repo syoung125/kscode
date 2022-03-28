@@ -1,6 +1,8 @@
 ---
 title: "[Next.js] Link란? Link의 장점과 Link의 모든 속성 알아보기 (passhref, shallow  등)"
 date: "2022.02.14"
+tags:
+  - Nextjs
 ---
 
 ## ➡️ Link란?

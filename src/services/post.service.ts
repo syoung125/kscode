@@ -4,7 +4,29 @@ import { parseMarkdown } from "../helpers";
 
 import { Post, PostMeta } from "../types/post.type";
 
-const getPosts = async (): Promise<Post[]> => {
+type PostFilter = {
+  tag?: string;
+};
+
+const filterPosts = (posts: Post[], filter: PostFilter): Post[] => {
+  if (!filter) {
+    return posts;
+  }
+
+  const { tag } = filter;
+
+  let filteredPosts = posts;
+
+  if (tag) {
+    filteredPosts = filteredPosts.filter((post) =>
+      post.meta.tags?.includes(tag)
+    );
+  }
+
+  return filteredPosts;
+};
+
+const getPosts = async (filter?: PostFilter): Promise<Post[]> => {
   // request only markdown files which is ending with .md
   const context = require.context("contents/blog", true);
 
@@ -16,7 +38,8 @@ const getPosts = async (): Promise<Post[]> => {
       posts.push(post);
     })
   );
-  return posts;
+
+  return filter ? filterPosts(posts, filter) : posts;
 };
 
 const getPost = async (id: string): Promise<Post> => {
