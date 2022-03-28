@@ -77,7 +77,8 @@ const Row = styled.div`
 const Main = styled.main`
   flex: 1;
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
 `;
