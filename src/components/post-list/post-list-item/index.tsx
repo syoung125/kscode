@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
 import Tag from "@src/components/common/tag";
 import { Post } from "@src/types/post.type";
@@ -24,21 +25,27 @@ export default function PostListItem({
   const extraTagCount = meta.tags ? meta.tags.length - visibleTagCount : 0;
 
   return (
-    <Wrapper className={className} href={`blog/${id}`}>
-      <Row>
-        {meta.thumbnail ? <Img src={meta.thumbnail} alt="" /> : <DefaultImg />}
-        <Info>
-          <b>{meta.title}</b>
-          <p>{meta.description}</p>
-        </Info>
-      </Row>
-      <Tags>
-        {meta.tags?.slice(0, visibleTagCount).map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
-        {extraTagCount > 0 && <Tag>+{extraTagCount}</Tag>}
-      </Tags>
-    </Wrapper>
+    <Link href={`blog/${id}`} passHref>
+      <Wrapper className={className}>
+        <Row>
+          {meta.thumbnail ? (
+            <Img src={meta.thumbnail} alt="" />
+          ) : (
+            <DefaultImg />
+          )}
+          <Info>
+            <b>{meta.title}</b>
+            <p>{meta.description}</p>
+          </Info>
+        </Row>
+        <Tags>
+          {meta.tags?.slice(0, visibleTagCount).map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+          {extraTagCount > 0 && <Tag>+{extraTagCount}</Tag>}
+        </Tags>
+      </Wrapper>
+    </Link>
   );
 }
 
