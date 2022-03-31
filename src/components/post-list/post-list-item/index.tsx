@@ -40,9 +40,13 @@ export default function PostListItem({
         </Row>
         <Tags>
           {meta.tags?.slice(0, visibleTagCount).map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
+            <Tag key={tag} clickable={false}>
+              {tag}
+            </Tag>
           ))}
-          {extraTagCount > 0 && <Tag>+{extraTagCount}</Tag>}
+          {extraTagCount > 0 && (
+            <Tag clickable={false}>{`+${extraTagCount}`}</Tag>
+          )}
         </Tags>
       </Wrapper>
     </Link>

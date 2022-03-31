@@ -37,7 +37,9 @@ export default function PostTemplate({ post }: PostTemplateProps) {
         {!!tags && (
           <Tags>
             {tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
+              <Tag key={tag} href={`/posts?tag=${tag}`}>
+                {tag}
+              </Tag>
             ))}
           </Tags>
         )}
