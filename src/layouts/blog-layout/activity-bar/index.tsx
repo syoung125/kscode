@@ -150,4 +150,10 @@ const Ul = styled.ul`
   > :not(:last-child) {
     margin-bottom: 0.4rem;
   }
+
+  > li {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
