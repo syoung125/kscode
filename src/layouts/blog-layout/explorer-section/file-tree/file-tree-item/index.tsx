@@ -63,6 +63,10 @@ const Li = styled.li<{ isSelected?: boolean; isFile?: boolean }>`
        }`}
   ${({ isSelected, theme }) =>
     isSelected ? `background-color: ${theme.colors.scheme.$gray200};` : ``};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Title = styled.p`

@@ -78,7 +78,7 @@ const Main = styled.main`
   flex: 1;
 
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 
   background-color: ${({ theme }) => theme.colors.semanticScheme.mainBg};
 `;
