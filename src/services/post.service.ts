@@ -39,7 +39,9 @@ const getPosts = async (filter?: PostFilter): Promise<Post[]> => {
     })
   );
 
-  return filter ? filterPosts(posts, filter) : posts;
+  const publicPosts = posts.filter((post) => !post.meta.isPrivate);
+
+  return filter ? filterPosts(publicPosts, filter) : publicPosts;
 };
 
 const getPost = async (id: string): Promise<Post> => {

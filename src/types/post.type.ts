@@ -4,6 +4,7 @@ export type PostMeta = {
   description: string;
   thumbnail?: string;
   tags?: string[];
+  isPrivate?: boolean;
 };
 
 export type Post = {
