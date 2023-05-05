@@ -130,7 +130,7 @@ const Tags = styled.div`
   margin-top: 1.2rem;
 `;
 
-const PostContents = styled.div`
+const PostContents = styled.span`
   margin-top: 2rem;
 
   ${postContentsStyles}
