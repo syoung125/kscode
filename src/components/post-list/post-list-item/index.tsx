@@ -25,31 +25,25 @@ export default function PostListItem({
   const extraTagCount = meta.tags ? meta.tags.length - visibleTagCount : 0;
 
   return (
-    <Link href={`blog/${id}`} passHref>
-      <Wrapper className={className}>
-        <Row>
-          {meta.thumbnail ? (
-            <Img src={meta.thumbnail} alt="" />
-          ) : (
-            <DefaultImg />
-          )}
-          <Info>
-            <b>{meta.title}</b>
-            <p>{meta.description}</p>
-          </Info>
-        </Row>
-        <Tags>
-          {meta.tags?.slice(0, visibleTagCount).map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-          {extraTagCount > 0 && <Tag>{`+${extraTagCount}`}</Tag>}
-        </Tags>
-      </Wrapper>
-    </Link>
+    <LinkWrapper className={className} href={`blog/${id}`}>
+      <Row>
+        {meta.thumbnail ? <Img src={meta.thumbnail} alt="" /> : <DefaultImg />}
+        <Info>
+          <b>{meta.title}</b>
+          <p>{meta.description}</p>
+        </Info>
+      </Row>
+      <Tags>
+        {meta.tags?.slice(0, visibleTagCount).map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
+        {extraTagCount > 0 && <Tag>{`+${extraTagCount}`}</Tag>}
+      </Tags>
+    </LinkWrapper>
   );
 }
 
-const Wrapper = styled.a`
+const LinkWrapper = styled(Link)`
   padding: 1rem;
   padding-bottom: 0.2rem;
   border-radius: 1rem;
