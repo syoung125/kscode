@@ -1,5 +1,5 @@
 import { ReactNode, AnchorHTMLAttributes } from "react";
-import styled from "styled-components";
+import styled, { ThemedStyledProps } from "styled-components";
 import Link from "next/link";
 
 import { GREEN } from "@src/constants/palette";
@@ -7,50 +7,56 @@ import { GREEN } from "@src/constants/palette";
 type TagProps = {
   children: ReactNode;
   count?: number;
-  /** @default true */
-  clickable?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export default function Tag({
   children,
   count,
-  clickable = true,
   href,
-  ...props
+  ...anchorProps
 }: TagProps) {
-  const tagDefault = (
-    <Wrapper {...props} clickable={clickable}>
+  const contents = (
+    <>
       {children}
       {count != null && <Count>{count}</Count>}
-    </Wrapper>
+    </>
   );
 
   return href ? (
-    <Link href={href} passHref>
-      {tagDefault}
-    </Link>
+    <LinkWrapper {...anchorProps} href={href}>
+      {contents}
+    </LinkWrapper>
   ) : (
-    tagDefault
+    <Wrapper>{contents}</Wrapper>
   );
 }
 
-const Wrapper = styled.a<Pick<TagProps, "clickable">>`
-  margin: 0 0.8rem 0.8rem 0;
-  padding: 0.2rem 0.6rem;
-  border-radius: 0.8rem;
+const wrapperStyles = (p: ThemedStyledProps<any, any>, clickable: boolean) => `
+margin: 0 0.8rem 0.8rem 0;
+padding: 0.2rem 0.6rem;
+border-radius: 0.8rem;
 
-  font-size: 1.2rem;
-  color: ${GREEN};
-  background-color: ${({ theme }) => theme.colors.scheme.$gray300};
+font-size: 1.2rem;
+color: ${GREEN};
+background-color: ${p.theme.colors.scheme.$gray300};
 
-  ${(p) =>
-    p.clickable &&
-    `
-    cursor: pointer;
-    &:hover {
-      background-color: ${p.theme.colors.scheme.$gray400};
-    }
-  `}
+${
+  clickable &&
+  `
+  cursor: pointer;
+  &:hover {
+    background-color: ${p.theme.colors.scheme.$gray400};
+  }
+`
+}
+`;
+
+const LinkWrapper = styled(Link)`
+  ${(p) => wrapperStyles(p, true)}
+`;
+
+const Wrapper = styled.span`
+  ${(p) => wrapperStyles(p, false)}
 `;
 
 const Count = styled.span`

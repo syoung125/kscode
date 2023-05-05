@@ -23,13 +23,8 @@ export default function PostDetailPage({ id, post }: PostDetailPageProps) {
   } = useAppContext();
 
   useEffect(() => {
-    selectPost(post?.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    selectPost(post.id);
   }, []);
-
-  if (!post) {
-    return null;
-  }
 
   const path = `/blog/${id}`;
   const { title, description, thumbnail, date } = post.meta;
@@ -73,6 +68,13 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string[] } }) {
   const id = context.params.id.join("/");
   const post: Post = await PostService.getPost(id);
+
+  if(!post){
+    return {
+      notFound: true
+    }
+  }
+
   return {
     props: {
       id,
