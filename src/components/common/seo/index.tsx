@@ -1,4 +1,5 @@
 import Head from "next/head";
+import DefaultThumbnail from "public/images/thumbnail.png";
 
 const BASE_URL = "https://syoung125.github.io/";
 
@@ -15,7 +16,7 @@ function SEO({
   canonicalPath,
   title,
   description = "Seoyoung's Tech Blog",
-  imageUrl = "",
+  imageUrl = DefaultThumbnail.src,
   type = "website",
   jsonld = {},
 }: SEOProps) {

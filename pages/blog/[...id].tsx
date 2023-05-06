@@ -69,10 +69,10 @@ export async function getStaticProps(context: { params: { id: string[] } }) {
   const id = context.params.id.join("/");
   const post: Post = await PostService.getPost(id);
 
-  if(!post){
+  if (!post) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 
   return {
