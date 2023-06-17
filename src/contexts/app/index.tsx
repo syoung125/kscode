@@ -11,6 +11,7 @@ const useAppContext = () => useContext(AppContext);
 
 type AppContextProviderProps = {
   children: React.ReactNode;
+  // meta만 있는 포스트 목록 (html은 빈문자열(''))
   posts: Post[];
 };
 

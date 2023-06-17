@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
@@ -6,21 +5,17 @@ import ScrollPagenation from "@src/components/common/scroll-pagenation";
 import PostListItem from "@src/components/post-list/post-list-item";
 import { GREEN } from "@src/constants/palette";
 import { breakpoints } from "@src/styles/theme";
-import PostService from "@src/services/post.service";
-import { Post } from "@src/types/post.type";
+import { usePosts } from "@src/apis/getPosts";
 
 export default function PostListPage() {
   const router = useRouter();
   const tag = String(router.query.tag);
 
-  const [posts, setPosts] = useState<Post[]>([]);
+  const { data: posts } = usePosts({ tag });
 
-  useEffect(() => {
-    (async () => {
-      const posts: Post[] = await PostService.getPosts({ tag });
-      setPosts(posts);
-    })();
-  }, [tag]);
+  if (!posts) {
+    return null;
+  }
 
   return (
     <Container>

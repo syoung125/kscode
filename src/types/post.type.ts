@@ -13,3 +13,8 @@ export type Post = {
   meta: PostMeta;
   html: string;
 };
+
+export type PostFilter = {
+  tag?: string;
+  metaOnly?: boolean;
+};

@@ -1,18 +1,20 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { ThemeContextProvider } from "@src/contexts/theme";
 import { AppContextProvider } from "@src/contexts/app";
 import * as gtag from "@src/helpers/gtag";
-import PostService from "@src/services/post.service";
 import { Post } from "@src/types/post.type";
 
 import { BlogLayout } from "@src/layouts";
 
 import "@src/styles/global.css";
 import "@src/styles/post.css";
+import { getPosts } from "@src/apis/getPosts";
 
 export type MyAppProps = AppProps & {
   posts: Post[];
@@ -20,6 +22,7 @@ export type MyAppProps = AppProps & {
 
 function MyApp({ Component, pageProps, posts }: MyAppProps) {
   const router = useRouter();
+  const [queryClient] = useState(() => new QueryClient());
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -43,18 +46,21 @@ function MyApp({ Component, pageProps, posts }: MyAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeContextProvider defaultTheme="dark">
-        <AppContextProvider posts={posts}>
-          <BlogLayout>
-            <Component {...pageProps} />
-          </BlogLayout>
-        </AppContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <AppContextProvider posts={posts}>
+            <BlogLayout>
+              <Component {...pageProps} />
+            </BlogLayout>
+          </AppContextProvider>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
       </ThemeContextProvider>
     </>
   );
 }
 
 MyApp.getInitialProps = async () => {
-  const posts = await PostService.getPosts();
+  const posts = await getPosts({ metaOnly: true });
   return {
     posts,
   };

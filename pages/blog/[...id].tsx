@@ -7,26 +7,30 @@ import {
   PostTemplate,
 } from "@src/components/blog-detail";
 
-import PostService from "@src/services/post.service";
 import { Post } from "@src/types/post.type";
 import { useAppContext } from "@src/contexts/app";
 import SEO, { getBlogJSONLD } from "@src/components/common/seo";
+import { GetStaticProps } from "next";
+import { stringifyPostIdParam } from "@src/helpers/post";
+import { getPost } from "@src/apis/getPost";
+import { getPosts } from "@src/apis/getPosts";
 
 export type PostDetailPageProps = {
-  id: string;
   post: Post;
 };
 
-export default function PostDetailPage({ id, post }: PostDetailPageProps) {
+export default function PostDetailPage({ post }: PostDetailPageProps) {
   const {
     action: { selectPost },
   } = useAppContext();
 
+  const postId = post.id;
+
   useEffect(() => {
-    selectPost(post.id);
+    selectPost(postId);
   }, []);
 
-  const path = `/blog/${id}`;
+  const path = `/blog/${postId}`;
   const { title, description, thumbnail, date } = post.meta;
 
   const blogJSONLD = getBlogJSONLD({
@@ -57,7 +61,7 @@ export default function PostDetailPage({ id, post }: PostDetailPageProps) {
 }
 
 export async function getStaticPaths() {
-  const posts = await PostService.getPosts();
+  const posts = await getPosts({ metaOnly: true });
   const paths = posts.map((post) => ({ params: { id: post.id.split("/") } }));
   return {
     paths,
@@ -65,9 +69,18 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: { params: { id: string[] } }) {
-  const id = context.params.id.join("/");
-  const post: Post = await PostService.getPost(id);
+export const getStaticProps: GetStaticProps<
+  PostDetailPageProps,
+  { id: string | string[] }
+> = async (context) => {
+  if (!context.params?.id) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const postId = stringifyPostIdParam(context.params.id);
+  const post: Post = await getPost(postId);
 
   if (!post) {
     return {
@@ -77,11 +90,10 @@ export async function getStaticProps(context: { params: { id: string[] } }) {
 
   return {
     props: {
-      id,
       post,
     },
   };
-}
+};
 
 const Wrapper = styled.div`
   display: flex;
