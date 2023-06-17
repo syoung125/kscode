@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 
   outline: 2px solid ${BLACK};
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid ${WHITE};
   }
 `;
