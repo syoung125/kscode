@@ -1,6 +1,7 @@
 ---
 title: '[독후감] 인터렉티브 디벨로퍼 김종민님의 "일은 배신하지 않는다"를 읽고'
 date: "2022.02.08"
+isPrivate: true
 ---
 
 이 책은 유튜버 [Interactive Developer](https://www.youtube.com/c/cmiscm)이자 구글 UX 엔지니어인 김종민님이 쓰신 책이다.
