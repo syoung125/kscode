@@ -1,8 +1,8 @@
 import matter from "gray-matter";
 
-import { parseMarkdown } from "../helpers";
-
-import { Post, PostMeta } from "../types/post.type";
+import { Post, PostMeta } from "@src/types/post.type";
+import { parseMarkdown } from "@src/helpers/markdown.helper";
+import { removeOrderNumber } from "@src/helpers/regex";
 
 type PostFilter = {
   tag?: string;
@@ -44,12 +44,18 @@ const getPosts = async (filter?: PostFilter): Promise<Post[]> => {
   return filter ? filterPosts(publicPosts, filter) : publicPosts;
 };
 
+const getDisplayPath = (path: string) => {
+  const paths = path.split("/");
+  return paths.map((v) => removeOrderNumber(v)).join("/");
+};
+
 const getPost = async (id: string): Promise<Post> => {
   const { default: markdown } = await import(`contents/blog/${id}`);
   const { data, content } = matter(markdown);
 
   return {
     id,
+    displayPath: getDisplayPath(id),
     meta: {
       ...(data as PostMeta),
       description:

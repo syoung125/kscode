@@ -1,10 +1,12 @@
+import { removeOrderNumber } from "@src/helpers/regex";
+
 export class TreeItem<TData = unknown> {
   private _name: string;
   private _path: string;
   private _data?: TData;
 
   constructor(_path: string = "", _data?: TData) {
-    this._name = _path.split("/").reverse()[0];
+    this._name = removeOrderNumber(_path.split("/").reverse()[0]);
     this._path = _path;
     this._data = _data;
   }

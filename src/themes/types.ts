@@ -1,5 +1,5 @@
 const globalColorGroupNames = ["white", "gray"] as const;
-export type GlobalColorGroup = typeof globalColorGroupNames[number];
+export type GlobalColorGroup = (typeof globalColorGroupNames)[number];
 export function isGlobalColorGroup(str: string): str is GlobalColorGroup {
   return globalColorGroupNames.includes(str as GlobalColorGroup);
 }

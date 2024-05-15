@@ -10,6 +10,7 @@ export type PostMeta = {
 export type Post = {
   /** id is post file path */
   id: string;
+  displayPath: string;
   meta: PostMeta;
   html: string;
 };

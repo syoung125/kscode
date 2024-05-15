@@ -49,7 +49,7 @@ export default function PostDetailPage({ id, post }: PostDetailPageProps) {
       />
       <Wrapper>
         <OpenPostTabs />
-        <Breadcrumbs path={post.id} title={title} />
+        <Breadcrumbs path={post.displayPath} title={title} />
         <PostTemplate post={post} />
       </Wrapper>
     </>
