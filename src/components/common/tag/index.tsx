@@ -1,5 +1,5 @@
 import { ReactNode, AnchorHTMLAttributes } from "react";
-import styled, { ThemedStyledProps } from "styled-components";
+import styled, { ExecutionContext } from "styled-components";
 import Link from "next/link";
 
 import { GREEN } from "@src/constants/palette";
@@ -31,7 +31,7 @@ export default function Tag({
   );
 }
 
-const wrapperStyles = (p: ThemedStyledProps<any, any>, clickable: boolean) => `
+const wrapperStyles = (p: ExecutionContext, clickable: boolean) => `
 margin: 0 0.8rem 0.8rem 0;
 padding: 0.2rem 0.6rem;
 border-radius: 0.8rem;
