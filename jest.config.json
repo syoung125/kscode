@@ -1,9 +1,16 @@
 {
   "preset": "ts-jest",
   "testEnvironment": "node",
-  "globals": {
-    "ts-jest": {
-      "isolatedModules": true
-    }
+  "transform": {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        "isolatedModules": true,
+        "tsconfig": "tsconfig.json"
+      }
+    ]
+  },
+  "moduleNameMapper": {
+    "^@src/(.*)$": "<rootDir>/src/$1"
   }
 }
