@@ -33,7 +33,6 @@
     "@types/react": "^18.2.5",
     "@types/styled-components": "^5.1.26",
     "@types/webpack-env": "^1.18.0",
-    "babel-plugin-transform-define": "^2.0.0",
     "encoding": "^0.1.13",
     "eslint": "^8.57.0",
     "eslint-config-next": "^13.4.1",

@@ -37,7 +37,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.2.5"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@types/webpack-env", "npm:1.18.0"],\
-            ["babel-plugin-transform-define", "npm:2.1.0"],\
             ["dotenv", "npm:16.0.3"],\
             ["encoding", "npm:0.1.13"],\
             ["eslint", "npm:8.57.0"],\
@@ -2859,17 +2858,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/babel-plugin-syntax-jsx-npm-6.18.0-fcf0a98a71-0c7ce5b81d.zip/node_modules/babel-plugin-syntax-jsx/",\
           "packageDependencies": [\
             ["babel-plugin-syntax-jsx", "npm:6.18.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["babel-plugin-transform-define", [\
-        ["npm:2.1.0", {\
-          "packageLocation": "./.yarn/cache/babel-plugin-transform-define-npm-2.1.0-f4b55379a5-2afb5f1065.zip/node_modules/babel-plugin-transform-define/",\
-          "packageDependencies": [\
-            ["babel-plugin-transform-define", "npm:2.1.0"],\
-            ["lodash", "npm:4.17.21"],\
-            ["traverse", "npm:0.6.6"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6343,7 +6331,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.2.5"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["@types/webpack-env", "npm:1.18.0"],\
-            ["babel-plugin-transform-define", "npm:2.1.0"],\
             ["dotenv", "npm:16.0.3"],\
             ["encoding", "npm:0.1.13"],\
             ["eslint", "npm:8.57.0"],\
@@ -8411,15 +8398,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["to-regex-range", "npm:5.0.1"],\
             ["is-number", "npm:7.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["traverse", [\
-        ["npm:0.6.6", {\
-          "packageLocation": "./.yarn/cache/traverse-npm-0.6.6-584cfa4b5f-e2afa72f11.zip/node_modules/traverse/",\
-          "packageDependencies": [\
-            ["traverse", "npm:0.6.6"]\
           ],\
           "linkType": "HARD"\
         }]\
