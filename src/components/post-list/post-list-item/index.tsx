@@ -34,9 +34,9 @@ export default function PostListItem({
         </Info>
       </Row>
       <Tags>
-        {meta.tags?.slice(0, visibleTagCount).map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
+        {meta.tags
+          ?.slice(0, visibleTagCount)
+          .map((tag) => <Tag key={tag}>{tag}</Tag>)}
         {extraTagCount > 0 && <Tag>{`+${extraTagCount}`}</Tag>}
       </Tags>
     </LinkWrapper>

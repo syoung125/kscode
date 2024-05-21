@@ -11,15 +11,18 @@ export default function TagsSection() {
   } = useAppContext();
 
   const tags: Record<string, number> = useMemo(() => {
-    return posts.reduce((acc, { meta: { tags } }) => {
-      tags?.forEach((tag) => {
-        if (acc[tag] == null) {
-          acc[tag] = 0;
-        }
-        acc[tag] += 1;
-      });
-      return acc;
-    }, {} as Record<string, number>);
+    return posts.reduce(
+      (acc, { meta: { tags } }) => {
+        tags?.forEach((tag) => {
+          if (acc[tag] == null) {
+            acc[tag] = 0;
+          }
+          acc[tag] += 1;
+        });
+        return acc;
+      },
+      {} as Record<string, number>
+    );
   }, [posts]);
 
   return (

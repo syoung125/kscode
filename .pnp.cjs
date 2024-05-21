@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:29.7.0"],\
             ["marked", "npm:2.1.3"],\
             ["next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:13.4.1"],\
-            ["prettier", "npm:2.8.8"],\
+            ["prettier", "npm:3.2.5"],\
             ["prismjs", "npm:1.29.0"],\
             ["raw-loader", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
@@ -6343,7 +6343,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:29.7.0"],\
             ["marked", "npm:2.1.3"],\
             ["next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:13.4.1"],\
-            ["prettier", "npm:2.8.8"],\
+            ["prettier", "npm:3.2.5"],\
             ["prismjs", "npm:1.29.0"],\
             ["raw-loader", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:4.0.2"],\
             ["react", "npm:18.2.0"],\
@@ -7341,10 +7341,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.8", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.8-430828a36c-b49e409431.zip/node_modules/prettier/",\
+        ["npm:3.2.5", {\
+          "packageLocation": "./.yarn/unplugged/prettier-npm-3.2.5-6859110d6a/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.8"]\
+            ["prettier", "npm:3.2.5"]\
           ],\
           "linkType": "HARD"\
         }]\
