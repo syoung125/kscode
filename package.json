@@ -50,5 +50,5 @@
   "_moduleAliases": {
     "@src": "./src"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@4.2.2"
 }
