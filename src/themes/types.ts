@@ -6,7 +6,7 @@ export function isGlobalColorGroup(str: string): str is GlobalColorGroup {
 
 type MakeTokenSet<
   TGroup extends GlobalColorGroup,
-  TLightness extends number[]
+  TLightness extends number[],
 > = `$${TGroup}${TLightness[number]}`;
 export type ColorToken =
   | "$white"
