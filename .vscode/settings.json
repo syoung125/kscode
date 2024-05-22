@@ -6,5 +6,6 @@
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsserver.experimental.useVsCodeWatcher": false  /** 관련이슈: https://github.com/yarnpkg/berry/issues/6270 (tsserver crashes 수정) */
 }
