@@ -7,5 +7,31 @@
     "react/display-name": "off",
     "import/no-anonymous-default-export": "off",
     "@next/next/no-img-element": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@src/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+      },
+    ],
   },
 }

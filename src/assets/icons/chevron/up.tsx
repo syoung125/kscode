@@ -1,4 +1,5 @@
 import { useTheme } from "styled-components";
+
 import { IconProps } from "..";
 
 function ChevronUpIcon({ style, fill }: IconProps) {

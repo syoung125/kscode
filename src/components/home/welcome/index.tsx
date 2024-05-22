@@ -1,5 +1,4 @@
 import Waves from "./waves";
-
 import Style from "./index.style";
 
 export default function Welcome() {

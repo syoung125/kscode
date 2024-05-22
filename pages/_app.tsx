@@ -1,16 +1,15 @@
-import Head from "next/head";
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+
+import Head from "next/head";
+import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
 
 import { ThemeContextProvider } from "@src/contexts/theme";
 import { AppContextProvider } from "@src/contexts/app";
 import * as gtag from "@src/helpers/gtag";
 import PostService from "@src/services/post.service";
 import { Post } from "@src/types/post.type";
-
 import { BlogLayout } from "@src/layouts";
-
 import "@src/styles/global.css";
 import "@src/styles/post.css";
 

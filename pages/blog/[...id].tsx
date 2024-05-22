@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import styled from "styled-components";
 
 import {
@@ -6,7 +7,6 @@ import {
   Breadcrumbs,
   PostTemplate,
 } from "@src/components/blog-detail";
-
 import PostService from "@src/services/post.service";
 import { Post } from "@src/types/post.type";
 import { useAppContext } from "@src/contexts/app";

@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { useCanvasContext, useResizeDetector } from "@src/hooks";
 
 import { WaveGroup } from "./wave-group";
-
 import Style from "./index.style";
 
 export default function Waves() {

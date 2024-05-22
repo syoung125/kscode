@@ -1,8 +1,8 @@
 import { KeyboardEvent } from "react";
+
 import styled from "styled-components";
 
 import { BLACK, WHITE } from "@src/constants/palette";
-
 import { useThemeContext } from "@src/contexts/theme";
 
 export default function ThemeSwitcher() {

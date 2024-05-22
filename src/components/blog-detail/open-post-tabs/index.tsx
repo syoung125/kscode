@@ -1,7 +1,6 @@
-import OpenPostTab from "./open-post-tab";
-
 import { useAppContext } from "@src/contexts/app";
 
+import OpenPostTab from "./open-post-tab";
 import Style from "./index.style";
 
 export default function OpenPostTabs() {
