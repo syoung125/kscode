@@ -3146,7 +3146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.31.7, eslint-plugin-react@npm:^7.32.2":
+"eslint-plugin-react@npm:^7.31.7":
   version: 7.32.2
   resolution: "eslint-plugin-react@npm:7.32.2"
   dependencies:
@@ -5037,7 +5037,6 @@ __metadata:
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:^13.4.1"
     eslint-config-prettier: "npm:^8.3.0"
-    eslint-plugin-react: "npm:^7.32.2"
     gh-pages: "npm:^3.2.0"
     gray-matter: "npm:^4.0.3"
     jest: "npm:^29.7.0"

@@ -41,7 +41,6 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:13.4.1"],\
           ["eslint-config-prettier", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:8.8.0"],\
-          ["eslint-plugin-react", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:7.32.2"],\
           ["gh-pages", "npm:3.2.3"],\
           ["gray-matter", "npm:4.0.3"],\
           ["jest", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:29.7.0"],\
@@ -3995,7 +3994,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-import-resolver-typescript", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:3.5.5"],\
           ["eslint-plugin-import", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:2.27.5"],\
           ["eslint-plugin-jsx-a11y", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:6.7.1"],\
-          ["eslint-plugin-react", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:7.32.2"],\
+          ["eslint-plugin-react", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:7.32.2"],\
           ["eslint-plugin-react-hooks", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:4.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"]\
         ],\
@@ -4232,10 +4231,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:7.32.2", {\
-        "packageLocation": "./.yarn/__virtual__/eslint-plugin-react-virtual-7ffaa47d6d/0/cache/eslint-plugin-react-npm-7.32.2-b8b92d1b99-5ca7959c85.zip/node_modules/eslint-plugin-react/",\
+      ["virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:7.32.2", {\
+        "packageLocation": "./.yarn/__virtual__/eslint-plugin-react-virtual-f4bf3d178a/0/cache/eslint-plugin-react-npm-7.32.2-b8b92d1b99-5ca7959c85.zip/node_modules/eslint-plugin-react/",\
         "packageDependencies": [\
-          ["eslint-plugin-react", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:7.32.2"],\
+          ["eslint-plugin-react", "virtual:d3d3a89b99f6b8a97ffc4aa2fa19923e78487a477c5bd1e3dd2fa5111fbbe7356fdc3ec92ba884ef3d4990b452ca58d84d5df91a5a9e51fd3676cdc855db8f23#npm:7.32.2"],\
           ["@types/eslint", null],\
           ["array-includes", "npm:3.1.6"],\
           ["array.prototype.flatmap", "npm:1.3.1"],\
@@ -6335,7 +6334,6 @@ const RAW_RUNTIME_STATE =
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:13.4.1"],\
           ["eslint-config-prettier", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:8.8.0"],\
-          ["eslint-plugin-react", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:7.32.2"],\
           ["gh-pages", "npm:3.2.3"],\
           ["gray-matter", "npm:4.0.3"],\
           ["jest", "virtual:4527e8af505981d90f8bb622715ddd49af01f31177941ec0c1ffbcb26b7d5fa51835c6cb6353e5306f7ee0146c0b4a986a280ad301decb08ef6292dcb78f470a#npm:29.7.0"],\
