@@ -11,7 +11,8 @@
     "prettier": "prettier --write **/*.{ts,tsx}",
     "lint": "next lint",
     "tsc": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@next/env": "^13.4.1",
@@ -25,6 +26,7 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.3",
     "@types/gtag.js": "^0.0.8",
     "@types/jest": "^29.5.12",
     "@types/marked": "^2.0.3",
