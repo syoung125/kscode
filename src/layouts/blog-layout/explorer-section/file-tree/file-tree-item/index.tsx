@@ -22,9 +22,9 @@ export default function FileTreeItem({
 
   if (!children) {
     return (
-      <Li isSelected={isSelected} onClick={onClick} isFile>
+      <TitleWrapper isSelected={isSelected} onClick={onClick} isFile>
         <Title>📝 {title}</Title>
-      </Li>
+      </TitleWrapper>
     );
   }
 
@@ -37,10 +37,10 @@ export default function FileTreeItem({
     : ChevronRightIcon;
   return (
     <Wrapper>
-      <Li onClick={toggleExpand}>
+      <TitleWrapper onClick={toggleExpand}>
         <ChevronIcon style={{ width: "1rem", height: "1rem" }} />
         <Title>📂 {title}</Title>
-      </Li>
+      </TitleWrapper>
       {isExpanded && <Ul>{children}</Ul>}
     </Wrapper>
   );
@@ -51,7 +51,7 @@ const Wrapper = styled.li`
   flex-direction: column;
 `;
 
-const Li = styled.li<{ isSelected?: boolean; isFile?: boolean }>`
+const TitleWrapper = styled.div<{ isSelected?: boolean; isFile?: boolean }>`
   display: flex;
   align-items: center;
 
