@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { BLACK, WHITE } from "@src/constants/palette";
 import { useThemeContext } from "@src/contexts/theme";
+import { Moon, Sun } from "@src/assets/icons";
 
 export default function ThemeSwitcher() {
   const {
@@ -23,8 +24,8 @@ export default function ThemeSwitcher() {
 
   return (
     <Wrapper tabIndex={0} onClick={handleClick} onKeyDown={handleKeyDown}>
-      <span>🌝</span>
-      <span>🌞</span>
+      <Moon />
+      <Sun />
       <Circle mode={theme} />
     </Wrapper>
   );
@@ -43,12 +44,6 @@ const Wrapper = styled.div`
   border-radius: 0.6rem;
 
   background-color: ${BLACK};
-
-  outline: 2px solid ${BLACK};
-
-  &:focus-visible {
-    outline: 2px solid ${WHITE};
-  }
 `;
 
 const Circle = styled.div<{ mode: "light" | "dark" }>`

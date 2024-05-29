@@ -20,3 +20,5 @@ export { default as RunAndDebugIcon } from "./run-n-debug";
 export { default as SearchIcon } from "./search";
 export { default as SettingsGearIcon } from "./settings-gear";
 export { default as SourceControlIcon } from "./source-control";
+export { Moon } from "./Moon";
+export { Sun } from "./Sun";
